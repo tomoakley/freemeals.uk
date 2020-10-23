@@ -175,38 +175,36 @@ function App() {
   }, [selectedLocation, locations.length]);
 
   useEffect(() => {
-    initMarkers();
+    ;(async () => {
+      const customIcon = L.icon({
+        iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
+        iconSize: [35, 46],
+        iconAnchor: [17, 46],
+      });
+
+      if (data.length)
+        setMarkers(
+          data.map((provider, i) => {
+            if (!provider.latitude) {
+              provider.latitude = 56 - i * 0.05;
+              provider.longitude = -5 + i * 0.05;
+            }
+
+            let position = [provider.latitude, provider.longitude];
+
+            return (
+              <Marker key={i} position={position} icon={customIcon}>
+                <Popup>
+                  <Block>{provider["provider name"]}</Block>
+                  <Block>{provider["provider address 1"]}</Block>
+                  <Block>{provider["provider url"]}</Block>
+                </Popup>
+              </Marker>
+            );
+          })
+        );
+    })();
   }, [data]);
-
-  const initMarkers = async () => {
-    const customIcon = L.icon({
-      iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
-      iconSize: [35, 46],
-      iconAnchor: [17, 46],
-    });
-
-    if (data.length)
-      setMarkers(
-        data.map((provider, i) => {
-          if (!provider.latitude) {
-            provider.latitude = 56 - i * 0.05;
-            provider.longitude = -5 + i * 0.05;
-          }
-
-          let position = [provider.latitude, provider.longitude];
-
-          return (
-            <Marker key={i} position={position} icon={customIcon}>
-              <Popup>
-                <Block>{provider["provider name"]}</Block>
-                <Block>{provider["provider address 1"]}</Block>
-                <Block>{provider["provider url"]}</Block>
-              </Popup>
-            </Marker>
-          );
-        })
-      );
-  };
 
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
