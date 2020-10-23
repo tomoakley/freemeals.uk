@@ -134,7 +134,7 @@ function App() {
         <LocationFilter>
           <strong>Filter by location</strong>
           {locations.length &&
-            locations.map((location) => (
+            locations.sort().map((location) => (
               <LocationItem>
                 <Block
                   as={LocationLink}
