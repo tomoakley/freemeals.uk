@@ -67,13 +67,9 @@ const SelectedPane = styled.div`
 `;
 
 function App() {
-  const mapRef = useRef(null);
   const [mode, setMode] = useState("list");
   const [data, setData] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [markerPositions, setMarkerPositions] = useState([
-    { lat: 53.937, lng: -3.274 },
-  ]);
   const [markers, setMarkers] = useState();
 
   useEffect(() => {
@@ -88,34 +84,6 @@ function App() {
   useEffect(()=>{
     initMarkers();
   },[data])
-
-  /* useEffect(() => {
-    mapRef.current = L.map("map", {
-      center: [53.937, -3.274],
-      zoom: 6,
-      layers: [
-        L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
-          attribution:
-            '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-        }),
-      ],
-    });
-  }, [markerPositions]);
-
-  const markerRef = useRef(null);
-  
-
-  useEffect(() => {
-    markerPositions.forEach((position) => {
-      if (markerRef.current) {
-        markerRef.current.setLatLng(position);
-      } else {
-        markerRef.current = L.marker(position, { icon: customIcon })
-          .addTo(mapRef.current)
-          .bindPopup("Bulgarian National Assembly");
-      }
-    });
-  }, [markerPositions, customIcon]); */
 
   const initMarkers = async () => {
     const customIcon = L.icon({
@@ -213,6 +181,7 @@ function App() {
               <a
                 href={`https://www.google.co.uk/maps/place/${data[selectedIndex][ADDRESS]}`}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 {data[selectedIndex][ADDRESS]}
               </a>
