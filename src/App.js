@@ -39,6 +39,8 @@ const List = styled.ul`
   margin: 0;
   padding: 0;
   width: 50%;
+  overflow-y: scroll;
+  height: 100%;
 `;
 
 const Provider = styled.li`
@@ -63,7 +65,9 @@ const Block = styled.span`
 `;
 
 const SelectedPane = styled.div`
+  width: 50%;
   margin-left: 20px;
+  background: white;
 `;
 
 function App() {
@@ -76,7 +80,9 @@ function App() {
     fetch(".netlify/functions/providers/")
       .then((response) => response.json())
       .then(async (data) => {
-        setData(data);
+        // eslint-disable-next-line no-unused-vars
+        const [_, ...results] = data;
+        setData(results);
         console.log(data);
       });
   }, []);
@@ -125,10 +131,22 @@ function App() {
   };
 
   const NAME = "provider name";
-  const ADDRESS = "provider address";
   const URL = "provider url";
-  const OFFERS = "half-term offers (26th - 30th october)";
-  const CONTACT = "phone contact";
+  const OFFERS = "offer description";
+  const INSTRUCTIONS = 'how to claim'
+
+  const buildAddressString = (provider) => {
+    const ADDRESS_1 = provider["provider address 1"];
+    const ADDRESS_2 = provider["provider address 2"];
+    const COUNTY = provider["provider county"];
+    const TOWN = provider["provider town/city"];
+    const POSTCODE = provider["provider postcode"];
+
+    const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter(
+      (parts) => parts !== "???" && parts
+    );
+    return addressArray.join(", ");
+  };
 
   return (
     <>
@@ -150,40 +168,47 @@ function App() {
       {
         mode=="list"?
         <Container>
-        <List>
+        <List id="list">
           {data.length ?
+      <Container>
+        <List id="list">
+          {data.length ? (
             data.map((provider, i) => (
               <Provider
                 key={i}
                 onClick={() => handleProviderClick(i)}
                 isSelected={selectedIndex === i}
               >
-                <Block>{provider[NAME]}</Block>
-                <Block>{provider[ADDRESS]}</Block>
+                <h3>{provider[NAME]}</h3>
+                <Block>{buildAddressString(provider)}</Block>
                 <Block>{provider[URL]}</Block>
               </Provider>
-            )) : <span>Getting list of fantastic providers...</span>}
+            ))
+          ) : (
+            <span>Getting list of fantastic providers...</span>
+          )}
         </List>
         {data.length ? (
           <SelectedPane>
             <h2>{data[selectedIndex][NAME]}</h2>
             <Block>
-              Half terms offers:{" "}
-              {data[selectedIndex][OFFERS] || "Not specified"}
+              <strong>Description</strong>: {data[selectedIndex][OFFERS] || "???"}
             </Block>
-            <Block>Phone number: {data[selectedIndex][CONTACT]}</Block>
+            <Block>How to claim: {data[selectedIndex][INSTRUCTIONS] || '???'}</Block>
             <Block>
-              Website:{" "}
-              <a href={data[selectedIndex][URL]}>{data[selectedIndex][URL]}</a>
+              <strong>Website</strong>:{" "}
+              <a href={data[selectedIndex][URL]}>{data[selectedIndex][URL] || '???'}</a>
             </Block>
             <Block>
-              Location:{" "}
+              <strong>Location</strong>:{" "}
               <a
-                href={`https://www.google.co.uk/maps/place/${data[selectedIndex][ADDRESS]}`}
+                href={`https://www.google.co.uk/maps/place/${buildAddressString(
+                  data[selectedIndex]
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {data[selectedIndex][ADDRESS]}
+                {buildAddressString(data[selectedIndex])}
               </a>
             </Block>
           </SelectedPane>
