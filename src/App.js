@@ -59,6 +59,7 @@ function App() {
     fetch(".netlify/functions/providers/")
       .then((response) => response.json())
       .then(async (data) => {
+        // eslint-disable-next-line no-unused-vars
         const [_, ...results] = data;
         setData(results);
         console.log(data);
