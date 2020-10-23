@@ -81,7 +81,6 @@ $s	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 @testing-library/user-event	package.json	/^    "@testing-library\/user-event": "^7.1.2",$/;"	s	object:dependencies
 A	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Aa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
-Advanced Configuration	README.md	/^### Advanced Configuration$/;"	S
 Ae	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ae	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Ai	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -89,7 +88,6 @@ Al	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Alt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Sn
 An	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 An	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-Analyzing the Bundle Size	README.md	/^### Analyzing the Bundle Size$/;"	S
 AnonymousClass5182462b2501	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	c	class:b
 AnonymousClassdd4479394401	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:e.createContext
 AnonymousFunction5182462b0100	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
@@ -896,7 +894,6 @@ App	src/App.js	/^function App() {$/;"	f
 Apps	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xn
 As	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 At	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
-Available Scripts	README.md	/^## Available Scripts$/;"	s
 B	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ba	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Be	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -920,9 +917,9 @@ Children	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.
 Ci	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Cl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Cn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-Code Splitting	README.md	/^### Code Splitting$/;"	S
 Consumer	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.createContext.AnonymousClassdd4479394401
 Container	src/App.js	/^const Container = styled.div`$/;"	C
+Contributing	README.md	/^## Contributing$/;"	s
 Control	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Sn
 Cr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Cs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -933,7 +930,6 @@ Da	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 De	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 De	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Del	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xn
-Deployment	README.md	/^### Deployment$/;"	S
 Di	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Dl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Dn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1043,7 +1039,6 @@ L	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 L	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
 La	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Le	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
-Learn More	README.md	/^## Learn More$/;"	s
 Left	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xn
 Li	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 List	src/App.js	/^const List = styled.ul`$/;"	C
@@ -1061,7 +1056,6 @@ M	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 MAX_LATITUDE	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:U
 MSPointerDown	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:en
 MSPointerDown	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:nn
-Making a Progressive Web App	README.md	/^### Making a Progressive Web App$/;"	S
 Me	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Menu	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xn
 Mercator	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:yn
@@ -1305,11 +1299,6 @@ _updateCircle	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=
 _updateStyle	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:li
 _wrapperState	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:case
 _wrapperState	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:t
-`yarn build`	README.md	/^### `yarn build`$/;"	S
-`yarn build` fails to minify	README.md	/^### `yarn build` fails to minify$/;"	S
-`yarn eject`	README.md	/^### `yarn eject`$/;"	S
-`yarn start`	README.md	/^### `yarn start`$/;"	S
-`yarn test`	README.md	/^### `yarn test`$/;"	S
 a	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 a	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:AnonymousFunctiondd44793910000
 a	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:e
