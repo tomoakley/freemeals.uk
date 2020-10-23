@@ -6,7 +6,7 @@ export async function handler(event, context) {
       GSheetReader(
         {
           sheetId: "1OaRn7UHsFpFLOfTeiUnIBr7ofjcemBEvf_gl5b1PoTY",
-          sheetNumber: 3,
+          sheetNumber: 4,
           returnAllResults: true,
         },
         (results) => {
