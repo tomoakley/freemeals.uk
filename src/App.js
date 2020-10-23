@@ -89,7 +89,7 @@ function App() {
 
   useEffect(()=>{
     initMarkers();
-  },[data,initMarkers])
+  })
 
   const initMarkers = async () => {
     const customIcon = L.icon({
