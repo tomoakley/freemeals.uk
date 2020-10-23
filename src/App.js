@@ -25,15 +25,17 @@ const Option = styled.h3`
   border-bottom: solid black 1px;
   cursor: pointer;
   &:hover {
-  background: blue;
-  color: white;
+    background: blue;
+    color: white;
   }
   ${(props) =>
-  props.isSelected &&
-  `
-  background: blue;
-  color: white;
+    props.isSelected &&
+    `
+    background: blue;
+    color: white;
   `}
+`;
+
 
 const LocationFilter = styled.div`
   flex: 1;
@@ -119,6 +121,8 @@ const Overlay = styled.div`
 function App() {
   const [mode, setMode] = useState("list");
   const [data, setData] = useState([]);
+
+  const [markers,setMarkers] = useState();
 
   const [locations, setLocations] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(null);
