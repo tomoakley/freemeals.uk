@@ -2,12 +2,17 @@ import GSheetReader from "g-sheets-api";
 
 export async function handler(event, context) {
   try {
+    const { location } = event.queryStringParameters
+    console.log(location)
     const data = await new Promise((resolve, reject) => {
       GSheetReader(
         {
           sheetId: "1OaRn7UHsFpFLOfTeiUnIBr7ofjcemBEvf_gl5b1PoTY",
-          sheetNumber: 4,
-          returnAllResults: true,
+          sheetNumber: 5,
+          returnAllResults: location === 'All' ? true : false,
+          filter: {
+            'provider town/city': location
+          }
         },
         (results) => {
           resolve(results);
