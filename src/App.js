@@ -167,9 +167,6 @@ function App() {
       </div>
       {
         mode=="list"?
-        <Container>
-        <List id="list">
-          {data.length ?
       <Container>
         <List id="list">
           {data.length ? (
