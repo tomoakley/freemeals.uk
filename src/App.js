@@ -61,6 +61,7 @@ const Provider = styled.li`
 
 const Block = styled.span`
   display: block;
+  padding: 5px 0;
 `;
 
 const SelectedPane = styled.div`
@@ -107,6 +108,11 @@ function App() {
   const URL = "provider url";
   const OFFERS = "offer description";
   const INSTRUCTIONS = "how to claim";
+  const MARCUS_SOURCE_URL = "marcus source url";
+  const PROVIDER_SOURCE_URL = "provider source url";
+  const OPEN_TIME = "opening time";
+  const CLOSE_TIME = "closing time";
+  const OFFER_DAYS = "offer days";
 
   useEffect(() => {
     fetch(`.netlify/functions/providers?location=${selectedLocation}`)
@@ -206,7 +212,20 @@ function App() {
                 {data[selectedIndex][OFFERS] || "???"}
               </Block>
               <Block>
-                How to claim: {data[selectedIndex][INSTRUCTIONS] || "???"}
+                <strong>Availability</strong>:
+              </Block>
+              <ul style={{ margin: 0 }}>
+                <li>
+                  Times: {data[selectedIndex][OPEN_TIME] || "Not specified"} -{" "}
+                  {data[selectedIndex][CLOSE_TIME] || "Not specified"}
+                </li>
+                <li>
+                  Days: {data[selectedIndex][OFFER_DAYS] || "Not specified"}
+                </li>
+              </ul>
+              <Block>
+                <strong>How to claim</strong>:{" "}
+                {data[selectedIndex][INSTRUCTIONS] || "???"}
               </Block>
               <Block>
                 <strong>Website</strong>:{" "}
@@ -224,6 +243,16 @@ function App() {
                   rel="noopener noreferrer"
                 >
                   {buildAddressString(data[selectedIndex])}
+                </a>
+              </Block>
+              <Block>
+                <strong>Source</strong>:{" "}
+                <a href={data[selectedIndex][MARCUS_SOURCE_URL]}>
+                  {data[selectedIndex][MARCUS_SOURCE_URL]}
+                </a>
+                ,{" "}
+                <a href={data[selectedIndex][PROVIDER_SOURCE_URL]}>
+                  {data[selectedIndex][PROVIDER_SOURCE_URL]}
                 </a>
               </Block>
             </SelectedPane>
