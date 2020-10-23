@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import L from "leaflet";
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import fetch from "node-fetch";
@@ -89,7 +89,7 @@ function App() {
 
   useEffect(()=>{
     initMarkers();
-  },[data])
+  },[data,initMarkers])
 
   const initMarkers = async () => {
     const customIcon = L.icon({
@@ -158,15 +158,15 @@ function App() {
         </span>
       </Header>
       <div className="mode-select">
-        <Option isSelected={mode=="list"}
+        <Option isSelected={mode==="list"}
         onClick={()=>setMode("list")}  
         >List</Option>
-        <Option isSelected={mode=="map"}
+        <Option isSelected={mode==="map"}
         onClick={()=>setMode("map")}        
         >Map</Option>
       </div>
       {
-        mode=="list"?
+        mode==="list"?
       <Container>
         <List id="list">
           {data.length ? (
