@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import L from "leaflet";
 import fetch from "node-fetch";
 import styled from "styled-components";
 
@@ -49,12 +48,8 @@ const SelectedPane = styled.div`
 `;
 
 function App() {
-  const mapRef = useRef(null);
   const [data, setData] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [markerPositions, setMarkerPositions] = useState([
-    { lat: 53.937, lng: -3.274 },
-  ]);
 
   useEffect(() => {
     fetch(".netlify/functions/providers/")
@@ -64,38 +59,6 @@ function App() {
         console.log(data);
       });
   }, []);
-
-  /* useEffect(() => {
-    mapRef.current = L.map("map", {
-      center: [53.937, -3.274],
-      zoom: 6,
-      layers: [
-        L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
-          attribution:
-            '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-        }),
-      ],
-    });
-  }, [markerPositions]);
-
-  const markerRef = useRef(null);
-  const customIcon = L.icon({
-    iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
-    iconSize: [35, 46],
-    iconAnchor: [17, 46],
-  });
-
-  useEffect(() => {
-    markerPositions.forEach((position) => {
-      if (markerRef.current) {
-        markerRef.current.setLatLng(position);
-      } else {
-        markerRef.current = L.marker(position, { icon: customIcon })
-          .addTo(mapRef.current)
-          .bindPopup("Bulgarian National Assembly");
-      }
-    });
-  }, [markerPositions, customIcon]); */
 
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
@@ -148,6 +111,7 @@ function App() {
               <a
                 href={`https://www.google.co.uk/maps/place/${data[selectedIndex][ADDRESS]}`}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 {data[selectedIndex][ADDRESS]}
               </a>
