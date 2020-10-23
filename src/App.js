@@ -7,6 +7,7 @@ import "./App.css";
 const Container = styled.div`
   display: flex;
   padding: 10px;
+  position: relative;
 `;
 
 const Header = styled.div`
@@ -66,12 +67,40 @@ const SelectedPane = styled.div`
   flex: 2;
   margin-left: 20px;
   background: white;
+  height: 100vh;
+  padding: 10px;
+  @media screen and (min-width: 600px) {
+    display: block;
+  }
+  @media screen and (max-width: 600px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%;
+    z-index: 1000;
+  }
+`;
+
+const Overlay = styled.div`
+  @media screen and (min-width: 600px) {
+    display: none;
+  }
+  background: black;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
 `;
 
 function App() {
   const [data, setData] = useState([]);
   const [locations, setLocations] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState("All");
 
   const NAME = "provider name";
@@ -85,7 +114,7 @@ function App() {
       .then(async (data) => {
         // eslint-disable-next-line no-unused-vars
         const [first, ...results] = data;
-        setData(selectedLocation === 'All' ? results : [first, ...results]);
+        setData(selectedLocation === "All" ? results : [first, ...results]);
         console.log(data);
         const locationSet = new Set();
 
@@ -165,39 +194,43 @@ function App() {
             <span>Getting list of fantastic providers...</span>
           )}
         </List>
-        {data.length ? (
-          <SelectedPane>
-            <h2>{data[selectedIndex][NAME]}</h2>
-            <Block>
-              <strong>Description</strong>:{" "}
-              {data[selectedIndex][OFFERS] || "???"}
-            </Block>
-            <Block>
-              How to claim: {data[selectedIndex][INSTRUCTIONS] || "???"}
-            </Block>
-            <Block>
-              <strong>Website</strong>:{" "}
-              <a href={data[selectedIndex][URL]}>
-                {data[selectedIndex][URL] || "???"}
-              </a>
-            </Block>
-            <Block>
-              <strong>Location</strong>:{" "}
-              <a
-                href={`https://www.google.co.uk/maps/place/${buildAddressString(
-                  data[selectedIndex]
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {buildAddressString(data[selectedIndex])}
-              </a>
-            </Block>
-          </SelectedPane>
-        ) : (
-          <span>Loading</span>
-        )}
+        {data.length && selectedIndex != null ? (
+          <>
+            <SelectedPane>
+              <small>
+                <button onClick={() => setSelectedIndex(null)}>Close</button>
+              </small>
+              <h2>{data[selectedIndex][NAME]}</h2>
+              <Block>
+                <strong>Description</strong>:{" "}
+                {data[selectedIndex][OFFERS] || "???"}
+              </Block>
+              <Block>
+                How to claim: {data[selectedIndex][INSTRUCTIONS] || "???"}
+              </Block>
+              <Block>
+                <strong>Website</strong>:{" "}
+                <a href={data[selectedIndex][URL]}>
+                  {data[selectedIndex][URL] || "???"}
+                </a>
+              </Block>
+              <Block>
+                <strong>Location</strong>:{" "}
+                <a
+                  href={`https://www.google.co.uk/maps/place/${buildAddressString(
+                    data[selectedIndex]
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {buildAddressString(data[selectedIndex])}
+                </a>
+              </Block>
+            </SelectedPane>
+          </>
+        ) : null}
       </Container>
+      {selectedIndex != null && <Overlay />}
     </>
   );
 }
