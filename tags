@@ -1,0 +1,148 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/b818539/
+#map	src/App.css	/^#map {$/;"	i
+#root	src/App.css	/^#root {$/;"	i
+0	client/package.json	/^      ">0.2%",$/;"	s	array:browserslist.production
+0	client/package.json	/^      "last 1 chrome version",$/;"	s	array:browserslist.development
+0	package.json	/^      ">0.2%",$/;"	s	array:browserslist.production
+0	package.json	/^      "last 1 chrome version",$/;"	s	array:browserslist.development
+0	public/manifest.json	/^    {$/;"	o	array:icons
+1	client/package.json	/^      "last 1 firefox version",$/;"	s	array:browserslist.development
+1	client/package.json	/^      "not dead",$/;"	s	array:browserslist.production
+1	package.json	/^      "last 1 firefox version",$/;"	s	array:browserslist.development
+1	package.json	/^      "not dead",$/;"	s	array:browserslist.production
+1	public/manifest.json	/^    {$/;"	o	array:icons
+2	client/package.json	/^      "last 1 safari version"$/;"	s	array:browserslist.development
+2	client/package.json	/^      "not op_mini all"$/;"	s	array:browserslist.production
+2	package.json	/^      "last 1 safari version"$/;"	s	array:browserslist.development
+2	package.json	/^      "not op_mini all"$/;"	s	array:browserslist.production
+2	public/manifest.json	/^    {$/;"	o	array:icons
+@testing-library/jest-dom	client/package.json	/^    "@testing-library\/jest-dom": "^4.2.4",$/;"	s	object:dependencies
+@testing-library/jest-dom	package.json	/^    "@testing-library\/jest-dom": "^4.2.4",$/;"	s	object:dependencies
+@testing-library/react	client/package.json	/^    "@testing-library\/react": "^9.3.2",$/;"	s	object:dependencies
+@testing-library/react	package.json	/^    "@testing-library\/react": "^9.3.2",$/;"	s	object:dependencies
+@testing-library/user-event	client/package.json	/^    "@testing-library\/user-event": "^7.1.2",$/;"	s	object:dependencies
+@testing-library/user-event	package.json	/^    "@testing-library\/user-event": "^7.1.2",$/;"	s	object:dependencies
+Advanced Configuration	README.md	/^### Advanced Configuration$/;"	S
+Analyzing the Bundle Size	README.md	/^### Analyzing the Bundle Size$/;"	S
+App	client/src/App.js	/^function App() {$/;"	f
+App	src/App.js	/^function App() {$/;"	f
+Available Scripts	README.md	/^## Available Scripts$/;"	s
+Block	client/src/App.js	/^const Block = styled.span`$/;"	C
+Block	src/App.js	/^const Block = styled.span`$/;"	C
+Code Splitting	README.md	/^### Code Splitting$/;"	S
+Container	client/src/App.js	/^const Container = styled.div`$/;"	C
+Container	src/App.js	/^const Container = styled.div`$/;"	C
+Deployment	README.md	/^### Deployment$/;"	S
+GSheetReader	server/index.js	/^const GSheetReader = require('g-sheets-api')$/;"	C
+Header	client/src/App.js	/^const Header = styled.div`$/;"	C
+Header	src/App.js	/^const Header = styled.div`$/;"	C
+Heading	client/src/App.js	/^const Heading = styled.h1``;$/;"	C
+Heading	src/App.js	/^const Heading = styled.h1``;$/;"	C
+Learn More	README.md	/^## Learn More$/;"	s
+List	client/src/App.js	/^const List = styled.ul`$/;"	C
+List	src/App.js	/^const List = styled.ul`$/;"	C
+Making a Progressive Web App	README.md	/^### Making a Progressive Web App$/;"	S
+NodeGeocoder	server/index.js	/^const NodeGeocoder = require('node-geocoder')$/;"	C
+Provider	client/src/App.js	/^const Provider = styled.li`$/;"	C
+Provider	src/App.js	/^const Provider = styled.li`$/;"	C
+SelectedPane	client/src/App.js	/^const SelectedPane = styled.div`$/;"	C
+SelectedPane	src/App.js	/^const SelectedPane = styled.div`$/;"	C
+`yarn build`	README.md	/^### `yarn build`$/;"	S
+`yarn build` fails to minify	README.md	/^### `yarn build` fails to minify$/;"	S
+`yarn eject`	README.md	/^### `yarn eject`$/;"	S
+`yarn start`	README.md	/^### `yarn start`$/;"	S
+`yarn test`	README.md	/^### `yarn test`$/;"	S
+app	server/index.js	/^const app = express()$/;"	C
+background_color	public/manifest.json	/^  "background_color": "#ffffff"$/;"	s
+body	src/App.css	/^html, body {$/;"	s
+body	src/index.css	/^body {$/;"	s
+browserslist	client/package.json	/^  "browserslist": {$/;"	o
+browserslist	package.json	/^  "browserslist": {$/;"	o
+build	client/package.json	/^    "build": "react-scripts build",$/;"	s	object:scripts
+build	package.json	/^    "build": "run-p build:**",$/;"	s	object:scripts
+build:app	package.json	/^    "build:app": "react-scripts build",$/;"	s	object:scripts
+build:lambda	package.json	/^    "build:lambda": "netlify-lambda build src\/lambda",$/;"	s	object:scripts
+checkValidServiceWorker	src/serviceWorker.js	/^function checkValidServiceWorker(swUrl, config) {$/;"	f
+code	src/index.css	/^code {$/;"	s
+dependencies	client/package.json	/^  "dependencies": {$/;"	o
+dependencies	package.json	/^  "dependencies": {$/;"	o
+development	client/package.json	/^    "development": [$/;"	a	object:browserslist
+development	package.json	/^    "development": [$/;"	a	object:browserslist
+display	public/manifest.json	/^  "display": "standalone",$/;"	s
+eject	client/package.json	/^    "eject": "react-scripts eject",$/;"	s	object:scripts
+eject	package.json	/^    "eject": "react-scripts eject"$/;"	s	object:scripts
+eslintConfig	client/package.json	/^  "eslintConfig": {$/;"	o
+eslintConfig	package.json	/^  "eslintConfig": {$/;"	o
+express	client/package.json	/^    "express": "^4.17.1",$/;"	s	object:dependencies
+express	package.json	/^    "express": "^4.17.1",$/;"	s	object:dependencies
+express	server/index.js	/^const express = require('express')$/;"	C
+extends	client/package.json	/^    "extends": "react-app"$/;"	s	object:eslintConfig
+extends	package.json	/^    "extends": "react-app"$/;"	s	object:eslintConfig
+g-sheets-api	client/package.json	/^    "g-sheets-api": "^1.4.0",$/;"	s	object:dependencies
+g-sheets-api	package.json	/^    "g-sheets-api": "^1.4.0",$/;"	s	object:dependencies
+geocoder	server/index.js	/^const geocoder = NodeGeocoder({ provider: 'freegeoip', apiKey: '10950c6e401f3b87b9bb6488a22a9427/;"	C
+google-map-react	client/package.json	/^    "google-map-react": "^2.1.8",$/;"	s	object:dependencies
+google-map-react	package.json	/^    "google-map-react": "^2.1.8",$/;"	s	object:dependencies
+handler	src/lambda/providers.js	/^export async function handler(event, context) {$/;"	f
+html	src/App.css	/^html, body {$/;"	s
+icons	public/manifest.json	/^  "icons": [$/;"	a
+isLocalhost	src/serviceWorker.js	/^const isLocalhost = Boolean($/;"	C
+leaflet	client/package.json	/^    "leaflet": "^1.7.1",$/;"	s	object:dependencies
+leaflet	package.json	/^    "leaflet": "^1.7.1",$/;"	s	object:dependencies
+name	client/package.json	/^  "name": "freemeals",$/;"	s
+name	package.json	/^  "name": "freemeals",$/;"	s
+name	public/manifest.json	/^  "name": "Create React App Sample",$/;"	s
+netlify-lambda	package.json	/^    "netlify-lambda": "^2.0.1",$/;"	s	object:dependencies
+node-fetch	client/package.json	/^    "node-fetch": "^2.6.1",$/;"	s	object:dependencies
+node-fetch	package.json	/^    "node-fetch": "^2.6.1",$/;"	s	object:dependencies
+node-geocoder	package.json	/^    "node-geocoder": "^3.27.0",$/;"	s	object:dependencies
+npm-run-all	package.json	/^    "npm-run-all": "^4.1.5",$/;"	s	object:dependencies
+nsb0aa9e8b0101	src/logo.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" viewBox="0 0 841.9 595.3">$/;"	n	uri:http://www.w3.org/2000/svg
+port	server/index.js	/^const port = process.env.PORT || 5000;$/;"	C
+private	client/package.json	/^  "private": true,$/;"	b
+private	package.json	/^  "private": true,$/;"	b
+production	client/package.json	/^    "production": [$/;"	a	object:browserslist
+production	package.json	/^    "production": [$/;"	a	object:browserslist
+proxy	client/package.json	/^  "proxy": "http:\/\/localhost:5000"$/;"	s
+proxy	package.json	/^  "proxy": "http:\/\/localhost:9000"$/;"	s
+react	client/package.json	/^    "react": "^17.0.1",$/;"	s	object:dependencies
+react	package.json	/^    "react": "^17.0.1",$/;"	s	object:dependencies
+react-dom	client/package.json	/^    "react-dom": "^17.0.1",$/;"	s	object:dependencies
+react-dom	package.json	/^    "react-dom": "^17.0.1",$/;"	s	object:dependencies
+react-leaflet	client/package.json	/^    "react-leaflet": "^2.8.0",$/;"	s	object:dependencies
+react-leaflet	package.json	/^    "react-leaflet": "^2.8.0",$/;"	s	object:dependencies
+react-scripts	client/package.json	/^    "react-scripts": "3.4.4"$/;"	s	object:dependencies
+react-scripts	package.json	/^    "react-scripts": "3.4.4",$/;"	s	object:dependencies
+register	src/serviceWorker.js	/^export function register(config) {$/;"	f
+registerValidSW	src/serviceWorker.js	/^function registerValidSW(swUrl, config) {$/;"	f
+root	public/index.html	/^    <div id="root"><\/div>$/;"	I
+scripts	client/package.json	/^  "scripts": {$/;"	o
+scripts	package.json	/^  "scripts": {$/;"	o
+server	client/package.json	/^    "server": "node server\/index.js"$/;"	s	object:scripts
+short_name	public/manifest.json	/^  "short_name": "React App",$/;"	s
+sizes	public/manifest.json	/^      "sizes": "192x192"$/;"	s	object:icons.1
+sizes	public/manifest.json	/^      "sizes": "512x512"$/;"	s	object:icons.2
+sizes	public/manifest.json	/^      "sizes": "64x64 32x32 24x24 16x16",$/;"	s	object:icons.0
+src	public/manifest.json	/^      "src": "favicon.ico",$/;"	s	object:icons.0
+src	public/manifest.json	/^      "src": "logo192.png",$/;"	s	object:icons.1
+src	public/manifest.json	/^      "src": "logo512.png",$/;"	s	object:icons.2
+start	client/package.json	/^    "start": "react-scripts start",$/;"	s	object:scripts
+start	package.json	/^    "start": "react-scripts start",$/;"	s	object:scripts
+start:lambda	package.json	/^    "start:lambda": "netlify-lambda serve src\/lambda",$/;"	s	object:scripts
+start_url	public/manifest.json	/^  "start_url": ".",$/;"	s
+styled-components	package.json	/^    "styled-components": "^5.2.0"$/;"	s	object:dependencies
+test	client/package.json	/^    "test": "react-scripts test",$/;"	s	object:scripts
+test	package.json	/^    "test": "react-scripts test",$/;"	s	object:scripts
+theme_color	public/manifest.json	/^  "theme_color": "#000000",$/;"	s
+type	public/manifest.json	/^      "type": "image\/png",$/;"	s	object:icons.1
+type	public/manifest.json	/^      "type": "image\/png",$/;"	s	object:icons.2
+type	public/manifest.json	/^      "type": "image\/x-icon"$/;"	s	object:icons.0
+unregister	src/serviceWorker.js	/^export function unregister() {$/;"	f
+version	client/package.json	/^  "version": "0.1.0",$/;"	s
+version	package.json	/^  "version": "0.1.0",$/;"	s
