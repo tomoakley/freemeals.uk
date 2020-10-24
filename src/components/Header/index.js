@@ -14,20 +14,36 @@ function Header({ handleModeChange, mode }) {
         A collated list of venues offering free meals to UK school children
         during the half term holidays.
       </SubHeading>
-      <ModeSelect>
-        <Option
-          isSelected={mode === "list"}
-          onClick={() => handleModeChange("list")}
-        >
-          List
-        </Option>
-        <Option
-          isSelected={mode === "map"}
-          onClick={() => handleModeChange("map")}
-        >
-          Map
-        </Option>
-      </ModeSelect>
+      <SettingsContainer>
+        <ModeSelect>
+          <Option
+            isSelected={mode === "list"}
+            onClick={() => handleModeChange("list")}
+          >
+            List
+          </Option>
+          <Option
+            isSelected={mode === "map"}
+            onClick={() => handleModeChange("map")}
+          >
+            Map
+          </Option>
+        </ModeSelect>
+        <ModeSelect>
+          <Option
+            isSelected={mode === "closest"}
+            onClick={() => handleModeChange("closest")}
+          >
+            Show results closed to me
+          </Option>
+          <Option
+            isSelected={mode === "all"}
+            onClick={() => handleModeChange("all")}
+          >
+            Show all results
+          </Option>
+        </ModeSelect>
+      </SettingsContainer>
     </HeaderContainer>
   );
 }
@@ -77,12 +93,17 @@ const Option = styled.h3`
     background: #85de77;
     color: white;
   }
-  ${(props) =>
+  ${props =>
     props.isSelected &&
     `
     background: #85DE77;
     color: white;
   `}
+`;
+
+const SettingsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export default Header;
