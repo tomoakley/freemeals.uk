@@ -17,7 +17,7 @@ export async function handler(event, context) {
         },
         results => {
           if (coords != null) {
-            const [latitude, longitude] = coords.split(",");
+            const [latitude, longitude] = "53.0688228,-3.056984".split(",");
 
             const resultsWithCoords = results.map(provider => {
               return {
@@ -28,13 +28,8 @@ export async function handler(event, context) {
             });
 
             const geolookupData = sphereKnn(resultsWithCoords);
-            const geolocatedResults = geolookupData(
-              latitude,
-              longitude,
-              10,
-              15000
-            );
-            
+            const geolocatedResults = geolookupData(latitude, longitude, 10);
+
             resolve(geolocatedResults);
           } else {
             resolve(results);
