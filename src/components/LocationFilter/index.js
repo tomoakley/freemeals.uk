@@ -2,24 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Block from "../Block";
 
-const LocationFilterContainer = styled.div`
-  flex: 1;
-  list-style: none;
-  margin: 0;
-`;
-
-const LocationItem = styled.li`
-  margin: 5px;
-`;
-
-const LocationLink = styled.a`
-  color: black;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 function LocationFilter({ locations, selectedLocation, setSelectedLocation }) {
   const handleLocationClick = (e, location) => {
     e.preventDefault();
@@ -45,5 +27,23 @@ function LocationFilter({ locations, selectedLocation, setSelectedLocation }) {
     </LocationFilterContainer>
   );
 }
+
+const LocationFilterContainer = styled.div`
+  flex: 1;
+  list-style: none;
+  margin: 0;
+`;
+
+const LocationItem = styled.li`
+  margin: 5px;
+`;
+
+const LocationLink = styled.a`
+  color: black;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 
 export default LocationFilter;

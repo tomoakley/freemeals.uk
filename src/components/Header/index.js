@@ -1,6 +1,37 @@
 import React from "react";
 import styled from "styled-components";
 
+function Header({ handleModeChange, mode }) {
+  return (
+    <HeaderContainer>
+      <div>
+        <Heading>#FreeSchoolMeals information</Heading>
+        <AddListingLink href="https://docs.google.com/forms/d/e/1FAIpQLSct2Y4Vl63EODdz-68EUj-ZpO2kVycnGsO_EOhx_Cb-aK1ojQ/viewform">
+          Add your listing
+        </AddListingLink>
+      </div>
+      <SubHeading>
+        A collated list of venues offering free meals to UK school children
+        during the half term holidays.
+      </SubHeading>
+      <ModeSelect>
+        <Option
+          isSelected={mode === "list"}
+          onClick={() => handleModeChange("list")}
+        >
+          List
+        </Option>
+        <Option
+          isSelected={mode === "map"}
+          onClick={() => handleModeChange("map")}
+        >
+          Map
+        </Option>
+      </ModeSelect>
+    </HeaderContainer>
+  );
+}
+
 const HeaderContainer = styled.div`
   padding: 10px;
 
@@ -53,36 +84,5 @@ const Option = styled.h3`
     color: white;
   `}
 `;
-
-function Header({ handleModeChange, mode }) {
-  return (
-    <HeaderContainer>
-      <div>
-        <Heading>#FreeSchoolMeals information</Heading>
-        <AddListingLink href="https://docs.google.com/forms/d/e/1FAIpQLSct2Y4Vl63EODdz-68EUj-ZpO2kVycnGsO_EOhx_Cb-aK1ojQ/viewform">
-          Add your listing
-        </AddListingLink>
-      </div>
-      <SubHeading>
-        A collated list of venues offering free meals to UK school children
-        during the half term holidays.
-      </SubHeading>
-      <ModeSelect>
-        <Option
-          isSelected={mode === "list"}
-          onClick={() => handleModeChange("list")}
-        >
-          List
-        </Option>
-        <Option
-          isSelected={mode === "map"}
-          onClick={() => handleModeChange("map")}
-        >
-          Map
-        </Option>
-      </ModeSelect>
-    </HeaderContainer>
-  );
-}
 
 export default Header;

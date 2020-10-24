@@ -5,31 +5,6 @@ import Block from "../Block";
 
 import { NAME, URL } from "../../constants";
 
-const List = styled.ul`
-  list-style: none;
-  margin: 0;
-  flex: 3;
-  height: 100%;
-  overflow-y: scroll;
-`;
-
-const Provider = styled.li`
-  display: block;
-  padding: 10px;
-  border-bottom: solid black 1px;
-  cursor: pointer;
-  &:hover {
-    background: #85de77;
-    color: white;
-  }
-  ${(props) =>
-    props.isSelected &&
-    `
-    background: #85DE77;
-    color: white;
-  `}
-`;
-
 function ProviderList({
   buildAddressString,
   data,
@@ -57,5 +32,30 @@ function ProviderList({
     </List>
   );
 }
+
+const List = styled.ul`
+  list-style: none;
+  margin: 0;
+  flex: 3;
+  height: 100%;
+  overflow-y: scroll;
+`;
+
+const Provider = styled.li`
+  display: block;
+  padding: 10px;
+  border-bottom: solid black 1px;
+  cursor: pointer;
+  &:hover {
+    background: #85de77;
+    color: white;
+  }
+  ${(props) =>
+    props.isSelected &&
+    `
+    background: #85DE77;
+    color: white;
+  `}
+`;
 
 export default ProviderList;

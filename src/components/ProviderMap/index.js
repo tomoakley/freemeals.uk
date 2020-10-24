@@ -2,22 +2,6 @@ import React from "react";
 import { Map, TileLayer } from "react-leaflet";
 import styled from "styled-components";
 
-const MapContainer = styled.div`
-  position: relative;
-  flex: 3;
-  height: 100vh;
-
-  > div:first-child {
-    bottom: 0;
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 100;
-  }
-`;
-
 function ProviderMap({ mapProps, markers }) {
   return (
     <MapContainer>
@@ -37,5 +21,21 @@ function ProviderMap({ mapProps, markers }) {
     </MapContainer>
   );
 }
+
+const MapContainer = styled.div`
+  position: relative;
+  flex: 3;
+  height: 100vh;
+
+  > div:first-child {
+    bottom: 0;
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+  }
+`;
 
 export default ProviderMap;
