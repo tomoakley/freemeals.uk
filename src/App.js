@@ -111,13 +111,14 @@ const Block = styled.span`
 const SelectedPane = styled.div`
   flex: 2;
   min-width: 50%;
-  max-width: 50%;
   margin-left: 20px;
   background: white;
   height: 100vh;
   padding: 10px;
+  overflow-y: scroll;
   @media screen and (min-width: 600px) {
     display: block;
+    max-width: 50%;
   }
   @media screen and (max-width: 600px) {
     position: fixed;
