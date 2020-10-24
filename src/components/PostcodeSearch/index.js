@@ -5,7 +5,7 @@ const POSTCODE_REGEX = /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-
 
 function PostcodeSearch({ setMapProps }) {
   const [postcode, setPostcode] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
 
   const handlePostcodeChange = (e) => {
     setPostcode(e.currentTarget.value);
@@ -16,7 +16,7 @@ function PostcodeSearch({ setMapProps }) {
       return;
     }
     async function fetchPostCodeDetails(value) {
-      await fetch(`http://api.postcodes.io/postcodes/${value}`)
+      await fetch(`https://api.postcodes.io/postcodes/${value}`)
         .then((response) => response.json())
         .then(async (data) => {
           if (data.status === 200) {
