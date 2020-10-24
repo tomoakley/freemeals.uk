@@ -2,13 +2,14 @@ const CACHE_ID = 'v1.cache.freemeals.uk';
 
 self.addEventListener('install', function (evt) {
   console.log('The service worker is being installed.');
+  self.skipWaiting();
   /*
   * Any files the need to be pre-cached can be added as in the preCacheFiles array below.
    */
-  // evt.waitUntil(caches.open(CACHE_ID).then(function (cache) {
-  // const preCacheFiles = [];
-  // cache.addAll(preCacheFiles);
-  // }));
+  evt.waitUntil(caches.open(CACHE_ID).then(function (cache) {
+    const preCacheFiles = ['/', '/map'];
+    cache.addAll(preCacheFiles);
+  }));
 });
 
 self.addEventListener('fetch', function (evt) {
