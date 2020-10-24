@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
-import { Map, TileLayer, Marker } from "react-leaflet";
+import { Map, Marker, TileLayer } from "react-leaflet";
 import fetch from "node-fetch";
 import styled from "styled-components";
 
@@ -8,6 +8,7 @@ import Block from "./components/Block";
 import Header from "./components/Header";
 import LocationFilter from "./components/LocationFilter";
 import ProviderList from "./components/ProviderList";
+import ProviderMap from "./components/ProviderMap";
 
 import {
   CLOSE_TIME,
@@ -85,12 +86,6 @@ const Overlay = styled.div`
   width: 100%;
   height: 100%;
   z-index: 100;
-`;
-
-const MapContainer = styled.div`
-  position: relative;
-  flex: 3;
-  height: 100vh;
 `;
 
 const ContributingFooter = styled.div`
@@ -227,31 +222,7 @@ function App() {
             selectedIndex={selectedIndex}
           />
         ) : (
-          <MapContainer>
-            <div
-              style={{
-                display: "block",
-                position: "absolute",
-                left: 0,
-                right: 0,
-                top: 0,
-                bottom: 0,
-                zIndex: 100,
-              }}
-            >
-              <Map
-                center={mapProps.coords}
-                zoom={mapProps.zoom}
-                className="leaflet-map"
-              >
-                <TileLayer
-                  attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                {markers}
-              </Map>
-            </div>
-          </MapContainer>
+          <ProviderMap mapProps={mapProps} markers={markers} />
         )}
         {data.length && selectedIndex != null ? (
           <SelectedPane isMapMode={mode === "map"}>
