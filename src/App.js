@@ -8,12 +8,30 @@ import "./App.css";
 
 const Container = styled.div`
   display: flex;
+  height: calc(100vh - 280px);
   padding: 10px;
   position: relative;
+
+  @media screen and (min-width: 439px) {
+    height: calc(100vh - 260px);
+  }
+
+  @media screen and (min-width: 640px) {
+    height: calc(100vh - 180px);
+  }
 `;
 
 const Header = styled.div`
+  height: 240px;
   padding: 10px;
+
+  @media screen and (min-width: 439px) {
+    height: 220px;
+  }
+
+  @media screen and (min-width: 640px) {
+    height: 180px;
+  }
 `;
 
 const Heading = styled.h1`
@@ -64,6 +82,7 @@ const LocationFilter = styled.div`
   flex: 1;
   list-style: none;
   margin: 0;
+  overflow-y: scroll;
 `;
 
 const LocationItem = styled.li`
@@ -113,13 +132,23 @@ const SelectedPane = styled.div`
   min-width: 50%;
   margin-left: 20px;
   background: white;
-  height: 100vh;
+  height: calc(100vh - 20px);
   padding: 10px;
-  overflow-y: scroll;
+  overflow-y: auto;
+
+  @media screen and (min-width: 439px) {
+    // calc(100vh - 20px)
+  }
+
+  @media screen and (min-width: 640px) {
+    height: calc(100vh - 230px);
+  }
+
   @media screen and (min-width: 600px) {
     display: block;
     max-width: 50%;
   }
+
   @media screen and (max-width: 600px) {
     position: fixed;
     top: 0;
@@ -127,6 +156,7 @@ const SelectedPane = styled.div`
     z-index: 1000;
     width: 75%;
   }
+
   ${(props) =>
     props.isMapMode &&
     `
@@ -169,7 +199,7 @@ const Overlay = styled.div`
 const MapContainer = styled.div`
   position: relative;
   flex: 3;
-  height: 100vh;
+  // height: 100vh;
 `;
 
 const ContributingFooter = styled.div`
@@ -287,9 +317,9 @@ function App() {
   };
 
   const handleModeChange = (mode) => {
-    setMode(mode)
-    setSelectedIndex(null)
-  }
+    setMode(mode);
+    setSelectedIndex(null);
+  };
 
   const buildAddressString = (provider) => {
     const ADDRESS_1 = provider["provider address 1"];
@@ -318,10 +348,16 @@ function App() {
           during the half term holidays.{" "}
         </SubHeading>
         <ModeSelect>
-          <Option isSelected={mode === "list"} onClick={() => handleModeChange("list")}>
+          <Option
+            isSelected={mode === "list"}
+            onClick={() => handleModeChange("list")}
+          >
             List
           </Option>
-          <Option isSelected={mode === "map"} onClick={() => handleModeChange("map")}>
+          <Option
+            isSelected={mode === "map"}
+            onClick={() => handleModeChange("map")}
+          >
             Map
           </Option>
         </ModeSelect>
