@@ -16,7 +16,29 @@ const Header = styled.div`
   padding: 10px;
 `;
 
-const Heading = styled.h1``;
+const Heading = styled.h1`
+  margin: 0;
+`;
+
+const SubHeading = styled.span`
+  font-size: 20px;
+  display: block;
+  padding: 10px 0;
+`;
+
+const AddListingLink = styled.a`
+  background: #85de77;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+  &:hover {
+    background: #65de77;
+  }
+`;
 
 const ModeSelect = styled.div`
   display: flex;
@@ -27,13 +49,13 @@ const Option = styled.h3`
   border-bottom: solid black 1px;
   cursor: pointer;
   &:hover {
-    background: blue;
+    background: #85de77;
     color: white;
   }
   ${(props) =>
     props.isSelected &&
     `
-    background: blue;
+    background: #85DE77;
     color: white;
   `}
 `;
@@ -70,13 +92,13 @@ const Provider = styled.li`
   border-bottom: solid black 1px;
   cursor: pointer;
   &:hover {
-    background: blue;
+    background: #85de77;
     color: white;
   }
   ${(props) =>
     props.isSelected &&
     `
-    background: blue;
+    background: #85DE77;
     color: white;
   `}
 `;
@@ -104,6 +126,19 @@ const SelectedPane = styled.div`
   }
 `;
 
+const CloseButton = styled.button`
+  cursor: pointer;
+  background: #85de77;
+  color: white;
+  appearance: none;
+  border: none;
+  padding: 5px;
+  border-radius: 20px;
+  &:hover {
+    background: #65de77;
+  }
+`;
+
 const Overlay = styled.div`
   @media screen and (min-width: 600px) {
     display: none;
@@ -126,6 +161,28 @@ const MapContainer = styled.div`
   height: 100vh;
 `;
 
+const ContributingFooter = styled.div`
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  padding: 10px;
+  background: #aaa;
+  color: white;
+  font-weight: bold;
+  a {
+    color: white;
+  }
+  button {
+    appearance: none;
+    background: white;
+    color: #aaa;
+    border: white;
+  }
+`;
+
 const DEFAULT_UK_MAP_PROPS = { coords: [55.378052, -3.435973], zoom: 6 };
 
 function App() {
@@ -138,6 +195,7 @@ function App() {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState("All");
   const [mapProps, setMapProps] = useState(DEFAULT_UK_MAP_PROPS);
+  const [footerVisible, setFooterVisible] = useState(true);
 
   const NAME = "provider name";
   const URL = "provider url";
@@ -175,7 +233,7 @@ function App() {
   }, [selectedLocation, locations.length]);
 
   useEffect(() => {
-    ;(async () => {
+    (async () => {
       const customIcon = L.icon({
         iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
         iconSize: [35, 46],
@@ -231,11 +289,16 @@ function App() {
   return (
     <>
       <Header>
-        <Heading>Freemeals.uk</Heading>
-        <Block>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Heading>#FreeSchoolMeals information</Heading>
+          <AddListingLink href="https://docs.google.com/forms/d/e/1FAIpQLSct2Y4Vl63EODdz-68EUj-ZpO2kVycnGsO_EOhx_Cb-aK1ojQ/viewform">
+            Add your listing
+          </AddListingLink>
+        </div>
+        <SubHeading>
           A collated list of venues offering free meals to UK school children
-          during the half terms holidays
-        </Block>
+          during the half term holidays.{" "}
+        </SubHeading>
         <ModeSelect>
           <Option isSelected={mode === "list"} onClick={() => setMode("list")}>
             List
@@ -285,7 +348,9 @@ function App() {
             {data.length && selectedIndex != null ? (
               <SelectedPane>
                 <small>
-                  <button onClick={() => setSelectedIndex(null)}>Close</button>
+                  <CloseButton onClick={() => setSelectedIndex(null)}>
+                    Close
+                  </CloseButton>
                 </small>
                 <h2>{data[selectedIndex][NAME]}</h2>
                 <Block>
@@ -367,6 +432,23 @@ function App() {
         )}
       </Container>
       {selectedIndex != null && <Overlay />}
+      {footerVisible && (
+        <ContributingFooter>
+          <span>
+            <span role="img" aria-label="Wave">
+              👋
+            </span>{" "}
+            Hi there! If you'd like to contribute, head over to the{" "}
+            <a href="https://github.com/tomoakley/freemeals.uk">Github repo</a>{" "}
+            or the{" "}
+            <a href="https://docs.google.com/spreadsheets/d/1OaRn7UHsFpFLOfTeiUnIBr7ofjcemBEvf_gl5b1PoTY/edit#gid=593288514">
+              Google Sheet
+            </a>
+            . Thanks!
+          </span>{" "}
+          <button onClick={() => setFooterVisible(false)}>Hide</button>
+        </ContributingFooter>
+      )}
     </>
   );
 }
