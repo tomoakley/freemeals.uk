@@ -307,6 +307,17 @@ function App() {
     })();
   }, [data, mode]);
 
+  // Add/remove a class name to the document body on selection change
+  useEffect(() => {
+    console.log(selectedIndex);
+    if (selectedIndex !== null) {
+      document.body.classList.add("hasModal");
+    } else {
+      document.body.classList.remove("hasModal");
+    }
+    return () => document.body.classList.remove("hasModal");
+  }, [selectedIndex]);
+
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
   };
@@ -365,7 +376,7 @@ function App() {
       <Container>
         <LocationFilter>
           <strong>Filter by location</strong>
-          {locations.length &&
+          {!!locations.length &&
             locations.sort().map((location) => (
               <LocationItem>
                 <Block
@@ -427,7 +438,7 @@ function App() {
             </div>
           </MapContainer>
         )}
-        {data.length && selectedIndex != null ? (
+        {!!data.length && selectedIndex != null ? (
           <SelectedPane isMapMode={mode === "map"}>
             <small>
               <CloseButton onClick={() => setSelectedIndex(null)}>
