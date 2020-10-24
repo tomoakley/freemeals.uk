@@ -1,5 +1,12 @@
-html, body {
+html,
+body {
   height: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  body.hasModal {
+    overflow: hidden;
+  }
 }
 
 #root {
@@ -10,8 +17,7 @@ html, body {
   height: 100%;
 }
 
-.leaflet-map{
-  height:100%;
-  width:100%;
+.leaflet-map {
+  height: 100%;
+  width: 100%;
 }
-

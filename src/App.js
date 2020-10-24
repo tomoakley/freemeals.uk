@@ -277,6 +277,17 @@ function App() {
     })();
   }, [data, mode]);
 
+  // Add/remove a class name to the document body on selection change
+  useEffect(() => {
+    console.log(selectedIndex);
+    if (selectedIndex !== null) {
+      document.body.classList.add("hasModal");
+    } else {
+      document.body.classList.remove("hasModal");
+    }
+    return () => document.body.classList.remove("hasModal");
+  }, [selectedIndex]);
+
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
   };
@@ -287,9 +298,9 @@ function App() {
   };
 
   const handleModeChange = (mode) => {
-    setMode(mode)
-    setSelectedIndex(null)
-  }
+    setMode(mode);
+    setSelectedIndex(null);
+  };
 
   const buildAddressString = (provider) => {
     const ADDRESS_1 = provider["provider address 1"];
@@ -318,10 +329,16 @@ function App() {
           during the half term holidays.{" "}
         </SubHeading>
         <ModeSelect>
-          <Option isSelected={mode === "list"} onClick={() => handleModeChange("list")}>
+          <Option
+            isSelected={mode === "list"}
+            onClick={() => handleModeChange("list")}
+          >
             List
           </Option>
-          <Option isSelected={mode === "map"} onClick={() => handleModeChange("map")}>
+          <Option
+            isSelected={mode === "map"}
+            onClick={() => handleModeChange("map")}
+          >
             Map
           </Option>
         </ModeSelect>
@@ -329,7 +346,7 @@ function App() {
       <Container>
         <LocationFilter>
           <strong>Filter by location</strong>
-          {locations.length &&
+          {!!locations.length &&
             locations.sort().map((location) => (
               <LocationItem>
                 <Block
@@ -391,7 +408,7 @@ function App() {
             </div>
           </MapContainer>
         )}
-        {data.length && selectedIndex != null ? (
+        {!!data.length && selectedIndex != null ? (
           <SelectedPane isMapMode={mode === "map"}>
             <small>
               <CloseButton onClick={() => setSelectedIndex(null)}>
