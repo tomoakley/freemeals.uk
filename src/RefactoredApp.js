@@ -1,26 +1,14 @@
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
-import { Map, Marker, TileLayer } from "react-leaflet";
+import { Marker } from "react-leaflet";
 import fetch from "node-fetch";
 import styled from "styled-components";
 
-import Block from "./components/Block";
 import Header from "./components/Header";
 import LocationFilter from "./components/LocationFilter";
 import ProviderList from "./components/ProviderList";
 import ProviderMap from "./components/ProviderMap";
-
-import {
-  CLOSE_TIME,
-  INSTRUCTIONS,
-  MARCUS_SOURCE_URL,
-  NAME,
-  OFFERS,
-  OFFER_DAYS,
-  OPEN_TIME,
-  PROVIDER_SOURCE_URL,
-  URL,
-} from "./constants";
+import SelectedPane from "./components/SelectedPane";
 
 import "./App.css";
 
@@ -28,48 +16,6 @@ const Container = styled.div`
   display: flex;
   padding: 10px;
   position: relative;
-`;
-
-const SelectedPane = styled.div`
-  flex: 2;
-  min-width: 50%;
-  margin-left: 20px;
-  background: white;
-  height: 100vh;
-  padding: 10px;
-  overflow-y: scroll;
-  @media screen and (min-width: 600px) {
-    display: block;
-    max-width: 50%;
-  }
-  @media screen and (max-width: 600px) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    width: 75%;
-  }
-  ${(props) =>
-    props.isMapMode &&
-    `
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 500;
-  `}
-`;
-
-const CloseButton = styled.button`
-  cursor: pointer;
-  background: #85de77;
-  color: white;
-  appearance: none;
-  border: none;
-  padding: 5px;
-  border-radius: 20px;
-  &:hover {
-    background: #65de77;
-  }
 `;
 
 const Overlay = styled.div`
@@ -112,6 +58,19 @@ const ContributingFooter = styled.div`
 `;
 
 const DEFAULT_UK_MAP_PROPS = { coords: [55.378052, -3.435973], zoom: 6 };
+
+export const buildAddressString = (provider) => {
+  const ADDRESS_1 = provider["provider address 1"];
+  const ADDRESS_2 = provider["provider address 2"];
+  const COUNTY = provider["provider county"];
+  const TOWN = provider["provider town/city"];
+  const POSTCODE = provider["provider postcode"];
+
+  const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter(
+    (parts) => parts !== "Not Available" && parts
+  );
+  return addressArray.join(", ");
+};
 
 function App() {
   const [mode, setMode] = useState("list");
@@ -192,19 +151,6 @@ function App() {
     setSelectedIndex(null);
   };
 
-  const buildAddressString = (provider) => {
-    const ADDRESS_1 = provider["provider address 1"];
-    const ADDRESS_2 = provider["provider address 2"];
-    const COUNTY = provider["provider county"];
-    const TOWN = provider["provider town/city"];
-    const POSTCODE = provider["provider postcode"];
-
-    const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter(
-      (parts) => parts !== "Not Available" && parts
-    );
-    return addressArray.join(", ");
-  };
-
   return (
     <>
       <Header handleModeChange={handleModeChange} mode={mode} />
@@ -225,83 +171,13 @@ function App() {
           <ProviderMap mapProps={mapProps} markers={markers} />
         )}
         {data.length && selectedIndex != null ? (
-          <SelectedPane isMapMode={mode === "map"}>
-            <small>
-              <CloseButton onClick={() => setSelectedIndex(null)}>
-                Close
-              </CloseButton>
-            </small>
-            <div style={{ height: "50%", width: "100%" }}>
-              {[
-                data[selectedIndex]["latitude"] &&
-                  data[selectedIndex]["longitude"],
-              ] ? (
-                <Map
-                  center={[
-                    data[selectedIndex]["latitude"],
-                    data[selectedIndex]["longitude"],
-                  ]}
-                  zoom={20}
-                  className="leaflet-map"
-                >
-                  <TileLayer
-                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  {markers}
-                </Map>
-              ) : null}
-            </div>
-            <h2>{data[selectedIndex][NAME]}</h2>
-            <Block>
-              <strong>Description</strong>:{" "}
-              {data[selectedIndex][OFFERS] || "???"}
-            </Block>
-            <Block>
-              <strong>Availability</strong>:
-            </Block>
-            <ul style={{ margin: 0 }}>
-              <li>
-                Times: {data[selectedIndex][OPEN_TIME] || "Not specified"} -{" "}
-                {data[selectedIndex][CLOSE_TIME] || "Not specified"}
-              </li>
-              <li>
-                Days: {data[selectedIndex][OFFER_DAYS] || "Not specified"}
-              </li>
-            </ul>
-            <Block>
-              <strong>How to claim</strong>:{" "}
-              {data[selectedIndex][INSTRUCTIONS] || "???"}
-            </Block>
-            <Block>
-              <strong>Website</strong>:{" "}
-              <a href={data[selectedIndex][URL]}>
-                {data[selectedIndex][URL] || "???"}
-              </a>
-            </Block>
-            <Block>
-              <strong>Location</strong>:{" "}
-              <a
-                href={`https://www.google.co.uk/maps/place/${buildAddressString(
-                  data[selectedIndex]
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {buildAddressString(data[selectedIndex])}
-              </a>
-            </Block>
-            <Block>
-              <strong>Source</strong>:{" "}
-              <a href={data[selectedIndex][MARCUS_SOURCE_URL]}>
-                {data[selectedIndex][MARCUS_SOURCE_URL]}
-              </a>
-              ,{" "}
-              <a href={data[selectedIndex][PROVIDER_SOURCE_URL]}>
-                {data[selectedIndex][PROVIDER_SOURCE_URL]}
-              </a>
-            </Block>
-          </SelectedPane>
+          <SelectedPane
+            data={data}
+            markers={markers}
+            mode={mode}
+            selectedIndex={selectedIndex}
+            setSelectedIndex={setSelectedIndex}
+          />
         ) : null}
       </Container>
       {selectedIndex != null && <Overlay />}
