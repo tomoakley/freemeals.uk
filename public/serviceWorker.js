@@ -6,10 +6,10 @@ self.addEventListener('install', function (evt) {
   /*
   * Any files the need to be pre-cached can be added as in the preCacheFiles array below.
    */
-  evt.waitUntil(caches.open(CACHE_ID).then(function (cache) {
-    const preCacheFiles = ['/', '/map'];
-    cache.addAll(preCacheFiles);
-  }));
+  // evt.waitUntil(caches.open(CACHE_ID).then(function (cache) {
+  //   const preCacheFiles = [];
+  //   cache.addAll(preCacheFiles);
+  // }));
 });
 
 self.addEventListener('fetch', function (evt) {
@@ -31,7 +31,7 @@ function fromCache(request) {
     caches.open(CACHE_ID).then(function (cache) {
       cache.match(request).then((resp) => {
         // Need to have a backup in case the cache has not been loaded
-        return resp || fetch(request)
+        resolve(resp || fetch(request));
       });
     });
   });
