@@ -83,33 +83,7 @@ const MapView = () => {
     isGeolocationAvailable,
     resultsMode
   ]);
-
-  // useEffect(() => {
-  //   setSelectedIndex(null);
-  //   fetch(`.netlify/functions/providers?location=${selectedLocation}`)
-  //     .then(response => response.json())
-  //     .then(async data => {
-  //       // eslint-disable-next-line no-unused-vars
-  //       const [first, ...results] = data;
-  //       setData(selectedLocation === "All" ? results : [first, ...results]);
-  //       setMapProps(
-  //         selectedLocation === "All"
-  //           ? DEFAULT_UK_MAP_PROPS
-  //           : { coords: [first["latitude"], first["longitude"]], zoom: 12 }
-  //       );
-  //       console.log(data);
-
-  //       if (!locations.length) {
-  //         const locationSet = new Set();
-  //         data.forEach(provider => {
-  //           locationSet.add(provider["provider town/city"]);
-  //         });
-  //         setLocations(["All", ...locationSet]);
-  //         console.log(locationSet);
-  //       }
-  //     });
-  // }, [selectedLocation, locations.length]);
-
+  
   useEffect(() => {
     (async () => {
       const customIcon = L.icon({
