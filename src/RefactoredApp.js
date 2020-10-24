@@ -4,8 +4,10 @@ import { Marker } from "react-leaflet";
 import fetch from "node-fetch";
 import styled from "styled-components";
 
+import ContributingFooter from "./components/ContributingFooter";
 import Header from "./components/Header";
 import LocationFilter from "./components/LocationFilter";
+import Overlay from "./components/Overlay";
 import ProviderList from "./components/ProviderList";
 import ProviderMap from "./components/ProviderMap";
 import SelectedPane from "./components/SelectedPane";
@@ -16,45 +18,6 @@ const Container = styled.div`
   display: flex;
   padding: 10px;
   position: relative;
-`;
-
-const Overlay = styled.div`
-  @media screen and (min-width: 600px) {
-    display: none;
-  }
-  background: black;
-  opacity: 0.5;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-`;
-
-const ContributingFooter = styled.div`
-  display: flex;
-  box-sizing: border-box;
-  justify-content: space-between;
-  position: fixed;
-  z-index: 999;
-  width: 100%;
-  bottom: 0;
-  padding: 10px;
-  background: #aaa;
-  color: white;
-  font-weight: bold;
-  a {
-    color: white;
-  }
-  button {
-    appearance: none;
-    background: white;
-    color: #aaa;
-    border: white;
-  }
 `;
 
 const DEFAULT_UK_MAP_PROPS = { coords: [55.378052, -3.435973], zoom: 6 };
@@ -182,21 +145,7 @@ function App() {
       </Container>
       {selectedIndex != null && <Overlay />}
       {footerVisible && (
-        <ContributingFooter>
-          <span>
-            <span role="img" aria-label="Wave">
-              👋
-            </span>{" "}
-            Hi there! If you'd like to contribute, head over to the{" "}
-            <a href="https://github.com/tomoakley/freemeals.uk">Github repo</a>{" "}
-            or the{" "}
-            <a href="https://docs.google.com/spreadsheets/d/1OaRn7UHsFpFLOfTeiUnIBr7ofjcemBEvf_gl5b1PoTY/edit#gid=593288514">
-              Google Sheet
-            </a>
-            . Thanks!
-          </span>{" "}
-          <button onClick={() => setFooterVisible(false)}>Hide</button>
-        </ContributingFooter>
+        <ContributingFooter setFooterVisible={setFooterVisible} />
       )}
     </>
   );
