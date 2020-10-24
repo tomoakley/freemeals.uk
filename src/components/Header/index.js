@@ -97,7 +97,6 @@ const Option = styled(Link)`
     background: #85de77;
     color: #fff;
   }
-
   ${props =>
     props.isSelected &&
     `background: #85DE77;
