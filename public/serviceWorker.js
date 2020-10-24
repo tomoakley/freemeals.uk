@@ -27,8 +27,13 @@ self.addEventListener('fetch', function (evt) {
  * @returns {Promise<Cache>}
  */
 function fromCache(request) {
-  return caches.open(CACHE_ID).then(function (cache) {
-    return cache.match(request);
+  return new Promise(resolve => {
+    caches.open(CACHE_ID).then(function (cache) {
+      cache.match(request).then((resp) => {
+        // Need to have a backup in case the cache has not been loaded
+        return resp || fetch(request)
+      });
+    });
   });
 }
 
@@ -41,7 +46,7 @@ function update(request) {
   return caches.open(CACHE_ID).then(function (cache) {
     return fetch(request).then(function (response) {
       return cache.put(request, response.clone()).then(function () {
-        console.debug(`${request.url} has been updated in the cache`)
+        console.debug(`${request.url} has been updated in the cache`);
         return response;
       });
     });
