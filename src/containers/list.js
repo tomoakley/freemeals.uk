@@ -17,8 +17,6 @@ const Container = styled.div`
   position: relative;
 `;
 
-const DEFAULT_UK_MAP_PROPS = { coords: [55.378052, -3.435973], zoom: 6 };
-
 export const buildAddressString = (provider) => {
   const ADDRESS_1 = provider["provider address 1"];
   const ADDRESS_2 = provider["provider address 2"];
@@ -41,7 +39,6 @@ const ListView = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [locations, setLocations] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState("All");
-  const [mapProps, setMapProps] = useState(DEFAULT_UK_MAP_PROPS);
   const [footerVisible, setFooterVisible] = useState(true);
 
   useEffect(() => {
@@ -52,11 +49,6 @@ const ListView = () => {
         // eslint-disable-next-line no-unused-vars
         const [first, ...results] = data;
         setData(selectedLocation === "All" ? results : [first, ...results]);
-        setMapProps(
-          selectedLocation === "All"
-            ? DEFAULT_UK_MAP_PROPS
-            : { coords: [first["latitude"], first["longitude"]], zoom: 12 }
-        );
         console.log(data);
 
         if (!locations.length) {
