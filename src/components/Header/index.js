@@ -78,10 +78,15 @@ const Option = styled(Link)`
     color: #fff;
   }
 
-  ${(props) =>
+  ${props =>
     props.isSelected &&
     `background: #85DE77;
     color: #fff;`}
+`;
+
+const SettingsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export default Header;
