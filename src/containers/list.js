@@ -12,12 +12,13 @@ import ProviderList from "components/ProviderList";
 import SelectedPane from "components/SelectedPane";
 
 const Container = styled.div`
+  height: 100%;
   display: flex;
   padding: 10px;
   position: relative;
 `;
 
-export const buildAddressString = (provider) => {
+export const buildAddressString = provider => {
   const ADDRESS_1 = provider["provider address 1"];
   const ADDRESS_2 = provider["provider address 2"];
   const COUNTY = provider["provider county"];
@@ -25,7 +26,7 @@ export const buildAddressString = (provider) => {
   const POSTCODE = provider["provider postcode"];
 
   const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter(
-    (parts) => parts !== "Not Available" && parts
+    parts => parts !== "Not Available" && parts
   );
   return addressArray.join(", ");
 };
@@ -44,8 +45,8 @@ const ListView = () => {
   useEffect(() => {
     setSelectedIndex(null);
     fetch(`.netlify/functions/providers?location=${selectedLocation}`)
-      .then((response) => response.json())
-      .then(async (data) => {
+      .then(response => response.json())
+      .then(async data => {
         // eslint-disable-next-line no-unused-vars
         const [first, ...results] = data;
         setData(selectedLocation === "All" ? results : [first, ...results]);
@@ -53,7 +54,7 @@ const ListView = () => {
 
         if (!locations.length) {
           const locationSet = new Set();
-          data.forEach((provider) => {
+          data.forEach(provider => {
             locationSet.add(provider["provider town/city"]);
           });
           setLocations(["All", ...locationSet]);
@@ -67,7 +68,7 @@ const ListView = () => {
       const customIcon = L.icon({
         iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
         iconSize: [35, 46],
-        iconAnchor: [17, 46],
+        iconAnchor: [17, 46]
       });
 
       if (data.length) {
@@ -94,11 +95,11 @@ const ListView = () => {
     })();
   }, [data, mode]);
 
-  const handleProviderClick = (i) => {
+  const handleProviderClick = i => {
     setSelectedIndex(i);
   };
 
-  const handleModeChange = (mode) => {
+  const handleModeChange = mode => {
     setMode(mode);
     setSelectedIndex(null);
   };
