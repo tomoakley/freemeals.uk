@@ -8,6 +8,7 @@ import ContributingFooter from "components/ContributingFooter";
 import Header from "components/Header";
 import LocationFilter from "components/LocationFilter";
 import Overlay from "components/Overlay";
+import PostcodeSearch from "components/PostcodeSearch";
 import ProviderMap from "components/ProviderMap";
 import SelectedPane from "components/SelectedPane";
 
@@ -115,11 +116,14 @@ const MapView = () => {
     <>
       <Header handleModeChange={handleModeChange} mode={mode} />
       <Container>
-        <LocationFilter
-          locations={locations}
-          selectedLocation={selectedLocation}
-          setSelectedLocation={setSelectedLocation}
-        />
+        <div>
+          <PostcodeSearch setMapProps={setMapProps} />
+          <LocationFilter
+            locations={locations}
+            selectedLocation={selectedLocation}
+            setSelectedLocation={setSelectedLocation}
+          />
+        </div>
         <ProviderMap mapProps={mapProps} markers={markers} />
         {data.length && selectedIndex != null ? (
           <SelectedPane
