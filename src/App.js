@@ -3,6 +3,7 @@ import L from "leaflet";
 import { Map, TileLayer, Marker } from "react-leaflet";
 import fetch from "node-fetch";
 import styled from "styled-components";
+import Header from "./components/Header";
 
 import "./App.css";
 
@@ -10,54 +11,6 @@ const Container = styled.div`
   display: flex;
   padding: 10px;
   position: relative;
-`;
-
-const Header = styled.div`
-  padding: 10px;
-`;
-
-const Heading = styled.h1`
-  margin: 0;
-`;
-
-const SubHeading = styled.span`
-  font-size: 20px;
-  display: block;
-  padding: 10px 0;
-`;
-
-const AddListingLink = styled.a`
-  background: #85de77;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  align-self: flex-start;
-  &:hover {
-    background: #65de77;
-  }
-`;
-
-const ModeSelect = styled.div`
-  display: flex;
-`;
-
-const Option = styled.h3`
-  padding: 10px;
-  border-bottom: solid black 1px;
-  cursor: pointer;
-  &:hover {
-    background: #85de77;
-    color: white;
-  }
-  ${(props) =>
-    props.isSelected &&
-    `
-    background: #85DE77;
-    color: white;
-  `}
 `;
 
 const LocationFilter = styled.div`
@@ -287,9 +240,9 @@ function App() {
   };
 
   const handleModeChange = (mode) => {
-    setMode(mode)
-    setSelectedIndex(null)
-  }
+    setMode(mode);
+    setSelectedIndex(null);
+  };
 
   const buildAddressString = (provider) => {
     const ADDRESS_1 = provider["provider address 1"];
@@ -306,26 +259,7 @@ function App() {
 
   return (
     <>
-      <Header>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <Heading>#FreeSchoolMeals information</Heading>
-          <AddListingLink href="https://docs.google.com/forms/d/e/1FAIpQLSct2Y4Vl63EODdz-68EUj-ZpO2kVycnGsO_EOhx_Cb-aK1ojQ/viewform">
-            Add your listing
-          </AddListingLink>
-        </div>
-        <SubHeading>
-          A collated list of venues offering free meals to UK school children
-          during the half term holidays.{" "}
-        </SubHeading>
-        <ModeSelect>
-          <Option isSelected={mode === "list"} onClick={() => handleModeChange("list")}>
-            List
-          </Option>
-          <Option isSelected={mode === "map"} onClick={() => handleModeChange("map")}>
-            Map
-          </Option>
-        </ModeSelect>
-      </Header>
+      <Header handleModeChange={handleModeChange} mode={mode} />
       <Container>
         <LocationFilter>
           <strong>Filter by location</strong>
