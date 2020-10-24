@@ -2,7 +2,12 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { GeoContext } from "../GeoProvider";
 
-function Header({ handleModeChange, mode }) {
+function Header({
+  handleFilterModeChange,
+  filterMode,
+  resultsMode,
+  setResultsMode
+}) {
   const { isGeolocationEnabled } = useContext(GeoContext);
 
   return (
@@ -20,29 +25,29 @@ function Header({ handleModeChange, mode }) {
       <SettingsContainer>
         <ModeSelect>
           <Option
-            isSelected={mode === "list"}
-            onClick={() => handleModeChange("list")}
+            isSelected={filterMode === "list"}
+            onClick={() => handleFilterModeChange("list")}
           >
             List
           </Option>
           <Option
-            isSelected={mode === "map"}
-            onClick={() => handleModeChange("map")}
+            isSelected={filterMode === "map"}
+            onClick={() => handleFilterModeChange("map")}
           >
             Map
           </Option>
         </ModeSelect>
         <ModeSelect>
           <Option
-            isSelected={mode === "closest"}
-            onClick={() => handleModeChange("closest")}
+            isSelected={resultsMode === "closest"}
+            onClick={() => setResultsMode("closest")}
             disabled={!isGeolocationEnabled}
           >
             Show results closed to me
           </Option>
           <Option
-            isSelected={mode === "all"}
-            onClick={() => handleModeChange("all")}
+            isSelected={resultsMode === "all"}
+            onClick={() => setResultsMode("all")}
           >
             Show all results
           </Option>

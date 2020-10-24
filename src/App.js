@@ -37,12 +37,10 @@ export const buildAddressString = provider => {
 };
 
 function App() {
-  const { isGeolocationAvailable, isGeolocationEnabled, coords } = useContext(
-    GeoContext
-  );
+  const { isGeolocationAvailable, coords } = useContext(GeoContext);
 
-  console.log({ isGeolocationAvailable, isGeolocationEnabled, coords });
-  const [mode, setMode] = useState("list");
+  const [filterMode, setFilterMode] = useState("list");
+  const [resultsMode, setResultsMode] = useState("closest");
   const [data, setData] = useState([]);
 
   const [markers, setMarkers] = useState();
@@ -55,12 +53,20 @@ function App() {
 
   useEffect(() => {
     setSelectedIndex(null);
-    fetch(`.netlify/functions/providers?location=${selectedLocation}`)
+
+    let url = `.netlify/functions/providers?location=${selectedLocation}`;
+
+    if (isGeolocationAvailable) {
+      if (coords && resultsMode === "closest") {
+        url = `${url}&coords=${coords.latitude},${coords.longitude}`;
+      }
+    }
+
+    fetch(url)
       .then(response => response.json())
       .then(async data => {
-        // eslint-disable-next-line no-unused-vars
         const [first, ...results] = data;
-        setData(selectedLocation === "All" ? results : [first, ...results]);
+        setData([first, ...results]);
         setMapProps(
           selectedLocation === "All"
             ? DEFAULT_UK_MAP_PROPS
@@ -68,16 +74,19 @@ function App() {
         );
         console.log(data);
 
-        if (!locations.length) {
-          const locationSet = new Set();
-          data.forEach(provider => {
-            locationSet.add(provider["provider town/city"]);
-          });
-          setLocations(["All", ...locationSet]);
-          console.log(locationSet);
-        }
+        const locationSet = new Set();
+        data.forEach(provider => {
+          locationSet.add(provider["provider town/city"]);
+        });
+        setLocations(["All", ...locationSet]);
       });
-  }, [selectedLocation, locations.length]);
+  }, [
+    selectedLocation,
+    locations.length,
+    coords,
+    isGeolocationAvailable,
+    resultsMode
+  ]);
 
   useEffect(() => {
     (async () => {
@@ -109,27 +118,32 @@ function App() {
         );
       }
     })();
-  }, [data, mode]);
+  }, [data, filterMode]);
 
   const handleProviderClick = i => {
     setSelectedIndex(i);
   };
 
-  const handleModeChange = mode => {
-    setMode(mode);
+  const handleFilterModeChange = mode => {
+    setFilterMode(mode);
     setSelectedIndex(null);
   };
 
   return (
     <>
-      <Header handleModeChange={handleModeChange} mode={mode} />
+      <Header
+        handleFilterModeChange={handleFilterModeChange}
+        filterMode={filterMode}
+        setResultsMode={setResultsMode}
+        resultsMode={resultsMode}
+      />
       <Container>
         <LocationFilter
           locations={locations}
           selectedLocation={selectedLocation}
           setSelectedLocation={setSelectedLocation}
         />
-        {mode === "list" ? (
+        {filterMode === "list" ? (
           <ProviderList
             buildAddressString={buildAddressString}
             data={data}
@@ -143,7 +157,7 @@ function App() {
           <SelectedPane
             data={data}
             markers={markers}
-            mode={mode}
+            mode={filterMode}
             selectedIndex={selectedIndex}
             setSelectedIndex={setSelectedIndex}
           />
