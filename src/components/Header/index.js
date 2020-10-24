@@ -1,7 +1,10 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function Header({ handleModeChange, mode }) {
+  const location = useLocation();
   return (
     <HeaderContainer>
       <div>
@@ -15,16 +18,10 @@ function Header({ handleModeChange, mode }) {
         during the half term holidays.
       </SubHeading>
       <ModeSelect>
-        <Option
-          isSelected={mode === "list"}
-          onClick={() => handleModeChange("list")}
-        >
+        <Option isSelected={location.pathname === "/"} to="/">
           List
         </Option>
-        <Option
-          isSelected={mode === "map"}
-          onClick={() => handleModeChange("map")}
-        >
+        <Option isSelected={location.pathname === "/map"} to="/map">
           Map
         </Option>
       </ModeSelect>
@@ -69,20 +66,22 @@ const ModeSelect = styled.div`
   display: flex;
 `;
 
-const Option = styled.h3`
+const Option = styled(Link)`
+  color: #000;
   padding: 10px;
   border-bottom: solid black 1px;
   cursor: pointer;
+  text-decoration: none;
+
   &:hover {
     background: #85de77;
-    color: white;
+    color: #fff;
   }
+
   ${(props) =>
     props.isSelected &&
-    `
-    background: #85DE77;
-    color: white;
-  `}
+    `background: #85DE77;
+    color: #fff;`}
 `;
 
 export default Header;
