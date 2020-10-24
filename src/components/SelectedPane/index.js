@@ -2,7 +2,7 @@ import React from "react";
 import { Map, TileLayer } from "react-leaflet";
 import styled from "styled-components";
 
-import { buildAddressString } from "../../RefactoredApp";
+import { buildAddressString } from "../../App";
 import Block from "../Block";
 
 import {
