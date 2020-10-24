@@ -15,6 +15,7 @@ import SelectedPane from "./components/SelectedPane";
 import "./App.css";
 
 const Container = styled.div`
+  height: 100%;
   display: flex;
   padding: 10px;
   position: relative;
