@@ -3,9 +3,23 @@ import L from "leaflet";
 import { Map, TileLayer, Marker } from "react-leaflet";
 import fetch from "node-fetch";
 import styled from "styled-components";
+
 import Block from "./components/Block";
 import Header from "./components/Header";
 import LocationFilter from "./components/LocationFilter";
+import ProviderList from "./components/ProviderList";
+
+import {
+  CLOSE_TIME,
+  INSTRUCTIONS,
+  MARCUS_SOURCE_URL,
+  NAME,
+  OFFERS,
+  OFFER_DAYS,
+  OPEN_TIME,
+  PROVIDER_SOURCE_URL,
+  URL,
+} from "./constants";
 
 import "./App.css";
 
@@ -13,31 +27,6 @@ const Container = styled.div`
   display: flex;
   padding: 10px;
   position: relative;
-`;
-
-const List = styled.ul`
-  list-style: none;
-  margin: 0;
-  flex: 3;
-  height: 100%;
-  overflow-y: scroll;
-`;
-
-const Provider = styled.li`
-  display: block;
-  padding: 10px;
-  border-bottom: solid black 1px;
-  cursor: pointer;
-  &:hover {
-    background: #85de77;
-    color: white;
-  }
-  ${(props) =>
-    props.isSelected &&
-    `
-    background: #85DE77;
-    color: white;
-  `}
 `;
 
 const SelectedPane = styled.div`
@@ -141,16 +130,6 @@ function App() {
   const [mapProps, setMapProps] = useState(DEFAULT_UK_MAP_PROPS);
   const [footerVisible, setFooterVisible] = useState(true);
 
-  const NAME = "provider name";
-  const URL = "provider url";
-  const OFFERS = "offer description";
-  const INSTRUCTIONS = "how to claim";
-  const MARCUS_SOURCE_URL = "marcus source url";
-  const PROVIDER_SOURCE_URL = "provider source url";
-  const OPEN_TIME = "opening time";
-  const CLOSE_TIME = "closing time";
-  const OFFER_DAYS = "offer days";
-
   useEffect(() => {
     setSelectedIndex(null);
     fetch(`.netlify/functions/providers?location=${selectedLocation}`)
@@ -241,26 +220,12 @@ function App() {
           setSelectedLocation={setSelectedLocation}
         />
         {mode === "list" ? (
-          <>
-            <List>
-              <Block>{data.length} results</Block>
-              {data.length ? (
-                data.map((provider, i) => (
-                  <Provider
-                    key={i}
-                    onClick={() => handleProviderClick(i)}
-                    isSelected={selectedIndex === i}
-                  >
-                    <h3>{provider[NAME]}</h3>
-                    <Block>{buildAddressString(provider)}</Block>
-                    <Block>{provider[URL]}</Block>
-                  </Provider>
-                ))
-              ) : (
-                <span>Getting list of fantastic providers...</span>
-              )}
-            </List>
-          </>
+          <ProviderList
+            buildAddressString={buildAddressString}
+            data={data}
+            handleProviderClick={handleProviderClick}
+            selectedIndex={selectedIndex}
+          />
         ) : (
           <MapContainer>
             <div
