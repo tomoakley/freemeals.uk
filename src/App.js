@@ -285,6 +285,11 @@ function App() {
     setSelectedLocation(location);
   };
 
+  const handleModeChange = (mode) => {
+    setMode(mode)
+    setSelectedIndex(null)
+  }
+
   const buildAddressString = (provider) => {
     const ADDRESS_1 = provider["provider address 1"];
     const ADDRESS_2 = provider["provider address 2"];
@@ -312,10 +317,10 @@ function App() {
           during the half term holidays.{" "}
         </SubHeading>
         <ModeSelect>
-          <Option isSelected={mode === "list"} onClick={() => setMode("list")}>
+          <Option isSelected={mode === "list"} onClick={() => handleModeChange("list")}>
             List
           </Option>
-          <Option isSelected={mode === "map"} onClick={() => setMode("map")}>
+          <Option isSelected={mode === "map"} onClick={() => handleModeChange("map")}>
             Map
           </Option>
         </ModeSelect>
