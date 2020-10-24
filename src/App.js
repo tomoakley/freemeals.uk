@@ -229,6 +229,7 @@ const DEFAULT_UK_MAP_PROPS = { coords: [55.378052, -3.435973], zoom: 6 };
 
 function App() {
   const [mode, setMode] = useState("list");
+  const [userCoords, setUserCoords] = useState(null);
   const [data, setData] = useState([]);
 
   const [markers, setMarkers] = useState();
@@ -249,6 +250,58 @@ function App() {
   const CLOSE_TIME = "closing time";
   const OFFER_DAYS = "offer days";
 
+  const sortCoordinates = (originCoords, destinationCoords) => {
+    // Original function to calculate distance taken from https://stackoverflow.com/a/18883819
+    const toRad = Value => {
+      return (Value * Math.PI) / 180;
+    };
+
+    const calcDistance = (lat1, lon1, lat2, lon2) => {
+      let R = 6371; // km
+      let dLat = toRad(lat2 - lat1);
+      let dLon = toRad(lon2 - lon1);
+      lat1 = toRad(lat1);
+      lat2 = toRad(lat2);
+
+      let a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.sin(dLon / 2) *
+          Math.sin(dLon / 2) *
+          Math.cos(lat1) *
+          Math.cos(lat2);
+      let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      let d = R * c;
+
+      return d;
+    };
+
+    return destinationCoords.sort((a, b) => {
+      return (
+        calcDistance(
+          originCoords.latitude,
+          originCoords.longitude,
+          a.latitude,
+          a.longitude
+        ) -
+        calcDistance(
+          originCoords.latitude,
+          originCoords.longitude,
+          b.latitude,
+          b.longitude
+        )
+      );
+    });
+  };
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(position => {
+      setUserCoords({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      });
+    });
+  }, []);
+
   useEffect(() => {
     setSelectedIndex(null);
     fetch(`.netlify/functions/providers?location=${selectedLocation}`)
@@ -256,6 +309,10 @@ function App() {
       .then(async (data) => {
         // eslint-disable-next-line no-unused-vars
         const [first, ...results] = data;
+
+        // If we have user coords, filter results to show nearest locations first
+        if (userCoords) sortCoordinates(userCoords, results);
+
         setData(selectedLocation === "All" ? results : [first, ...results]);
         setMapProps(
           selectedLocation === "All"
@@ -273,7 +330,7 @@ function App() {
           console.log(locationSet);
         }
       });
-  }, [selectedLocation, locations.length]);
+  }, [selectedLocation, locations.length, userCoords]);
 
   useEffect(() => {
     (async () => {
