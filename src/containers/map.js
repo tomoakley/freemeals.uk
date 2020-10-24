@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import L from "leaflet";
 import { Marker } from "react-leaflet";
 import fetch from "node-fetch";
@@ -10,6 +10,7 @@ import LocationFilter from "components/LocationFilter";
 import Overlay from "components/Overlay";
 import ProviderMap from "components/ProviderMap";
 import SelectedPane from "components/SelectedPane";
+import { GeoContext } from "components/GeoProvider";
 import Spinner from "components/Spinner";
 
 const Container = styled.div`
@@ -34,7 +35,8 @@ export const buildAddressString = (provider) => {
 };
 
 const MapView = () => {
-  const [mode, setMode] = useState("list");
+  const { isGeolocationAvailable, coords } = useContext(GeoContext);
+  const [resultsMode, setResultsMode] = useState("closest");
   const [data, setData] = useState([]);
   const [fetchingData, setFetchingData] = useState(false)
 
@@ -49,12 +51,22 @@ const MapView = () => {
   useEffect(() => {
     setSelectedIndex(null);
     setFetchingData(true);
-    fetch(`.netlify/functions/providers?location=${selectedLocation}`)
+
+    let url = `.netlify/functions/providers?location=${selectedLocation}`;
+
+    if (isGeolocationAvailable) {
+      if (coords && resultsMode === "closest") {
+        url = `${url}&coords=${coords.latitude},${coords.longitude}`;
+      }	
+    }
+
+    fetch(url)
       .then((response) => response.json())
       .then(async (data) => {
         setFetchingData(false);
         // eslint-disable-next-line no-unused-vars
         const [first, ...results] = data;
+        setData([first, ...results]);
         setData(selectedLocation === "All" ? results : [first, ...results]);
         setMapProps(
           selectedLocation === "All"
@@ -63,16 +75,17 @@ const MapView = () => {
         );
         console.log(data);
 
-        if (!locations.length) {
-          const locationSet = new Set();
-          data.forEach((provider) => {
-            locationSet.add(provider["provider town/city"]);
-          });
-          setLocations(["All", ...locationSet]);
-          console.log(locationSet);
-        }
+        const locationSet = new Set();
+        data.forEach((provider) => {
+          locationSet.add(provider["provider town/city"]);
+        });
+        setLocations(["All", ...locationSet]);
       });
-  }, [selectedLocation, locations.length]);
+  }, [selectedLocation,
+    locations.length,
+    coords,
+    isGeolocationAvailable,
+    resultsMode]);
 
   useEffect(() => {
     (async () => {
@@ -104,20 +117,15 @@ const MapView = () => {
         );
       }
     })();
-  }, [data, mode]);
+  }, [data, resultsMode]);
 
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
   };
 
-  const handleModeChange = (mode) => {
-    setMode(mode);
-    setSelectedIndex(null);
-  };
-
   return (
     <>
-      <Header handleModeChange={handleModeChange} mode={mode} />
+      <Header setResultsMode={setResultsMode} resultsMode={resultsMode} />
       <Container>
         {fetchingData ?
           <Spinner /> : 
@@ -132,7 +140,6 @@ const MapView = () => {
               <SelectedPane
                 data={data}
                 markers={markers}
-                mode={mode}
                 selectedIndex={selectedIndex}
                 setSelectedIndex={setSelectedIndex}
               />
