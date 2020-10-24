@@ -17,7 +17,7 @@ export async function handler(event, context) {
         },
         results => {
           if (coords != null) {
-            const [latitude, longitude] = "53.0688228,-3.056984".split(",");
+            const [latitude, longitude] = coords.split(",");
 
             const resultsWithCoords = results.map(provider => {
               return {
