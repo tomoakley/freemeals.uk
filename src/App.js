@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { Map, TileLayer, Marker } from "react-leaflet";
 import fetch from "node-fetch";
 import styled from "styled-components";
 
