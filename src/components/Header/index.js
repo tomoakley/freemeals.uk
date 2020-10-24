@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GeoContext } from "../GeoProvider";
 
-function Header({ handleModeChange, mode }) {
+function Header({ resultsMode, setResultsMode }) {
+  const { isGeolocationEnabled } = useContext(GeoContext);
   const location = useLocation();
+
   return (
     <HeaderContainer>
       <div>
@@ -18,14 +20,31 @@ function Header({ handleModeChange, mode }) {
         A collated list of venues offering free meals to UK school children
         during the half term holidays.
       </SubHeading>
-      <ModeSelect>
-        <Option isSelected={location.pathname === "/"} to="/">
-          List
-        </Option>
-        <Option isSelected={location.pathname === "/map"} to="/map">
-          Map
-        </Option>
-      </ModeSelect>
+      <SettingsContainer>
+        <ModeSelect>
+          <Option isSelected={location.pathname === "/"} to="/">
+            List
+          </Option>
+          <Option isSelected={location.pathname === "/map"} to="/map">
+            Map
+          </Option>
+        </ModeSelect>
+        <ModeSelect>
+          <Option
+            isSelected={resultsMode === "closest"}
+            onClick={() => setResultsMode("closest")}
+            disabled={!isGeolocationEnabled}
+          >
+            Show results closest to me
+          </Option>
+          <Option
+            isSelected={resultsMode === "all"}
+            onClick={() => setResultsMode("all")}
+          >
+            Show all results
+          </Option>
+        </ModeSelect>
+      </SettingsContainer>
     </HeaderContainer>
   );
 }

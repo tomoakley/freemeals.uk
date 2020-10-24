@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import L from "leaflet";
 import { Marker } from "react-leaflet";
 import fetch from "node-fetch";
@@ -10,6 +10,7 @@ import LocationFilter from "components/LocationFilter";
 import Overlay from "components/Overlay";
 import ProviderMap from "components/ProviderMap";
 import SelectedPane from "components/SelectedPane";
+import { GeoContext } from "components/GeoProvider";
 
 const Container = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ const Container = styled.div`
 
 const DEFAULT_UK_MAP_PROPS = { coords: [55.378052, -3.435973], zoom: 6 };
 
-export const buildAddressString = (provider) => {
+export const buildAddressString = provider => {
   const ADDRESS_1 = provider["provider address 1"];
   const ADDRESS_2 = provider["provider address 2"];
   const COUNTY = provider["provider county"];
@@ -27,13 +28,15 @@ export const buildAddressString = (provider) => {
   const POSTCODE = provider["provider postcode"];
 
   const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter(
-    (parts) => parts !== "Not Available" && parts
+    parts => parts !== "Not Available" && parts
   );
   return addressArray.join(", ");
 };
 
 const MapView = () => {
-  const [mode, setMode] = useState("list");
+  const { isGeolocationAvailable, coords } = useContext(GeoContext);
+
+  const [resultsMode, setResultsMode] = useState("closest");
   const [data, setData] = useState([]);
 
   const [markers, setMarkers] = useState();
@@ -46,12 +49,20 @@ const MapView = () => {
 
   useEffect(() => {
     setSelectedIndex(null);
-    fetch(`.netlify/functions/providers?location=${selectedLocation}`)
-      .then((response) => response.json())
-      .then(async (data) => {
-        // eslint-disable-next-line no-unused-vars
+
+    let url = `.netlify/functions/providers?location=${selectedLocation}`;
+
+    if (isGeolocationAvailable) {
+      if (coords && resultsMode === "closest") {
+        url = `${url}&coords=${coords.latitude},${coords.longitude}`;
+      }
+    }
+
+    fetch(url)
+      .then(response => response.json())
+      .then(async data => {
         const [first, ...results] = data;
-        setData(selectedLocation === "All" ? results : [first, ...results]);
+        setData([first, ...results]);
         setMapProps(
           selectedLocation === "All"
             ? DEFAULT_UK_MAP_PROPS
@@ -59,23 +70,52 @@ const MapView = () => {
         );
         console.log(data);
 
-        if (!locations.length) {
-          const locationSet = new Set();
-          data.forEach((provider) => {
-            locationSet.add(provider["provider town/city"]);
-          });
-          setLocations(["All", ...locationSet]);
-          console.log(locationSet);
-        }
+        const locationSet = new Set();
+        data.forEach(provider => {
+          locationSet.add(provider["provider town/city"]);
+        });
+        setLocations(["All", ...locationSet]);
       });
-  }, [selectedLocation, locations.length]);
+  }, [
+    selectedLocation,
+    locations.length,
+    coords,
+    isGeolocationAvailable,
+    resultsMode
+  ]);
+
+  // useEffect(() => {
+  //   setSelectedIndex(null);
+  //   fetch(`.netlify/functions/providers?location=${selectedLocation}`)
+  //     .then(response => response.json())
+  //     .then(async data => {
+  //       // eslint-disable-next-line no-unused-vars
+  //       const [first, ...results] = data;
+  //       setData(selectedLocation === "All" ? results : [first, ...results]);
+  //       setMapProps(
+  //         selectedLocation === "All"
+  //           ? DEFAULT_UK_MAP_PROPS
+  //           : { coords: [first["latitude"], first["longitude"]], zoom: 12 }
+  //       );
+  //       console.log(data);
+
+  //       if (!locations.length) {
+  //         const locationSet = new Set();
+  //         data.forEach(provider => {
+  //           locationSet.add(provider["provider town/city"]);
+  //         });
+  //         setLocations(["All", ...locationSet]);
+  //         console.log(locationSet);
+  //       }
+  //     });
+  // }, [selectedLocation, locations.length]);
 
   useEffect(() => {
     (async () => {
       const customIcon = L.icon({
         iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
         iconSize: [35, 46],
-        iconAnchor: [17, 46],
+        iconAnchor: [17, 46]
       });
 
       if (data.length) {
@@ -100,20 +140,15 @@ const MapView = () => {
         );
       }
     })();
-  }, [data, mode]);
+  }, [data, resultsMode]);
 
-  const handleProviderClick = (i) => {
+  const handleProviderClick = i => {
     setSelectedIndex(i);
-  };
-
-  const handleModeChange = (mode) => {
-    setMode(mode);
-    setSelectedIndex(null);
   };
 
   return (
     <>
-      <Header handleModeChange={handleModeChange} mode={mode} />
+      <Header setResultsMode={setResultsMode} resultsMode={resultsMode} />
       <Container>
         <LocationFilter
           locations={locations}
@@ -125,7 +160,7 @@ const MapView = () => {
           <SelectedPane
             data={data}
             markers={markers}
-            mode={mode}
+            mode={resultsMode}
             selectedIndex={selectedIndex}
             setSelectedIndex={setSelectedIndex}
           />
