@@ -262,7 +262,7 @@ function App() {
           })
         );
     })();
-  }, [data]);
+  }, [data, mode]);
 
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
@@ -352,6 +352,27 @@ function App() {
                     Close
                   </CloseButton>
                 </small>
+                <div style={{ height: "50%", width: "100%" }}>
+                  {[
+                    data[selectedIndex]["latitude"] &&
+                      data[selectedIndex]["longitude"],
+                  ] ? (
+                    <Map
+                      center={[
+                        data[selectedIndex]["latitude"],
+                        data[selectedIndex]["longitude"],
+                      ]}
+                      zoom={20}
+                      className="leaflet-map"
+                    >
+                      <TileLayer
+                        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                      />
+                      {markers}
+                    </Map>
+                  ) : null}
+                </div>
                 <h2>{data[selectedIndex][NAME]}</h2>
                 <Block>
                   <strong>Description</strong>:{" "}
