@@ -123,9 +123,17 @@ const SelectedPane = styled.div`
     position: fixed;
     top: 0;
     right: 0;
-    width: 75%;
     z-index: 1000;
+    width: 75%;
   }
+  ${(props) =>
+    props.isMapMode &&
+    `
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 500;
+  `}
 `;
 
 const CloseButton = styled.button`
@@ -168,6 +176,7 @@ const ContributingFooter = styled.div`
   box-sizing: border-box;
   justify-content: space-between;
   position: fixed;
+  z-index: 999;
   width: 100%;
   bottom: 0;
   padding: 10px;
@@ -210,6 +219,7 @@ function App() {
   const OFFER_DAYS = "offer days";
 
   useEffect(() => {
+    setSelectedIndex(null);
     fetch(`.netlify/functions/providers?location=${selectedLocation}`)
       .then((response) => response.json())
       .then(async (data) => {
@@ -242,7 +252,7 @@ function App() {
         iconAnchor: [17, 46],
       });
 
-      if (data.length)
+      if (data.length) {
         setMarkers(
           data.map((provider, i) => {
             if (!provider.latitude) {
@@ -253,16 +263,16 @@ function App() {
             let position = [provider.latitude, provider.longitude];
 
             return (
-              <Marker key={i} position={position} icon={customIcon}>
-                <Popup>
-                  <Block>{provider["provider name"]}</Block>
-                  <Block>{provider["provider address 1"]}</Block>
-                  <Block>{provider["provider url"]}</Block>
-                </Popup>
-              </Marker>
+              <Marker
+                key={i}
+                position={position}
+                icon={customIcon}
+                onClick={() => handleProviderClick(i)}
+              />
             );
           })
         );
+      }
     })();
   }, [data, mode]);
 
@@ -347,85 +357,6 @@ function App() {
                 <span>Getting list of fantastic providers...</span>
               )}
             </List>
-            {data.length && selectedIndex != null ? (
-              <SelectedPane>
-                <small>
-                  <CloseButton onClick={() => setSelectedIndex(null)}>
-                    Close
-                  </CloseButton>
-                </small>
-                <div style={{ height: "50%", width: "100%" }}>
-                  {[
-                    data[selectedIndex]["latitude"] &&
-                      data[selectedIndex]["longitude"],
-                  ] ? (
-                    <Map
-                      center={[
-                        data[selectedIndex]["latitude"],
-                        data[selectedIndex]["longitude"],
-                      ]}
-                      zoom={20}
-                      className="leaflet-map"
-                    >
-                      <TileLayer
-                        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                      />
-                      {markers}
-                    </Map>
-                  ) : null}
-                </div>
-                <h2>{data[selectedIndex][NAME]}</h2>
-                <Block>
-                  <strong>Description</strong>:{" "}
-                  {data[selectedIndex][OFFERS] || "???"}
-                </Block>
-                <Block>
-                  <strong>Availability</strong>:
-                </Block>
-                <ul style={{ margin: 0 }}>
-                  <li>
-                    Times: {data[selectedIndex][OPEN_TIME] || "Not specified"} -{" "}
-                    {data[selectedIndex][CLOSE_TIME] || "Not specified"}
-                  </li>
-                  <li>
-                    Days: {data[selectedIndex][OFFER_DAYS] || "Not specified"}
-                  </li>
-                </ul>
-                <Block>
-                  <strong>How to claim</strong>:{" "}
-                  {data[selectedIndex][INSTRUCTIONS] || "???"}
-                </Block>
-                <Block>
-                  <strong>Website</strong>:{" "}
-                  <a href={data[selectedIndex][URL]}>
-                    {data[selectedIndex][URL] || "???"}
-                  </a>
-                </Block>
-                <Block>
-                  <strong>Location</strong>:{" "}
-                  <a
-                    href={`https://www.google.co.uk/maps/place/${buildAddressString(
-                      data[selectedIndex]
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {buildAddressString(data[selectedIndex])}
-                  </a>
-                </Block>
-                <Block>
-                  <strong>Source</strong>:{" "}
-                  <a href={data[selectedIndex][MARCUS_SOURCE_URL]}>
-                    {data[selectedIndex][MARCUS_SOURCE_URL]}
-                  </a>
-                  ,{" "}
-                  <a href={data[selectedIndex][PROVIDER_SOURCE_URL]}>
-                    {data[selectedIndex][PROVIDER_SOURCE_URL]}
-                  </a>
-                </Block>
-              </SelectedPane>
-            ) : null}
           </>
         ) : (
           <MapContainer>
@@ -437,6 +368,7 @@ function App() {
                 right: 0,
                 top: 0,
                 bottom: 0,
+                zIndex: 100,
               }}
             >
               <Map
@@ -453,6 +385,85 @@ function App() {
             </div>
           </MapContainer>
         )}
+        {data.length && selectedIndex != null ? (
+          <SelectedPane isMapMode={mode === "map"}>
+            <small>
+              <CloseButton onClick={() => setSelectedIndex(null)}>
+                Close
+              </CloseButton>
+            </small>
+            <div style={{ height: "50%", width: "100%" }}>
+              {[
+                data[selectedIndex]["latitude"] &&
+                  data[selectedIndex]["longitude"],
+              ] ? (
+                <Map
+                  center={[
+                    data[selectedIndex]["latitude"],
+                    data[selectedIndex]["longitude"],
+                  ]}
+                  zoom={20}
+                  className="leaflet-map"
+                >
+                  <TileLayer
+                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  {markers}
+                </Map>
+              ) : null}
+            </div>
+            <h2>{data[selectedIndex][NAME]}</h2>
+            <Block>
+              <strong>Description</strong>:{" "}
+              {data[selectedIndex][OFFERS] || "???"}
+            </Block>
+            <Block>
+              <strong>Availability</strong>:
+            </Block>
+            <ul style={{ margin: 0 }}>
+              <li>
+                Times: {data[selectedIndex][OPEN_TIME] || "Not specified"} -{" "}
+                {data[selectedIndex][CLOSE_TIME] || "Not specified"}
+              </li>
+              <li>
+                Days: {data[selectedIndex][OFFER_DAYS] || "Not specified"}
+              </li>
+            </ul>
+            <Block>
+              <strong>How to claim</strong>:{" "}
+              {data[selectedIndex][INSTRUCTIONS] || "???"}
+            </Block>
+            <Block>
+              <strong>Website</strong>:{" "}
+              <a href={data[selectedIndex][URL]}>
+                {data[selectedIndex][URL] || "???"}
+              </a>
+            </Block>
+            <Block>
+              <strong>Location</strong>:{" "}
+              <a
+                href={`https://www.google.co.uk/maps/place/${buildAddressString(
+                  data[selectedIndex]
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {buildAddressString(data[selectedIndex])}
+              </a>
+            </Block>
+            <Block>
+              <strong>Source</strong>:{" "}
+              <a href={data[selectedIndex][MARCUS_SOURCE_URL]}>
+                {data[selectedIndex][MARCUS_SOURCE_URL]}
+              </a>
+              ,{" "}
+              <a href={data[selectedIndex][PROVIDER_SOURCE_URL]}>
+                {data[selectedIndex][PROVIDER_SOURCE_URL]}
+              </a>
+            </Block>
+          </SelectedPane>
+        ) : null}
       </Container>
       {selectedIndex != null && <Overlay />}
       {footerVisible && (
