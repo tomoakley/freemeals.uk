@@ -8,4 +8,6 @@ The data is currently being crowd sourced by a team of volunteers, head to the [
 
 If you can code, we would welcome help on the tech side! Clone the repo, work on some improvements, and make a PR. Currently, we're working on adding mapping and search cappabilities, and some design assistance would be useful too.
 
+A good way to start contributing would be to go to the Issues tab and find an issue to work on. Make sure you comment on the issue to let others know you will work on it, so we don't duplicate effort.
+
 When you've cloned the repo, run `yarn start` in one terminal and `yarn start:lamda` in another. The site is hosted on netlify and is using a Lambda function to get the data from Google Sheets, and populate the app.
