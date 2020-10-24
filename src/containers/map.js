@@ -8,6 +8,7 @@ import ContributingFooter from "components/ContributingFooter";
 import Header from "components/Header";
 import LocationFilter from "components/LocationFilter";
 import Overlay from "components/Overlay";
+import PostcodeSearch from "components/PostcodeSearch";
 import ProviderMap from "components/ProviderMap";
 import SelectedPane from "components/SelectedPane";
 import { GeoContext } from "components/GeoProvider";
@@ -57,7 +58,7 @@ const MapView = () => {
     if (isGeolocationAvailable) {
       if (coords && resultsMode === "closest") {
         url = `${url}&coords=${coords.latitude},${coords.longitude}`;
-      }	
+      }
     }
 
     fetch(url)
@@ -81,11 +82,13 @@ const MapView = () => {
         });
         setLocations(["All", ...locationSet]);
       });
-  }, [selectedLocation,
+  }, [
+    selectedLocation,
     locations.length,
     coords,
     isGeolocationAvailable,
-    resultsMode]);
+    resultsMode
+  ]);
 
   useEffect(() => {
     (async () => {
@@ -130,6 +133,7 @@ const MapView = () => {
         {fetchingData ?
           <Spinner /> : 
           <>
+            {/* <PostcodeSearch setMapProps={setMapProps} /> */}
             <LocationFilter
               locations={locations}
               selectedLocation={selectedLocation}

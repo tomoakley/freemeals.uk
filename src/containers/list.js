@@ -50,7 +50,7 @@ const ListView = () => {
     setSelectedIndex(null);
     setFetchingData(true);
 
-    let url = `.netlify/functions/providers?location=${selectedLocation}`
+    let url = `.netlify/functions/providers?location=${selectedLocation}`;
 
     if (isGeolocationAvailable) {
       if (coords && resultsMode === "closest") {
@@ -62,22 +62,21 @@ const ListView = () => {
       .then((response) => response.json())
       .then(async (data) => {
         setFetchingData(false);
-        // eslint-disable-next-line no-unused-vars
         const [first, ...results] = data;
         setData([first, ...results]);
         console.log(data);
 
         const locationSet = new Set();
-          data.forEach(provider => {
-            locationSet.add(provider["provider town/city"]);
-          });
-          setLocations(["All", ...locationSet]);
+        data.forEach(provider => {
+          locationSet.add(provider["provider town/city"]);
+        });
+        setLocations(["All", ...locationSet]);
       });
   }, [
-  selectedLocation,	
-  locations.length,	
-  coords,	
-  isGeolocationAvailable,	
+  selectedLocation,
+  locations.length,
+  coords,
+  isGeolocationAvailable,
   resultsMode
 ]);
 
