@@ -29,7 +29,7 @@ function LocationFilter({ locations, selectedLocation, setSelectedLocation }) {
   return (
     <LocationFilterContainer>
       <strong>Filter by location</strong>
-      {locations.length &&
+      {!!locations.length &&
         locations.sort().map((location) => (
           <LocationItem>
             <Block

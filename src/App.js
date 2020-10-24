@@ -335,7 +335,7 @@ function App() {
       <Container>
         <LocationFilter>
           <strong>Filter by location</strong>
-          {locations.length &&
+          {!!locations.length &&
             locations.sort().map((location) => (
               <LocationItem>
                 <Block
@@ -397,7 +397,7 @@ function App() {
             </div>
           </MapContainer>
         )}
-        {data.length && selectedIndex != null ? (
+        {!!data.length && selectedIndex != null ? (
           <SelectedPane isMapMode={mode === "map"}>
             <small>
               <CloseButton onClick={() => setSelectedIndex(null)}>
