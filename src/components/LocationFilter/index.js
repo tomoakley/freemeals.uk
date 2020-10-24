@@ -32,6 +32,7 @@ const LocationFilterContainer = styled.div`
   flex: 1;
   list-style: none;
   margin: 0;
+  overflow-y: scroll;
 `;
 
 const LocationItem = styled.li`
