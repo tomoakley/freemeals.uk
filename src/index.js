@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import GeoProvider from "./components/GeoProvider";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GeoProvider>
+      <App />
+    </GeoProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

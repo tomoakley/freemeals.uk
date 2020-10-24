@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { GeoContext } from "../GeoProvider";
 
 function Header({ handleModeChange, mode }) {
+  const { isGeolocationEnabled } = useContext(GeoContext);
+
   return (
     <HeaderContainer>
       <div>
@@ -33,6 +36,7 @@ function Header({ handleModeChange, mode }) {
           <Option
             isSelected={mode === "closest"}
             onClick={() => handleModeChange("closest")}
+            disabled={!isGeolocationEnabled}
           >
             Show results closed to me
           </Option>

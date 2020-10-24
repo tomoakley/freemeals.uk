@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import L from "leaflet";
 import { Marker } from "react-leaflet";
 import fetch from "node-fetch";
@@ -11,6 +11,7 @@ import Overlay from "./components/Overlay";
 import ProviderList from "./components/ProviderList";
 import ProviderMap from "./components/ProviderMap";
 import SelectedPane from "./components/SelectedPane";
+import { GeoContext } from "./components/GeoProvider";
 
 import "./App.css";
 
@@ -22,7 +23,7 @@ const Container = styled.div`
 
 const DEFAULT_UK_MAP_PROPS = { coords: [55.378052, -3.435973], zoom: 6 };
 
-export const buildAddressString = (provider) => {
+export const buildAddressString = provider => {
   const ADDRESS_1 = provider["provider address 1"];
   const ADDRESS_2 = provider["provider address 2"];
   const COUNTY = provider["provider county"];
@@ -30,12 +31,17 @@ export const buildAddressString = (provider) => {
   const POSTCODE = provider["provider postcode"];
 
   const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter(
-    (parts) => parts !== "Not Available" && parts
+    parts => parts !== "Not Available" && parts
   );
   return addressArray.join(", ");
 };
 
 function App() {
+  const { isGeolocationAvailable, isGeolocationEnabled, coords } = useContext(
+    GeoContext
+  );
+
+  console.log({ isGeolocationAvailable, isGeolocationEnabled, coords });
   const [mode, setMode] = useState("list");
   const [data, setData] = useState([]);
 
@@ -50,8 +56,8 @@ function App() {
   useEffect(() => {
     setSelectedIndex(null);
     fetch(`.netlify/functions/providers?location=${selectedLocation}`)
-      .then((response) => response.json())
-      .then(async (data) => {
+      .then(response => response.json())
+      .then(async data => {
         // eslint-disable-next-line no-unused-vars
         const [first, ...results] = data;
         setData(selectedLocation === "All" ? results : [first, ...results]);
@@ -64,7 +70,7 @@ function App() {
 
         if (!locations.length) {
           const locationSet = new Set();
-          data.forEach((provider) => {
+          data.forEach(provider => {
             locationSet.add(provider["provider town/city"]);
           });
           setLocations(["All", ...locationSet]);
@@ -78,7 +84,7 @@ function App() {
       const customIcon = L.icon({
         iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
         iconSize: [35, 46],
-        iconAnchor: [17, 46],
+        iconAnchor: [17, 46]
       });
 
       if (data.length) {
@@ -105,11 +111,11 @@ function App() {
     })();
   }, [data, mode]);
 
-  const handleProviderClick = (i) => {
+  const handleProviderClick = i => {
     setSelectedIndex(i);
   };
 
-  const handleModeChange = (mode) => {
+  const handleModeChange = mode => {
     setMode(mode);
     setSelectedIndex(null);
   };
