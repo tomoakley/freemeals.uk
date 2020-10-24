@@ -8,6 +8,7 @@ import ContributingFooter from "./components/ContributingFooter";
 import Header from "./components/Header";
 import LocationFilter from "./components/LocationFilter";
 import Overlay from "./components/Overlay";
+import PostcodeSearch from "./components/PostcodeSearch";
 import ProviderList from "./components/ProviderList";
 import ProviderMap from "./components/ProviderMap";
 import SelectedPane from "./components/SelectedPane";
@@ -60,7 +61,6 @@ function App() {
             ? DEFAULT_UK_MAP_PROPS
             : { coords: [first["latitude"], first["longitude"]], zoom: 12 }
         );
-        console.log(data);
 
         if (!locations.length) {
           const locationSet = new Set();
@@ -118,11 +118,14 @@ function App() {
     <>
       <Header handleModeChange={handleModeChange} mode={mode} />
       <Container>
-        <LocationFilter
-          locations={locations}
-          selectedLocation={selectedLocation}
-          setSelectedLocation={setSelectedLocation}
-        />
+        <div>
+          {mode === "map" && <PostcodeSearch setMapProps={setMapProps} />}
+          <LocationFilter
+            locations={locations}
+            selectedLocation={selectedLocation}
+            setSelectedLocation={setSelectedLocation}
+          />
+        </div>
         {mode === "list" ? (
           <ProviderList
             buildAddressString={buildAddressString}
