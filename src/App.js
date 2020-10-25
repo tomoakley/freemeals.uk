@@ -108,12 +108,25 @@ function App() {
 export default App;
 
 const ListViewWrapper = styled.div`
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px;
+  @media screen and (min-width: 768px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 `;
 
 const ListViewContainer = styled.div`
   display: grid;
-  grid-gap: 130px;
-  grid-template-columns: 200px 1fr;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 200px 1fr;
+    grid-gap: 70px;
+  }
+  @media screen and (min-width: 768px) {
+    grid-gap: 70px;
+  }
 `;

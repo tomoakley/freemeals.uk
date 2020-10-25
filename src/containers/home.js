@@ -9,27 +9,31 @@ const HomeView = () => {
   return (
     <HomeContainer>
       <HomeSection>
-        <img src={Header} alt={"No child should go hungry"} />
-        <h1>No child should go hungry</h1>
-        <p>
-          Manchester United and England footballer Marcus Rashford’s campaign to
-          alleviate child poverty has inspired businesses, charities and local
-          authorities to offer free meals to struggling families over the
-          half-term school holidays, after Conservative MPs voted against
-          extending free school meals.
-        </p>
-        <p style={{ fontSize: 21, position: "relative" }}>
-          <span className={"quotes"}>
-            <Quotes />
-          </span>
-          <em>
-            The superstars of this nation lie in local communities. Even after
-            taking the biggest hits you have wrapped your arms around your
-            community to catch children as they fell. I really can’t thank you
-            enough, you’re amazing.
-          </em>
-        </p>
-        <p style={{ color: "#BA0D37" }}>Marcus Rashford</p>
+        <div className="standout">
+              <img src={Header} alt={"No child should go hungry"} />
+      </div>
+        <About>
+          <h1>No child should go hungry</h1>
+          <p>
+            Manchester United and England footballer Marcus Rashford’s campaign to
+            alleviate child poverty has inspired businesses, charities and local
+            authorities to offer free meals to struggling families over the
+            half-term school holidays, after Conservative MPs voted against
+            extending free school meals.
+          </p>
+          <p style={{ fontSize: 21, position: "relative" }}>
+            <span className={"quotes"}>
+              <Quotes />
+            </span>
+            <em>
+              The superstars of this nation lie in local communities. Even after
+              taking the biggest hits you have wrapped your arms around your
+              community to catch children as they fell. I really can’t thank you
+              enough, you’re amazing.
+            </em>
+          </p>
+          <p style={{ color: "#BA0D37" }}>Marcus Rashford</p>
+        </About>
       </HomeSection>
       <ProviderSection />
     </HomeContainer>
@@ -50,17 +54,30 @@ const Quotes = () => (
 
 const HomeContainer = styled.div`
   display: grid;
-  grid-gap: 50px;
-  grid-template-columns: 1fr 420px;
+  @media screen and (min-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+  @media screen and (min-width: 1000px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const HomeSection = styled.div`
-  height: calc(100vh - 88px);
   overflow-y: auto;
-  padding: 60px 80px;
+  @media screen and (min-width: 1000px) {
+    height: calc(100vh - 88px);
+    /* padding: 60px 80px; */
+  }
 
   &::-webkit-scrollbar {
     width: 0 !important;
+  }
+
+  .standout {
+    display: none;
+    @media screen and (min-width: 1000px) {
+      display: block;
+    }
   }
 
   .quotes {
@@ -76,3 +93,10 @@ const HomeSection = styled.div`
     width: 100%;
   }
 `;
+
+const About = styled.div`
+display: none;
+@media screen and (min-width: 768px) {
+    display: block;
+  }
+`

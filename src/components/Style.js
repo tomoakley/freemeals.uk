@@ -13,9 +13,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Noto Sans", -apple-system , BlinkMacSystemFont , "Segoe UI" , "Roboto" , "Helvetica Neue" , "Ubuntu" , sans-serif;
     font-size: 16px;
     height: 100vh;
-    overflow: hidden;
-
-    @media screen and (max-width: 600px) {
+    @media screen and (min-width: 768px) {
+      overflow: hidden;
+    }
+    @media screen and (max-width: 768px) {
       &.hasModal {
         overflow: hidden;
       }

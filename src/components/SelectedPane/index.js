@@ -113,11 +113,11 @@ const SelectedPaneContainer = styled.div`
   height: 100vh;
   padding: 10px;
   overflow-y: scroll;
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 768px) {
     display: block;
     max-width: 50%;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     position: fixed;
     top: 0;
     right: 0;
