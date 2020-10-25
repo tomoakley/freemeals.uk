@@ -13,9 +13,9 @@ const HomeView = () => {
         <h1>No child should go hungry</h1>
         <p>
           Manchester United and England footballer Marcus Rashford’s campaign to
-          aleviate child poverty has inspired businesses, charities and local
-          authorities are offering free meals to struggling families over the
-          half-term school holidays after Conservative MPs voted against
+          alleviate child poverty has inspired businesses, charities and local
+          authorities to offer free meals to struggling families over the
+          half-term school holidays, after Conservative MPs voted against
           extending free school meals.
         </p>
         <p style={{ fontSize: 21, position: "relative" }}>
@@ -50,24 +50,24 @@ const Quotes = () => (
 
 const HomeContainer = styled.div`
   display: grid;
-  grid-gap: 130px;
+  grid-gap: 50px;
   grid-template-columns: 1fr 420px;
 `;
 
 const HomeSection = styled.div`
   height: calc(100vh - 88px);
   overflow-y: auto;
-  padding: 60px 0;
+  padding: 60px 80px;
 
   &::-webkit-scrollbar {
     width: 0 !important;
   }
 
   .quotes {
-    right: 40px;
+    left: -50px;
     position: absolute;
-    top: -10px;
-    transform: scale(-1, 1);
+    top: 0;
+    /* transform: scale(-1, 1); */
   }
 
   img {
