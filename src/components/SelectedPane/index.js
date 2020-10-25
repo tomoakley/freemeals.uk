@@ -25,6 +25,11 @@ function SelectedPane() {
   );
 
   const mode = "list";
+
+  if (!data || selectedIndex === null) {
+    return null;
+  }
+
   return (
     <SelectedPaneContainer isMapMode={mode === "map"}>
       <small>

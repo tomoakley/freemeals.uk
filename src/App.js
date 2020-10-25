@@ -40,7 +40,7 @@ function App() {
     setSelectedIndex(null);
     setFetchingData(true);
 
-    let url = `.netlify/functions/providers?location=${selectedLocation}`;
+    let url = `/.netlify/functions/providers?location=${selectedLocation}`;
 
     if (isGeolocationAvailable) {
       if (coords && resultsMode === "closest") {
