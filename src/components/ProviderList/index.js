@@ -31,8 +31,8 @@ function ProviderList() {
                 className={selectedIndex === i && "active"}
               >
                 <div>
-                  {/* <h5>{provider[NAME]}</h5>
-                  <p>{buildAddressString(provider)}</p> */}
+                  <h5>{provider[NAME]}</h5>
+                  <p>{buildAddressString(provider)}</p>
                 </div>
                 {selectedIndex === i && (
                   <svg

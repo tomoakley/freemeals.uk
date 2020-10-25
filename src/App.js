@@ -31,7 +31,6 @@ export const buildAddressString = (provider) => {
 function App() {
   const {
     setData,
-    setSelectedIndex,
     setLocations,
     selectedLocation
   } = React.useContext(AppContext);
