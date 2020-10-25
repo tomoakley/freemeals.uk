@@ -1,18 +1,14 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useContext,
-} from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import styled from "styled-components";
 import { GeoContext } from "../GeoProvider";
+import LocationIcon from '../../images/icon-location.svg'
 
 const POSTCODE_REGEX = /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$/;
 
 function PostcodeSearch() {
   const [postcode, setPostcode] = useState("");
   const [error, setError] = useState(false);
-  const { setMode } = useContext(GeoContext);
+  const { setMode, mode } = useContext(GeoContext);
 
   const handlePostcodeChange = (e) => {
     setPostcode(e.currentTarget.value);
@@ -56,12 +52,13 @@ function PostcodeSearch() {
 
   return (
     <>
-      <button onClick={() => setMode({ name: "geo" })}>
-        <span role="img" aria-label="Use my location">
-          📍
-        </span>
-      </button>
       <PostcodeInputContainer>
+        <GeoServicesButton
+          onClick={() => setMode({ name: mode === "geo" ? null : "geo" })}
+          isInGeoMode={mode === "geo"}
+        >
+          <img src={LocationIcon} alt='Use browser location' />
+        </GeoServicesButton>
         <PostcodeInput
           onChange={handlePostcodeChange}
           placeholder="Postcode"
@@ -76,6 +73,9 @@ function PostcodeSearch() {
   );
 }
 const PostcodeInputContainer = styled.div`
+  display: flex;
+  margin-top: 10px;
+  align-items: baseline;
 `;
 
 const Error = styled.div`
@@ -87,12 +87,26 @@ const PostcodeInput = styled.input`
   background-color: black;
   margin-bottom: 10px;
   padding: 5px;
-  border-width:0px;
-  border:none;
+  margin-left: 5px;
+  border-width: 0px;
+  border: none;
   color: white;
-  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  width: 100%;
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
   }
+`;
+
+const GeoServicesButton = styled.button`
+  appearance: none;
+  background: #262626;
+  border: none;
+  ${({ isInGeoMode }) =>
+    isInGeoMode &&
+    `
+    background: white;
+  `}
 `;
 
 export default PostcodeSearch;

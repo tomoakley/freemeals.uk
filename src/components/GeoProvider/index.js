@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { geolocated } from "react-geolocated";
 
 export const GeoContext = createContext(null);
@@ -6,12 +6,38 @@ export const GeoContext = createContext(null);
 function GeoProvider({
   isGeolocationAvailable,
   isGeolocationEnabled,
-  coords,
-  children
+  coords: geoCoords,
+  children,
 }) {
+  const [mode, setMode] = useState({name: "geo", coords: geoCoords});
+  const [coords, setCoords] = useState(geoCoords);
+
+  useEffect(() => {
+    const switchMode = () => {
+      switch (mode.name) {
+        case "geo":
+          setCoords(geoCoords);
+          break;
+        case "postcode":
+          setCoords(mode.coords);
+          break;
+        default:
+          setCoords(null)
+          break
+      }
+    };
+    switchMode();
+  }, [mode, geoCoords]);
+
   return (
     <GeoContext.Provider
-      value={{ isGeolocationAvailable, isGeolocationEnabled, coords }}
+      value={{
+        isGeolocationAvailable,
+        isGeolocationEnabled,
+        coords,
+        mode: mode.name,
+        setMode,
+      }}
     >
       {children}
     </GeoContext.Provider>
@@ -20,7 +46,7 @@ function GeoProvider({
 
 export default geolocated({
   positionOptions: {
-    enableHighAccuracy: false
+    enableHighAccuracy: false,
   },
-  userDecisionTimeout: 5000
+  userDecisionTimeout: 5000,
 })(GeoProvider);
