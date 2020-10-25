@@ -11,6 +11,7 @@ import Overlay from "components/Overlay";
 import ProviderList from "components/ProviderList";
 import SelectedPane from "components/SelectedPane";
 import { GeoContext } from "components/GeoProvider";
+import Spinner from "components/Spinner";
 
 const Container = styled.div`
   height: 100%;
@@ -19,7 +20,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-export const buildAddressString = provider => {
+export const buildAddressString = (provider) => {
   const ADDRESS_1 = provider["provider address 1"];
   const ADDRESS_2 = provider["provider address 2"];
   const COUNTY = provider["provider county"];
@@ -27,16 +28,16 @@ export const buildAddressString = provider => {
   const POSTCODE = provider["provider postcode"];
 
   const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter(
-    parts => parts !== "Not Available" && parts
+    (parts) => parts !== "Not Available" && parts
   );
   return addressArray.join(", ");
 };
 
 const ListView = () => {
   const { isGeolocationAvailable, coords } = useContext(GeoContext);
-
   const [resultsMode, setResultsMode] = useState("closest");
   const [data, setData] = useState([]);
+  const [fetchingData, setFetchingData] = useState(false)
 
   const [markers, setMarkers] = useState();
 
@@ -47,6 +48,7 @@ const ListView = () => {
 
   useEffect(() => {
     setSelectedIndex(null);
+    setFetchingData(true);
 
     let url = `.netlify/functions/providers?location=${selectedLocation}`;
 
@@ -57,11 +59,11 @@ const ListView = () => {
     }
 
     fetch(url)
-      .then(response => response.json())
-      .then(async data => {
+      .then((response) => response.json())
+      .then(async (data) => {
+        setFetchingData(false);
         const [first, ...results] = data;
         setData([first, ...results]);
-
         console.log(data);
 
         const locationSet = new Set();
@@ -71,19 +73,19 @@ const ListView = () => {
         setLocations(["All", ...locationSet]);
       });
   }, [
-    selectedLocation,
-    locations.length,
-    coords,
-    isGeolocationAvailable,
-    resultsMode
-  ]);
+  selectedLocation,
+  locations.length,
+  coords,
+  isGeolocationAvailable,
+  resultsMode
+]);
 
   useEffect(() => {
     (async () => {
       const customIcon = L.icon({
         iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
         iconSize: [35, 46],
-        iconAnchor: [17, 46]
+        iconAnchor: [17, 46],
       });
 
       if (data.length) {
@@ -110,7 +112,7 @@ const ListView = () => {
     })();
   }, [data, resultsMode]);
 
-  const handleProviderClick = i => {
+  const handleProviderClick = (i) => {
     setSelectedIndex(i);
   };
 
@@ -118,25 +120,30 @@ const ListView = () => {
     <>
       <Header setResultsMode={setResultsMode} resultsMode={resultsMode} />
       <Container>
-        <LocationFilter
-          locations={locations}
-          selectedLocation={selectedLocation}
-          setSelectedLocation={setSelectedLocation}
-        />
-        <ProviderList
-          buildAddressString={buildAddressString}
-          data={data}
-          handleProviderClick={handleProviderClick}
-          selectedIndex={selectedIndex}
-        />
-        {data.length && selectedIndex != null ? (
-          <SelectedPane
-            data={data}
-            markers={markers}
-            selectedIndex={selectedIndex}
-            setSelectedIndex={setSelectedIndex}
-          />
-        ) : null}
+        {fetchingData ? 
+          <Spinner /> :
+          <>
+            <LocationFilter
+              locations={locations}
+              selectedLocation={selectedLocation}
+              setSelectedLocation={setSelectedLocation}
+            />
+            <ProviderList
+              buildAddressString={buildAddressString}
+              data={data}
+              handleProviderClick={handleProviderClick}
+              selectedIndex={selectedIndex}
+            />
+            {data.length && selectedIndex != null ? (
+              <SelectedPane
+                data={data}
+                markers={markers}
+                selectedIndex={selectedIndex}
+                setSelectedIndex={setSelectedIndex}
+              />
+            ) : null}
+          </>
+        }
       </Container>
       {selectedIndex != null && <Overlay />}
       {footerVisible && (
