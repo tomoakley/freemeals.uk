@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import L from "leaflet";
 import { Marker } from "react-leaflet";
-import fetch from "node-fetch";
 import styled from "styled-components";
 
 import ContributingFooter from "components/ContributingFooter";
@@ -13,6 +12,7 @@ import ProviderMap from "components/ProviderMap";
 import SelectedPane from "components/SelectedPane";
 import { GeoContext } from "components/GeoProvider";
 import Spinner from "components/Spinner";
+import { DataContext } from "contexts/DataProvider";
 
 const Container = styled.div`
   display: flex;
@@ -36,57 +36,24 @@ export const buildAddressString = (provider) => {
 };
 
 const MapView = () => {
-  const { isGeolocationAvailable, coords } = useContext(GeoContext);
+  const { coords, mode } = useContext(GeoContext);
+  const { data, selectedLocation, setSelectedLocation, locations, fetchingData } = useContext(
+    DataContext
+  );
+
   const [resultsMode, setResultsMode] = useState("closest");
-  const [data, setData] = useState([]);
-  const [fetchingData, setFetchingData] = useState(false)
 
   const [markers, setMarkers] = useState();
 
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [locations, setLocations] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState("All");
   const [mapProps, setMapProps] = useState(DEFAULT_UK_MAP_PROPS);
   const [footerVisible, setFooterVisible] = useState(true);
 
   useEffect(() => {
-    setSelectedIndex(null);
-    setFetchingData(true);
-
-    let url = `.netlify/functions/providers?location=${selectedLocation}`;
-
-    if (isGeolocationAvailable) {
-      if (coords && resultsMode === "closest") {
-        url = `${url}&coords=${coords.latitude},${coords.longitude}`;
-      }
+    if ((mode === "geo" || mode === "postcode") && coords) {
+      setMapProps({ coords: [coords.latitude, coords.longitude], zoom: 12 });
     }
-
-    fetch(url)
-      .then((response) => response.json())
-      .then(async (data) => {
-        setFetchingData(false);
-        const [first, ...results] = data;
-        setData([first, ...results]);
-        setMapProps(
-          selectedLocation === "All"
-            ? DEFAULT_UK_MAP_PROPS
-            : { coords: [first["latitude"], first["longitude"]], zoom: 12 }
-        );
-        console.log(data);
-
-        const locationSet = new Set();
-        data.forEach((provider) => {
-          locationSet.add(provider["provider town/city"]);
-        });
-        setLocations(["All", ...locationSet]);
-      });
-  }, [
-    selectedLocation,
-    locations.length,
-    coords,
-    isGeolocationAvailable,
-    resultsMode
-  ]);
+  }, [coords, mode]);
 
   useEffect(() => {
     (async () => {
@@ -96,10 +63,10 @@ const MapView = () => {
         iconAnchor: [17, 46],
       });
 
-      if (data.length) {
+      if (!!data.length) {
         setMarkers(
           data.map((provider, i) => {
-            if (!provider.latitude) {
+            if (!provider?.latitude) {
               provider.latitude = 56 - i * 0.05;
               provider.longitude = -5 + i * 0.05;
             }
@@ -129,10 +96,10 @@ const MapView = () => {
       <Header setResultsMode={setResultsMode} resultsMode={resultsMode} />
       <Container>
         {fetchingData ?
-          <Spinner /> : 
+          <Spinner /> :
           <>
             <div>
-              <PostcodeSearch setMapProps={setMapProps} />
+              <PostcodeSearch />
               <LocationFilter
                 locations={locations}
                 selectedLocation={selectedLocation}
@@ -150,7 +117,6 @@ const MapView = () => {
             ) : null}
           </>
         }
-        
       </Container>
       {selectedIndex != null && <Overlay />}
       {footerVisible && (

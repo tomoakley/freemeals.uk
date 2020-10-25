@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import L from "leaflet";
 import { Marker } from "react-leaflet";
 import fetch from "node-fetch";
@@ -10,8 +10,10 @@ import LocationFilter from "components/LocationFilter";
 import Overlay from "components/Overlay";
 import ProviderList from "components/ProviderList";
 import SelectedPane from "components/SelectedPane";
+import PostcodeSearch from "components/PostcodeSearch";
 import { GeoContext } from "components/GeoProvider";
 import Spinner from "components/Spinner";
+import { DataContext } from "contexts/DataProvider";
 
 const Container = styled.div`
   height: 100%;
@@ -34,51 +36,24 @@ export const buildAddressString = (provider) => {
 };
 
 const ListView = () => {
-  const { isGeolocationAvailable, coords } = useContext(GeoContext);
+  const {
+    data,
+    selectedLocation,
+    setSelectedLocation,
+    locations,
+    fetchingData,
+  } = useContext(DataContext);
+
   const [resultsMode, setResultsMode] = useState("closest");
-  const [data, setData] = useState([]);
-  const [fetchingData, setFetchingData] = useState(false)
 
   const [markers, setMarkers] = useState();
 
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const [locations, setLocations] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState("All");
   const [footerVisible, setFooterVisible] = useState(true);
 
   useEffect(() => {
-    setSelectedIndex(null);
-    setFetchingData(true);
-
-    let url = `.netlify/functions/providers?location=${selectedLocation}`;
-
-    if (isGeolocationAvailable) {
-      if (coords && resultsMode === "closest") {
-        url = `${url}&coords=${coords.latitude},${coords.longitude}`;
-      }
-    }
-
-    fetch(url)
-      .then((response) => response.json())
-      .then(async (data) => {
-        setFetchingData(false);
-        const [first, ...results] = data;
-        setData([first, ...results]);
-        console.log(data);
-
-        const locationSet = new Set();
-        data.forEach(provider => {
-          locationSet.add(provider["provider town/city"]);
-        });
-        setLocations(["All", ...locationSet]);
-      });
-  }, [
-  selectedLocation,
-  locations.length,
-  coords,
-  isGeolocationAvailable,
-  resultsMode
-]);
+    setSelectedIndex(null)
+  }, [data])
 
   useEffect(() => {
     (async () => {
@@ -120,14 +95,18 @@ const ListView = () => {
     <>
       <Header setResultsMode={setResultsMode} resultsMode={resultsMode} />
       <Container>
-        {fetchingData ? 
-          <Spinner /> :
+        {fetchingData ? (
+          <Spinner />
+        ) : (
           <>
-            <LocationFilter
-              locations={locations}
-              selectedLocation={selectedLocation}
-              setSelectedLocation={setSelectedLocation}
-            />
+            <div>
+              <PostcodeSearch />
+              <LocationFilter
+                locations={locations}
+                selectedLocation={selectedLocation}
+                setSelectedLocation={setSelectedLocation}
+              />
+            </div>
             <ProviderList
               buildAddressString={buildAddressString}
               data={data}
@@ -143,7 +122,7 @@ const ListView = () => {
               />
             ) : null}
           </>
-        }
+        )}
       </Container>
       {selectedIndex != null && <Overlay />}
       {footerVisible && (

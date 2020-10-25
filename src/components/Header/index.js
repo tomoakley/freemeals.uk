@@ -29,21 +29,6 @@ function Header({ resultsMode, setResultsMode }) {
             Map
           </Option>
         </ModeSelect>
-        <ModeSelect>
-          <Option
-            isSelected={resultsMode === "closest"}
-            onClick={() => setResultsMode("closest")}
-            disabled={!isGeolocationEnabled}
-          >
-            Show results closest to me
-          </Option>
-          <Option
-            isSelected={resultsMode === "all"}
-            onClick={() => setResultsMode("all")}
-          >
-            Show all results
-          </Option>
-        </ModeSelect>
       </SettingsContainer>
     </HeaderContainer>
   );
