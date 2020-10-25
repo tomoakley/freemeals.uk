@@ -10,9 +10,12 @@ const Provider = ({ match }) => {
   const { setSelectedIndex } = React.useContext(AppContext);
   const selectedIndex = match.params.id;
 
+  // setSelectedIndex isnt' a stable function so
+  // including it in the deps will cause an infinite loop
   useEffect(() => {
     setSelectedIndex(selectedIndex);
-  }, [setSelectedIndex, selectedIndex]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedIndex]);
 
   return (
     <ProviderContainer>
