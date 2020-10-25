@@ -65,10 +65,8 @@ const MapView = () => {
       .then((response) => response.json())
       .then(async (data) => {
         setFetchingData(false);
-        // eslint-disable-next-line no-unused-vars
         const [first, ...results] = data;
         setData([first, ...results]);
-        setData(selectedLocation === "All" ? results : [first, ...results]);
         setMapProps(
           selectedLocation === "All"
             ? DEFAULT_UK_MAP_PROPS
@@ -133,12 +131,14 @@ const MapView = () => {
         {fetchingData ?
           <Spinner /> : 
           <>
-            <PostcodeSearch setMapProps={setMapProps} />
-            <LocationFilter
-              locations={locations}
-              selectedLocation={selectedLocation}
-              setSelectedLocation={setSelectedLocation}
-            />
+            <div>
+              <PostcodeSearch setMapProps={setMapProps} />
+              <LocationFilter
+                locations={locations}
+                selectedLocation={selectedLocation}
+                setSelectedLocation={setSelectedLocation}
+              />
+            </div>
             <ProviderMap mapProps={mapProps} markers={markers} />
             {data.length && selectedIndex != null ? (
               <SelectedPane

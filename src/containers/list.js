@@ -55,7 +55,7 @@ const ListView = () => {
     if (isGeolocationAvailable) {
       if (coords && resultsMode === "closest") {
         url = `${url}&coords=${coords.latitude},${coords.longitude}`;
-      }	
+      }
     }
 
     fetch(url)
