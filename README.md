@@ -10,4 +10,6 @@ If you can code, we would welcome help on the tech side! Clone the repo, work on
 
 A good way to start contributing would be to go to the Issues tab and find an issue to work on. Make sure you comment on the issue to let others know you will work on it, so we don't duplicate effort.
 
+If you're working on the app, drop me a <a href="https://twitter.com/_tmkly">Twitter DM</a> or an email to tom[at]tomoakley.me, and I'll send you an invite to the Slack group. We can coordinate our efforts better from there.
+
 When you've cloned the repo, run `yarn start` in one terminal and `yarn start:lambda` in another. The site is hosted on netlify and is using a Lambda function to get the data from Google Sheets, and populate the app.
