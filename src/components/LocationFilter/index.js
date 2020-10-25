@@ -12,8 +12,8 @@ function LocationFilter({ locations, selectedLocation, setSelectedLocation }) {
     <LocationFilterContainer>
       <strong>Filter by location</strong>
       {!!locations.length &&
-        locations.sort().map((location) => (
-          <LocationItem>
+        locations.sort().slice().map((location) => (
+          <LocationItem key={location}>
             <Block
               as={LocationLink}
               href="#"
