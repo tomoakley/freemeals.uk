@@ -61,18 +61,22 @@ function PostcodeSearch() {
           📍
         </span>
       </button>
-      <PostcodeInput
-        onChange={handlePostcodeChange}
-        placeholder="Postcode"
-        type="text"
-        value={postcode}
-      />
+      <PostcodeInputContainer>
+        <PostcodeInput
+          onChange={handlePostcodeChange}
+          placeholder="Postcode"
+          type="text"
+          value={postcode}
+        />
+      </PostcodeInputContainer>
       {error && (
         <Error>Unable to fetch postcode details. Please try again later.</Error>
       )}
     </>
   );
 }
+const PostcodeInputContainer = styled.div`
+`;
 
 const Error = styled.div`
   color: red;
@@ -80,8 +84,15 @@ const Error = styled.div`
 `;
 
 const PostcodeInput = styled.input`
+  background-color: black;
   margin-bottom: 10px;
   padding: 5px;
+  border-width:0px;
+  border:none;
+  color: white;
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+  }
 `;
 
 export default PostcodeSearch;

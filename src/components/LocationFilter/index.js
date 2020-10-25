@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Block from "../Block";
 import { AppContext } from "../AppContext/AppContext";
 
 function LocationFilter() {
@@ -14,13 +13,11 @@ function LocationFilter() {
 
   return (
     <LocationFilterContainer>
-      <strong>Filter by location</strong>
+      <strong>Choose location</strong>
       {!!locations?.length &&
         locations.sort().slice().map((location) => (
           <LocationItem key={location}>
             <Block
-              as={LocationLink}
-              href="#"
               onClick={(e) => handleLocationClick(e, location)}
             >
               {location}
@@ -31,6 +28,16 @@ function LocationFilter() {
   );
 }
 
+const Block = styled.span`
+  display: block;
+  padding: 1px 0;
+  color: #F5F5F5;
+  text-decoration: none;
+  &:hover {
+    color: #FFFFFF;
+  }
+`;
+
 const LocationFilterContainer = styled.div`
   flex: 1;
   list-style: none;
@@ -39,15 +46,7 @@ const LocationFilterContainer = styled.div`
 `;
 
 const LocationItem = styled.li`
-  margin: 5px;
-`;
-
-const LocationLink = styled.a`
-  color: black;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
+  margin: 2px;
 `;
 
 export default LocationFilter;
