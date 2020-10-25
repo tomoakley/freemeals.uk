@@ -1,3 +1,4 @@
+import { RESULTS_MODE } from "../constants";
 import GSheetReader from "g-sheets-api";
 import sphereKnn from "sphere-knn";
 
@@ -10,7 +11,7 @@ export async function handler(event, context) {
         {
           sheetId: "1OaRn7UHsFpFLOfTeiUnIBr7ofjcemBEvf_gl5b1PoTY",
           sheetNumber: 5,
-          returnAllResults: location === "All" ? true : false,
+          returnAllResults: location === RESULTS_MODE.all ? true : false,
           filter: {
             "provider town/city": location
           }

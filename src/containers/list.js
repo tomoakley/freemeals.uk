@@ -12,7 +12,7 @@ import ProviderList from "components/ProviderList";
 import SelectedPane from "components/SelectedPane";
 import { GeoContext } from "components/GeoProvider";
 import Spinner from "components/Spinner";
-import { RESULTS_MODE } from "../constants/index";
+import { RESULTS_MODE } from "../constants";
 
 const Container = styled.div`
   height: 100%;
@@ -44,7 +44,7 @@ const ListView = () => {
 
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [locations, setLocations] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState("All");
+  const [selectedLocation, setSelectedLocation] = useState(RESULTS_MODE.all);
   const [footerVisible, setFooterVisible] = useState(true);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ const ListView = () => {
         data.forEach(provider => {
           locationSet.add(provider["provider town/city"]);
         });
-        setLocations(["All", ...locationSet]);
+        setLocations([RESULTS_MODE.all, ...locationSet]);
       });
   }, [
   selectedLocation,

@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GeoContext } from "../GeoProvider";
-import { GOOGLE_DOC_LINK, RESULTS_MODE } from '../../constants/index';
+import { GOOGLE_DOC_LINK, RESULTS_MODE } from '../../constants';
 import Button from "components/Button";
 
 function Header({ resultsMode, setResultsMode }) {
@@ -38,8 +38,8 @@ function Header({ resultsMode, setResultsMode }) {
             Show results closest to me
           </Option>
           <Option
-            isSelected={resultsMode === "all"}
-            onClick={() => setResultsMode("all")}
+            isSelected={resultsMode === RESULTS_MODE.all}
+            onClick={() => setResultsMode(RESULTS_MODE.all)}
           >
             Show all results
           </Option>
