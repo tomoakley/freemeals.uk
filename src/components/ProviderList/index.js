@@ -2,27 +2,39 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "components/AppContext/AppContext";
+import { GeoContext } from "components/GeoProvider";
 import { NAME } from "../../constants";
 import { buildAddressString } from "App";
 
 function ProviderList() {
   const history = useHistory();
-  const {
-    data,
-    selectedIndex,
-    setSelectedIndex,
-  } = React.useContext(AppContext);
+  const { data, selectedIndex, setSelectedIndex } = React.useContext(
+    AppContext
+  );
+  const { mode } = React.useContext(GeoContext);
 
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
     history.push(`/provider/${i}`);
   };
 
+  const resultsLabel = () => {
+    switch (mode) {
+      case "geo":
+      case "postcode":
+        return "near you";
+      default:
+        return "across the country";
+    }
+  };
+
   return (
     <VendorList>
       {!!data ? (
         <>
-          <p>{data.length} results</p>
+          <p>
+            {data.length} venues {resultsLabel()}
+          </p>
           <div>
             {data.map((provider, i) => (
               <VendorContainer
@@ -64,7 +76,7 @@ function ProviderList() {
 }
 
 const VendorList = styled.ul`
-  height: calc(100vh - 208px);
+  height: 100vh;
   list-style: none;
   margin: 0;
   overflow-y: auto;

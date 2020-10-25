@@ -54,7 +54,7 @@ const AppContextProvider = (props) => {
   function setSelectedIndex(selectedIndex) {
     dispatch({
       type: "SET_SELECTED_INDEX",
-      payload: selectedIndex,
+      payload: Number(selectedIndex),
     });
   }
 
