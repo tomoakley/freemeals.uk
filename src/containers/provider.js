@@ -33,6 +33,6 @@ export default Provider;
 
 const ProviderContainer = styled.div`
   display: grid;
-  grid-gap: 130px;
+  /* grid-gap: 130px; */
   grid-template-columns: 420px 1fr;
 `;

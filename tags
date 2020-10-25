@@ -6,10 +6,9 @@
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	0.0.0	/b818539/
 #map	build/static/css/main.b71878fb.chunk.css	/^body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu"/;"	i
-#map	src/App.css	/^#map {$/;"	i
 #root	build/static/css/main.b71878fb.chunk.css	/^body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu"/;"	i
-#root	src/App.css	/^#root {$/;"	i
 $	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+$	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 $$typeof	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:a
 $$typeof	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.createContext.AnonymousClassdd4479394401
 $$typeof	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:s
@@ -21,15 +20,16 @@ $n	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 $o	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 $r	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 $s	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-.leaflet-map	src/App.css	/^.leaflet-map{$/;"	c
 0	build/asset-manifest.json	/^    "static\/js\/runtime-main.fac50e4b.js",$/;"	s	array:entrypoints
 0	build/manifest.json	/^    {$/;"	o	array:icons
+0	jsconfig.json	/^  "exclude": ["node_modules", "**\/node_modules\/*"]$/;"	s	array:exclude
 0	package.json	/^      ">0.2%",$/;"	s	array:browserslist.production
 0	package.json	/^      "last 1 chrome version",$/;"	s	array:browserslist.development
 0	public/manifest.json	/^    {$/;"	o	array:icons
 1	build/asset-manifest.json	/^    "static\/js\/2.bfe7432c.chunk.js",$/;"	s	array:entrypoints
 1	build/manifest.json	/^    {$/;"	o	array:icons
 1	build/static/js/runtime-main.fac50e4b.js	/^!function(e){function r(r){for(var n,l,f=r[0],a=r[1],i=r[2],c=0,s=[];c<f.length;c++)l=f[c],Objec/;"	p	class:o
+1	jsconfig.json	/^  "exclude": ["node_modules", "**\/node_modules\/*"]$/;"	s	array:exclude
 1	package.json	/^      "last 1 firefox version",$/;"	s	array:browserslist.development
 1	package.json	/^      "not dead",$/;"	s	array:browserslist.production
 1	public/manifest.json	/^    {$/;"	o	array:icons
@@ -82,8 +82,13 @@ $s	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 @testing-library/user-event	package.json	/^    "@testing-library\/user-event": "^7.1.2",$/;"	s	object:dependencies
 A	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ADDRESS_1	src/App.js	/^  const ADDRESS_1 = provider["provider address 1"];$/;"	C
+ADDRESS_1	src/containers/list.js	/^  const ADDRESS_1 = provider["provider address 1"];$/;"	C
+ADDRESS_1	src/containers/map.js	/^  const ADDRESS_1 = provider["provider address 1"];$/;"	C
 ADDRESS_2	src/App.js	/^  const ADDRESS_2 = provider["provider address 2"];$/;"	C
+ADDRESS_2	src/containers/list.js	/^  const ADDRESS_2 = provider["provider address 2"];$/;"	C
+ADDRESS_2	src/containers/map.js	/^  const ADDRESS_2 = provider["provider address 2"];$/;"	C
 Aa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+AddListingLink	src/components/Header/index.js	/^const AddListingLink = styled.a`$/;"	C
 Ae	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ae	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Ai	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -91,72 +96,89 @@ Al	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Alt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Sn
 An	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 An	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-AnonymousClass5182462b2501	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	c	class:b
+AnonymousClass5182462b2a01	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	c	class:b
 AnonymousClassdd4479394401	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:e.createContext
-AnonymousFunction5182462b0100	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0200	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0300	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0400	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b0300
-AnonymousFunction5182462b0500	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0600	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0700	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0800	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0900	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0a00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0b00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0c00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0d00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0e00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b0f00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b1000	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b1100	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b1200	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b1100.i
-AnonymousFunction5182462b1300	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b1400	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b1300
-AnonymousFunction5182462b1500	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b1600	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b1300
-AnonymousFunction5182462b1700	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b1300
-AnonymousFunction5182462b1800	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b1900	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b1a00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b1900.o
-AnonymousFunction5182462b1b00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b1c00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b1d00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b1e00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b1f00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2000	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2100	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2200	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2300	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2400	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2600	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2700	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2800	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2900	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2a00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2b00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2c00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2d00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2e00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b2f00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3000	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3100	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b3000
-AnonymousFunction5182462b3200	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3300	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3400	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3500	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3600	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3700	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3800	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3900	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3a00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3b00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b3a00
-AnonymousFunction5182462b3c00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3d00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3e00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b3f00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b4000	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-AnonymousFunction5182462b4100	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+AnonymousFunction5182462b0100	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0200	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0300	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0400	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b0300
+AnonymousFunction5182462b0500	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0600	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0700	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0800	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0900	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0a00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0b00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0c00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0d00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0e00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b0f00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b1000	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:e.exports
+AnonymousFunction5182462b1100	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b1200	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b1300	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1100.u
+AnonymousFunction5182462b1400	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b1500	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b1600	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b1700	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1600.i
+AnonymousFunction5182462b1800	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b1900	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1800
+AnonymousFunction5182462b1a00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b1b00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1800
+AnonymousFunction5182462b1c00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1800
+AnonymousFunction5182462b1d00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b1e00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b1f00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1e00.n
+AnonymousFunction5182462b2000	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2100	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2200	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2300	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2400	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2500	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2600	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2700	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2800	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2900	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2b00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2c00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2d00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2e00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b2f00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3000	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3100	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3200	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3300	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3400	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3500	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3600	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b3500
+AnonymousFunction5182462b3700	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3800	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3900	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3a00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3b00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3c00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3d00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3e00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b3f00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b4000	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b3f00
+AnonymousFunction5182462b4100	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b4200	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b4300	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b4400	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b4500	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b4600	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b4700	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b4800	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b4900	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction5182462b4a00	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+AnonymousFunction58b330a90100	public/serviceWorker.js	/^self.addEventListener('install', function (evt) {$/;"	f
+AnonymousFunction58b330a90200	public/serviceWorker.js	/^self.addEventListener('fetch', function (evt) {$/;"	f
+AnonymousFunction58b330a90300	public/serviceWorker.js	/^    caches.open(CACHE_ID).then(function (cache) {$/;"	f	function:fromCache
+AnonymousFunction58b330a90400	public/serviceWorker.js	/^  return caches.open(CACHE_ID).then(function (cache) {$/;"	f
+AnonymousFunction58b330a90500	public/serviceWorker.js	/^    return fetch(request).then(function (response) {$/;"	f
+AnonymousFunction58b330a90600	public/serviceWorker.js	/^      return cache.put(request, response.clone()).then(function () {$/;"	f
+AnonymousFunction58b330a90700	public/serviceWorker.js	/^  return self.clients.matchAll().then(function (clients) {$/;"	f
+AnonymousFunction58b330a90800	public/serviceWorker.js	/^    clients.forEach(function (client) {$/;"	f
 AnonymousFunctiondcbe83d40100	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f
 AnonymousFunctiondcbe83d40200	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f
 AnonymousFunctiondcbe83d40300	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f
@@ -894,6 +916,8 @@ AnonymousFunctiondd447939ff00	build/static/js/2.bfe7432c.chunk.js	/^(this.webpac
 AnonymousFunctionffaee0000200	build/static/js/runtime-main.fac50e4b.js	/^!function(e){function r(r){for(var n,l,f=r[0],a=r[1],i=r[2],c=0,s=[];c<f.length;c++)l=f[c],Objec/;"	f	function:l.t
 Ao	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 App	src/App.js	/^function App() {$/;"	f
+AppContext	src/components/AppContext/AppContext.js	/^export const AppContext = React.createContext(initialState);$/;"	C
+AppContextProvider	src/components/AppContext/AppContext.js	/^const AppContextProvider = (props) => {$/;"	C
 Apps	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xn
 As	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 At	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -903,6 +927,7 @@ Be	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Bi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:Ll
 Bi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Bl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+Block	src/components/Block/index.js	/^const Block = styled.span`$/;"	C
 Block	src/components/LocationFilter/index.js	/^const Block = styled.a`$/;"	C
 Bn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Bn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -913,8 +938,11 @@ Bt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Bt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 C	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 C	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
-C	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+CACHE_ID	public/serviceWorker.js	/^const CACHE_ID = 'v1.cache.freemeals.uk';$/;"	C
+CLOSE_TIME	src/constants/index.js	/^export const CLOSE_TIME = "closing time";$/;"	C
 COUNTY	src/App.js	/^  const COUNTY = provider["provider county"];$/;"	C
+COUNTY	src/containers/list.js	/^  const COUNTY = provider["provider county"];$/;"	C
+COUNTY	src/containers/map.js	/^  const COUNTY = provider["provider county"];$/;"	C
 Ca	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 Ce	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Children	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:e
@@ -923,13 +951,19 @@ Cl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 CloseButton	src/components/SelectedPane/index.js	/^const CloseButton = styled.button`$/;"	C
 Cn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Consumer	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.createContext.AnonymousClassdd4479394401
+Container	src/containers/list.js	/^const Container = styled.div`$/;"	C
+Container	src/containers/map.js	/^const Container = styled.div`$/;"	C
 Contributing	README.md	/^## Contributing$/;"	s
+ContributingFooter	src/components/ContributingFooter/index.js	/^function ContributingFooter({ setFooterVisible }) {$/;"	f
+ContributingFooterContainer	src/components/ContributingFooter/index.js	/^const ContributingFooterContainer = styled.div`$/;"	C
 Control	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Sn
 Cr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Cs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Ct	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 Ct	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 D	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
+D	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+DEFAULT_UK_MAP_PROPS	src/containers/map.js	/^const DEFAULT_UK_MAP_PROPS = { coords: [55.378052, -3.435973], zoom: 6 };$/;"	c
 Da	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 De	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 De	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -947,7 +981,7 @@ E	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 E	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 E	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400
 E	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400.E
-E	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+E	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 Ea	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 Ee	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 Ei	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -960,7 +994,7 @@ Events	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.we
 Events	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:eu
 F	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 F	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400
-F	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+F	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 Fa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Fe	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Fi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -974,7 +1008,6 @@ Fs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Ft	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ft	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 G	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
-G	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
 Ga	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ge	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 GeoContext	src/components/GeoProvider/index.js	/^export const GeoContext = createContext(null);$/;"	C
@@ -982,6 +1015,7 @@ GeoProvider	src/components/GeoProvider/index.js	/^function GeoProvider({$/;"	f
 GeoServicesButton	src/components/PostcodeSearch/index.js	/^const GeoServicesButton = styled.button`$/;"	C
 Gi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Gl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+GlobalStyle	src/components/Style.js	/^export const GlobalStyle = createGlobalStyle`$/;"	C
 Gn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Gr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Gs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -992,16 +1026,23 @@ H	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 Ha	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ha	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 He	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+Header	src/components/Header/index.js	/^function Header({ resultsMode, setResultsMode }) {$/;"	f
+HeaderContainer	src/components/Header/index.js	/^const HeaderContainer = styled.div`$/;"	C
+Heading	src/components/Header/index.js	/^const Heading = styled.h1`$/;"	C
 Hi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Hl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Hn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 Hn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ho	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+HomeContainer	src/containers/home.js	/^const HomeContainer = styled.div`$/;"	C
+HomeSection	src/containers/home.js	/^const HomeSection = styled.div`$/;"	C
+HomeView	src/containers/home.js	/^const HomeView = () => {$/;"	C
 Hr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Hs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Ht	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 I	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 I	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+INSTRUCTIONS	src/constants/index.js	/^export const INSTRUCTIONS = "how to claim";$/;"	C
 Ia	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ie	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ii	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1016,7 +1057,7 @@ It	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 It	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 J	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 J	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-J	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+J	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 Ja	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Je	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 Je	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -1042,11 +1083,11 @@ Kt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 L	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 L	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:AnonymousFunctiondd4479390400
 L	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:Ct
-L	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
 La	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Le	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Left	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xn
 Li	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+ListView	src/containers/list.js	/^const ListView = () => {$/;"	C
 ListViewContainer	src/App.js	/^const ListViewContainer = styled.div`$/;"	C
 ListViewWrapper	src/App.js	/^const ListViewWrapper = styled.div`$/;"	C
 Ll	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1060,9 +1101,12 @@ Lt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Lt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 M	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 M	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+MARCUS_SOURCE_URL	src/constants/index.js	/^export const MARCUS_SOURCE_URL = "marcus source url";$/;"	C
 MAX_LATITUDE	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:U
 MSPointerDown	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:en
 MSPointerDown	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:nn
+MapContainer	src/components/ProviderMap/index.js	/^const MapContainer = styled.div`$/;"	C
+MapView	src/containers/map.js	/^const MapView = () => {$/;"	C
 Me	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Menu	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xn
 Mercator	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:yn
@@ -1070,12 +1114,16 @@ Meta	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webp
 Mi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ml	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Mn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+ModeSelect	src/components/Header/index.js	/^const ModeSelect = styled.div`$/;"	C
 MozPrintableKey	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xn
 Mr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ms	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Mt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 N	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+NAME	src/constants/index.js	/^export const NAME = "provider name";$/;"	C
 Na	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+NavSection	src/components/NavSection/NavSection.js	/^const NavSection = () => {$/;"	C
+NavSectionContainer	src/components/NavSection/NavSection.js	/^const NavSectionContainer = styled.div`$/;"	C
 Ne	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ne	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Ni	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1088,19 +1136,27 @@ Nt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Nt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 O	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 O	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+O	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+OFFERS	src/constants/index.js	/^export const OFFERS = "offer description";$/;"	C
+OFFER_DAYS	src/constants/index.js	/^export const OFFER_DAYS = "offer days";$/;"	C
+OPEN_TIME	src/constants/index.js	/^export const OPEN_TIME = "opening time";$/;"	C
 Oe	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Oi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ol	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 On	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+Option	src/components/Header/index.js	/^const Option = styled(Link)`$/;"	C
 Or	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Os	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Ot	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+Overlay	src/components/Overlay/index.js	/^const Overlay = styled.div`$/;"	C
 P	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 P	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:AnonymousFunctiondd4479390400
 P	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-P	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
 POSTCODE	src/App.js	/^  const POSTCODE = provider["provider postcode"];$/;"	C
+POSTCODE	src/containers/list.js	/^  const POSTCODE = provider["provider postcode"];$/;"	C
+POSTCODE	src/containers/map.js	/^  const POSTCODE = provider["provider postcode"];$/;"	C
 POSTCODE_REGEX	src/components/PostcodeSearch/index.js	/^const POSTCODE_REGEX = \/^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-/;"	C
+PROVIDER_SOURCE_URL	src/constants/index.js	/^export const PROVIDER_SOURCE_URL = "provider source url";$/;"	C
 Pa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Pe	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Pe	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -1114,6 +1170,9 @@ PostcodeSearch	src/components/PostcodeSearch/index.js	/^function PostcodeSearch(
 Provider	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.createContext.AnonymousClassdd4479394401
 Provider	src/containers/provider.js	/^const Provider = ({ match }) => {$/;"	C
 ProviderContainer	src/containers/provider.js	/^const ProviderContainer = styled.div`$/;"	C
+ProviderList	src/components/ProviderList/index.js	/^function ProviderList() {$/;"	f
+ProviderMap	src/components/ProviderMap/index.js	/^function ProviderMap({ mapProps, markers }) {$/;"	f
+ProviderSection	src/components/ProviderSection/ProviderSection.js	/^const ProviderSection = () => {$/;"	C
 Ps	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Pt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Q	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1128,6 +1187,7 @@ Qr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Qs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Qt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Qt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+Quotes	src/containers/home.js	/^const Quotes = () => ($/;"	C
 R	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 R	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 R	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:U
@@ -1144,19 +1204,20 @@ Rl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Rn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Rn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Ro	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+RouteWrapper	src/components/Routes/Route.js	/^export default function RouteWrapper({ component: Component, ...rest }) {$/;"	f
 Rr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Rs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Rt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Rt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 S	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 S	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:AnonymousFunctiondd4479390400
-S	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
 Sa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Scroll	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xn
 Se	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 SelectedItemIcon	src/components/LocationFilter/index.js	/^const SelectedItemIcon = styled.img`$/;"	C
 SelectedPane	src/components/SelectedPane/index.js	/^function SelectedPane() {$/;"	f
 SelectedPaneContainer	src/components/SelectedPane/index.js	/^const SelectedPaneContainer = styled.div`$/;"	C
+SettingsContainer	src/components/Header/index.js	/^const SettingsContainer = styled.div`$/;"	C
 Shift	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Sn
 Si	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Sl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1164,11 +1225,18 @@ Sn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Sn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Spacebar	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xn
 SphericalMercator	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:yn
+Spinner	src/components/Spinner/index.js	/^const Spinner = () => ($/;"	C
+SpinnerContainer	src/components/Spinner/index.js	/^const SpinnerContainer = styled.div`$/;"	C
 Sr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Ss	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 St	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+StyledSpinner	src/components/Spinner/index.js	/^const StyledSpinner = styled.svg`$/;"	C
+SubHeading	src/components/Header/index.js	/^const SubHeading = styled.span`$/;"	C
 T	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+T	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 TOWN	src/App.js	/^  const TOWN = provider["provider town\/city"];$/;"	C
+TOWN	src/containers/list.js	/^  const TOWN = provider["provider town\/city"];$/;"	C
+TOWN	src/containers/map.js	/^  const TOWN = provider["provider town\/city"];$/;"	C
 TRANSFORM	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xe
 TRANSITION	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xe
 TRANSITION_END	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xe
@@ -1182,6 +1250,7 @@ Tt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Tt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 U	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 U	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+URL	src/constants/index.js	/^export const URL = "provider url";$/;"	C
 Ua	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ue	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 Ue	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1200,6 +1269,8 @@ Va	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 Va	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Ve	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 Ve	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+VendorContainer	src/components/ProviderList/index.js	/^const VendorContainer = styled.li`$/;"	C
+VendorList	src/components/ProviderList/index.js	/^const VendorList = styled.ul`$/;"	C
 Vi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Vl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 Vn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1262,6 +1333,7 @@ _	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 _	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 _	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:Ct.L
 _	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+_	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 __self	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:x
 __source	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:x
 _a	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1294,7 +1366,7 @@ _off	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webp
 _on	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:C
 _propagateEvent	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:C
 _r	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
-_read	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:e
+_read	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:e
 _removePath	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:li
 _reset	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:oi
 _round	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:M
@@ -1326,6 +1398,7 @@ a	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 a	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:v._invoke
 a	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 a	build/static/js/runtime-main.fac50e4b.js	/^!function(e){function r(r){for(var n,l,f=r[0],a=r[1],i=r[2],c=0,s=[];c<f.length;c++)l=f[c],Objec/;"	v
+a	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1100
 aa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 abrupt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:x
 action	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:La.r
@@ -1337,9 +1410,11 @@ addListener	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=th
 addTo	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:Qe
 addTo	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:Ve
 addressArray	src/App.js	/^  const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter($/;"	C
+addressArray	src/containers/list.js	/^  const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter($/;"	C
+addressArray	src/containers/map.js	/^  const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter($/;"	C
 ae	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ae	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-agent	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.o
+agent	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.n
 ai	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ai	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 al	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1356,7 +1431,7 @@ animationstart	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals
 any3d	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ct
 ao	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ar	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
-arrayBuffer	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	m	class:AnonymousFunction5182462b2000.f
+arrayBuffer	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	m	class:AnonymousFunction5182462b2500.f
 as	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 assign	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:O
 at	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1370,7 +1445,7 @@ b	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 b	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 b	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400
 b	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400.b
-b	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+b	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 ba	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 background_color	build/manifest.json	/^  "background_color": "#ffffff"$/;"	s
 background_color	public/manifest.json	/^  "background_color": "#ffffff"$/;"	s
@@ -1381,6 +1456,7 @@ baseState	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this
 baseState	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:lr.n
 baseState	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:oa.t
 baseState	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:t.updateQueue
+baseUrl	jsconfig.json	/^    "baseUrl": "src"$/;"	s	object:compilerOptions
 be	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 bi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 bind	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:E
@@ -1388,11 +1464,10 @@ binding	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.w
 bl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 bo	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 body	build/static/css/main.b71878fb.chunk.css	/^body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu"/;"	s
-body	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.o
-body	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:b.AnonymousClass5182462b2501
-body	src/App.css	/^html, body {$/;"	s
-body	src/index.css	/^body {$/;"	s
+body	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.n
+body	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:b.AnonymousClass5182462b2a01
 body-scroll-lock	package.json	/^    "body-scroll-lock": "^3.1.5",$/;"	s	object:dependencies
+bootstrap	package.json	/^    "bootstrap": "^4.5.3",$/;"	s	object:dependencies
 borderImageOutset	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.a
 borderImageOutset	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:vt
 borderImageSlice	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.a
@@ -1415,18 +1490,22 @@ bs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 bt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 bt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 bubbles	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:hn
+build	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:t
 build	package.json	/^    "build": "run-p build:**",$/;"	s	object:scripts
 build:app	package.json	/^    "build:app": "react-scripts build",$/;"	s	object:scripts
 build:lambda	package.json	/^    "build:lambda": "netlify-lambda build src\/lambda",$/;"	s	object:scripts
 buildAddressString	src/App.js	/^export const buildAddressString = (provider) => {$/;"	C
+buildAddressString	src/containers/list.js	/^export const buildAddressString = (provider) => {$/;"	C
+buildAddressString	src/containers/map.js	/^export const buildAddressString = (provider) => {$/;"	C
 bundleType	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:iu
 bundleType	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:nu
 c	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 c	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:AnonymousFunctiondd447939bf00
 c	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:wr
 c	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-c	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	c	class:AnonymousFunction5182462b3d00
-c	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b3700
+c	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	c	class:AnonymousFunction5182462b4200
+c	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1100
+c	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b3c00
 ca	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 callInitHooks	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:r
 callback	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:n
@@ -1439,7 +1518,7 @@ canvas	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.we
 ce	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ceil	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:M
 chdir	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:o
-checkValidServiceWorker	src/serviceWorker.js	/^function checkValidServiceWorker(swUrl, config) {$/;"	f
+checkJs	jsconfig.json	/^    "checkJs": true,$/;"	b	object:compilerOptions
 childContextTypes	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:o
 children	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ga.e
 children	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ya.s
@@ -1462,7 +1541,6 @@ cn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 cn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 co	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 code	build/static/css/main.b71878fb.chunk.css	/^body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu"/;"	s
-code	src/index.css	/^code {$/;"	s
 collectStyles	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 color	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Un
 columnCount	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.a
@@ -1470,10 +1548,13 @@ columnCount	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=th
 columns	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.a
 columns	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:vt
 compare	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:a
+compilerOptions	jsconfig.json	/^  "compilerOptions": {$/;"	o
 complete	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:x
-compress	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.o
+component	src/components/Routes/Route.js	/^  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),$/;"	p	class:RouteWrapper.propTypes
+compress	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.n
 constructor	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:x
-constructor	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	m	class:AnonymousFunction5182462b2000.f
+constructor	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	m	class:AnonymousFunction5182462b2500.f
+constructor	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	m	class:AnonymousFunction5182462b4700.i
 containerInfo	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.stateNode
 contains	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:I
 contains	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:M
@@ -1482,12 +1563,14 @@ contextType	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=th
 contextTypes	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:o
 controlled	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:t._wrapperState
 coords	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:createTile._tiles
+coords	src/containers/map.js	/^const DEFAULT_UK_MAP_PROPS = { coords: [55.378052, -3.435973], zoom: 6 };$/;"	p	class:DEFAULT_UK_MAP_PROPS
 count	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:e.Children
-counter	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.n
-counter	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.o
+counter	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.n
+counter	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.o
 cr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 create	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:E
 create	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:da.t
+create	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	m	class:AnonymousFunction5182462b4700.i
 createContext	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 createFactory	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 createRef	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
@@ -1508,9 +1591,9 @@ d	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 d	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:wr
 d	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 d	build/static/js/runtime-main.fac50e4b.js	/^!function(e){function r(r){for(var n,l,f=r[0],a=r[1],i=r[2],c=0,s=[];c<f.length;c++)l=f[c],Objec/;"	f	function:l
-d	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
-d	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:r
+d	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:r
 da	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+data	src/components/AppContext/AppContext.js	/^  data: null,$/;"	p	class:initialState
 date	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Un
 datetime	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Un
 datetime-local	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Un
@@ -1532,6 +1615,7 @@ di	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 di	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 disableClickPropagation	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ue
 disableScrollPropagation	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ue
+dispatch	src/components/AppContext/AppContext.js	/^  const [state, dispatch] = React.useReducer(reducer, initialState);$/;"	C
 dispatchException	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:x
 display	build/manifest.json	/^  "display": "standalone",$/;"	s
 display	public/manifest.json	/^  "display": "standalone",$/;"	s
@@ -1540,7 +1624,7 @@ displayName	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=th
 displayName	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:s
 distanceTo	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:D
 distanceTo	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:M
-disturbed	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:b.AnonymousClass5182462b2501
+disturbed	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:b.AnonymousClass5182462b2a01
 divIcon	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
 divideBy	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:M
 dl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1561,6 +1645,8 @@ e	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 e	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:wr
 e	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 e	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40800
+e	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:t.build
+eTag	public/serviceWorker.js	/^        eTag: response.headers.get('ETag')$/;"	p	class:AnonymousFunction58b330a90800.message
 ea	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 eagerReducer	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:La.r
 eagerReducer	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:aa.h
@@ -1594,7 +1680,7 @@ equals	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.we
 equals	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:M
 equals	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:R
 er	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
-error	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:b.AnonymousClass5182462b2501
+error	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:b.AnonymousClass5182462b2a01
 es	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 eslintConfig	package.json	/^  "eslintConfig": {$/;"	o
 et	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1602,18 +1688,21 @@ et	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 eu	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 eventPhase	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:hn
 eventTime	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:lr.a
+exclude	jsconfig.json	/^  "exclude": ["node_modules", "**\/node_modules\/*"]$/;"	a
 expirationTime	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.unstable_scheduleCallback.t
 exports	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
+exports	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:e
 extend	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:T
 extend	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:I
 extend	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:R
 extend	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:E
 extends	package.json	/^    "extends": "react-app"$/;"	s	object:eslintConfig
+extract	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	m	class:AnonymousFunction5182462b4700.i
 f	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 f	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:AnonymousFunctiondd4479390400
 f	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:G
 f	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-f	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	c	class:AnonymousFunction5182462b2000
+f	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	c	class:AnonymousFunction5182462b2500
 fa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 fakeStop	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ue
 falseFn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:E
@@ -1630,7 +1719,7 @@ findFiberByHostInstance	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonp
 findHostInstanceByFiber	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:iu
 findHostInstancesForRefresh	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:iu
 finish	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:x
-finishFlush	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.c
+finishFlush	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.c
 fire	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:C
 firstBaseUpdate	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:lr.n
 firstBaseUpdate	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:t.updateQueue
@@ -1651,12 +1740,12 @@ flexShrink	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=thi
 floodOpacity	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.a
 floodOpacity	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:vt
 floor	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:M
-flush	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.c
+flush	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.c
 flushSync	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 fn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 fo	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 focusedElem	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ll.Bi
-follow	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.o
+follow	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.n
 fontWeight	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.a
 fontWeight	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:vt
 forEach	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:e.Children
@@ -1664,6 +1753,7 @@ forceUpdate	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=th
 formatNum	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:E
 forwardRef	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 fr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
+fromCache	public/serviceWorker.js	/^function fromCache(request) {$/;"	f
 fs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ft	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ft	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -1672,7 +1762,7 @@ g	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 g	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 g	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400
 g	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400.g
-g	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+g	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 g-sheets-api	package.json	/^    "g-sheets-api": "^1.4.0",$/;"	s	object:dependencies
 ga	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ge	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1744,14 +1834,18 @@ h	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 h	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 h	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400
 h	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400.h
+h	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 ha	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+handleProviderClick	src/containers/list.js	/^  const handleProviderClick = (i) => {$/;"	C
+handleProviderClick	src/containers/map.js	/^  const handleProviderClick = (i) => {$/;"	C
 handler	src/lambda/providers.js	/^export async function handler(event, context) {$/;"	f
 hasNameForId	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 he	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 he	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-headers	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.n
-headers	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.o
+headers	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.n
+headers	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.o
 hi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+history	src/services/history.js	/^const history = createBrowserHistory();$/;"	C
 hl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 hn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 hn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1759,7 +1853,6 @@ ho	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 hs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ht	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 html	build/static/css/main.b71878fb.chunk.css	/^body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu"/;"	s
-html	src/App.css	/^html, body {$/;"	s
 hydrate	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 i	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:T.extend
 i	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1771,10 +1864,11 @@ i	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 i	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:x.dispatchException
 i	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 i	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v	class:x
-i	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b0b00
-i	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b0f00
-i	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b1100
-i	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b1c00
+i	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	c	class:AnonymousFunction5182462b4700
+i	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b0b00
+i	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1600
+i	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b2100
+i	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b4800
 ia	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 icon	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
 icons	build/manifest.json	/^  "icons": [$/;"	a
@@ -1790,15 +1884,17 @@ il	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 imageOverlay	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
 implementation	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.stateNode
 include	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:T
-index	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:L.r
+index	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:k.r
 index.html	build/asset-manifest.json	/^    "index.html": "\/index.html",$/;"	s	object:files
 indexOf	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:E
 indexOfGroup	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 infinite	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:j
 initialChecked	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:t._wrapperState
+initialState	src/components/AppContext/AppContext.js	/^const initialState = {$/;"	c
 initialValue	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:t._wrapperState
 initialize	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:In
 inject	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:AnonymousFunctiondd4479391d00.t
+insert	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:t
 insertRule	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 insertRules	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:e
 insertRules	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
@@ -1819,7 +1915,7 @@ isForwardRef	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=t
 isFragment	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 isGeneratorFunction	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
 isLazy	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
-isLocalhost	src/serviceWorker.js	/^const isLocalhost = Boolean($/;"	C
+isLocalhost	src/services/serviceWorker.service.js	/^const isLocalhost = Boolean($/;"	C
 isMemo	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 isMounted	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:fr
 isMounted	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:p
@@ -1839,7 +1935,7 @@ j	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 j	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 j	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400
 j	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400.j
-j	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+j	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 ja	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 je	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ji	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -1848,18 +1944,19 @@ jn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 jo	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 jr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 js	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+jsx	jsconfig.json	/^    "jsx": "preserve",$/;"	s	object:compilerOptions
 jt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 jt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 k	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 k	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-k	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+k	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 ka	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ke	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 ke	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 key	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:x
 keys	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
 ki	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
-kind	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:L.r
+kind	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:k.r
 kl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 kn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 kn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -1872,6 +1969,7 @@ l	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 l	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:wr
 l	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 l	build/static/js/runtime-main.fac50e4b.js	/^!function(e){function r(r){for(var n,l,f=r[0],a=r[1],i=r[2],c=0,s=[];c<f.length;c++)l=f[c],Objec/;"	f
+l	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1100
 la	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 lane	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:La.r
 lane	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:aa.h
@@ -1899,6 +1997,8 @@ listens	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.w
 ll	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ln	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ln	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+locations	src/components/AppContext/AppContext.js	/^  locations: null,$/;"	p	class:initialState
+lookup	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:t
 lr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ls	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 lt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1906,7 +2006,7 @@ lt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 m	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 m	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:AnonymousFunctiondd4479390400
 m	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-m	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+m	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 ma	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 main.css	build/asset-manifest.json	/^    "main.css": "\/static\/css\/main.b71878fb.chunk.css",$/;"	s	object:files
 main.js	build/asset-manifest.json	/^    "main.js": "\/static\/js\/main.34b88efd.chunk.js",$/;"	s	object:files
@@ -1923,7 +2023,8 @@ memoizedState	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=
 memoizedState	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:ia.t
 memoizedState	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:oa.t
 mergeOptions	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:T
-method	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.o
+message	public/serviceWorker.js	/^      var message = {$/;"	c	class:AnonymousFunction58b330a90800
+method	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.n
 mi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 mixins	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:o
 ml	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1936,6 +2037,7 @@ mobileWebkit	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=t
 mobileWebkit3d	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ct
 mode	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ga.e
 mode	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ya.s
+module	jsconfig.json	/^    "module": "commonjs",$/;"	s	object:compilerOptions
 month	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Un
 mousedown	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:en
 mousedown	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:nn
@@ -1960,13 +2062,13 @@ n	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 n	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:wr
 n	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 n	build/static/js/runtime-main.fac50e4b.js	/^!function(e){function r(r){for(var n,l,f=r[0],a=r[1],i=r[2],c=0,s=[];c<f.length;c++)l=f[c],Objec/;"	f	function:l
-n	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	c	class:AnonymousFunction5182462b3d00
-n	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b1100.i
+n	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	c	class:AnonymousFunction5182462b4200
+n	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1e00
 na	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 name	build/manifest.json	/^  "name": "Create React App Sample",$/;"	s
 name	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:r
-name	package.json	/^  "name": "freemeals",$/;"	s
-name	public/manifest.json	/^  "name": "Create React App Sample",$/;"	s
+name	package.json	/^  "name": "freemealsuk",$/;"	s
+name	public/manifest.json	/^  "name": "Free Meals UK",$/;"	s
 ne	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ne	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 netlify-lambda	package.json	/^    "netlify-lambda": "^2.0.1",$/;"	s	object:dependencies
@@ -1985,10 +2087,21 @@ nn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 no	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 noConflict	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
 node-fetch	package.json	/^    "node-fetch": "^2.6.1",$/;"	s	object:dependencies
+normalize.css	package.json	/^    "normalize.css": "^8.0.1",$/;"	s	object:dependencies
 npm-run-all	package.json	/^    "npm-run-all": "^4.1.5",$/;"	s	object:dependencies
 nr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ns	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+ns1ce405ce0101	src/images/footer.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="161" height="15"><g fill="none"><path fill="#/;"	n	uri:http://www.w3.org/2000/svg
+ns22bcf8fe0101	src/images/icon-selected.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="17" height="17"><g fill="none" fill-rule="eve/;"	n	uri:http://www.w3.org/2000/svg
+ns27e7cf430101	src/images/icon-quote.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="29" height="22"><path fill="#FFF" d="M6.256 2/;"	n	uri:http://www.w3.org/2000/svg
+ns4432a24b0101	src/images/intro.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="306" height="80"><g fill="none"><path fill="#/;"	n	uri:http://www.w3.org/2000/svg
+ns5eeb076b0101	src/images/icon-search.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="18" height="18"><g fill="none" fill-rule="eve/;"	n	uri:http://www.w3.org/2000/svg
+ns850ab3ae0101	src/images/icon-location.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="24" height="24"><g fill="none" fill-rule="eve/;"	n	uri:http://www.w3.org/2000/svg
+ns957030aa0101	src/images/icon-menu.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="24" height="8"><g fill="none" fill-rule="even/;"	n	uri:http://www.w3.org/2000/svg
 nsb0aa9e8b0101	src/logo.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" viewBox="0 0 841.9 595.3">$/;"	n	uri:http://www.w3.org/2000/svg
+nsdcdf4da80101	src/images/header.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="421" height="317"><g fill="none"><path fill="/;"	n	uri:http://www.w3.org/2000/svg
+nsf3cc51d50101	src/images/banner.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="200" height="436"><g fill="none" fill-rule="e/;"	n	uri:http://www.w3.org/2000/svg
+nsf7e5e4c00101	src/images/icon-arrow.svg	/^<svg xmlns="http:\/\/www.w3.org\/2000\/svg" width="24" height="24"><g fill="none" fill-rule="eve/;"	n	uri:http://www.w3.org/2000/svg
 nt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 nt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 nu	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
@@ -2003,8 +2116,10 @@ o	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 o	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v	class:x
 o	build/static/js/runtime-main.fac50e4b.js	/^!function(e){function r(r){for(var n,l,f=r[0],a=r[1],i=r[2],c=0,s=[];c<f.length;c++)l=f[c],Objec/;"	c
 o	build/static/js/runtime-main.fac50e4b.js	/^!function(e){function r(r){for(var n,l,f=r[0],a=r[1],i=r[2],c=0,s=[];c<f.length;c++)l=f[c],Objec/;"	f	function:l
-o	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	c	class:AnonymousFunction5182462b3d00
-o	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b1900
+o	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	c	class:AnonymousFunction5182462b4200
+o	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	c	class:AnonymousFunction5182462b4800
+o	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1600.i
+o	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b4700
 oa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 oe	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 oe	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -2091,10 +2206,12 @@ project	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.w
 propTypes	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:a
 propTypes	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:o
 propTypes	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:s
+propTypes	src/components/Routes/Route.js	/^RouteWrapper.propTypes = {$/;"	c	class:RouteWrapper
 proxy	package.json	/^  "proxy": "http:\/\/localhost:9000"$/;"	s
 ps	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 pt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 pt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+publicUrl	src/services/serviceWorker.service.js	/^    const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);$/;"	C
 q	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 qa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 qe	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -2119,15 +2236,20 @@ r	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 r	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 r	build/static/js/runtime-main.fac50e4b.js	/^!function(e){function r(r){for(var n,l,f=r[0],a=r[1],i=r[2],c=0,s=[];c<f.length;c++)l=f[c],Objec/;"	f
 r	build/static/js/runtime-main.fac50e4b.js	/^!function(e){function r(r){for(var n,l,f=r[0],a=r[1],i=r[2],c=0,s=[];c<f.length;c++)l=f[c],Objec/;"	f	function:l
-r	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	c	class:L
-r	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b0100
+r	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	c	class:k
+r	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b0100
+r	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b4a00
 ra	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 range	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Un
 re	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 re	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 react	package.json	/^    "react": "^17.0.1",$/;"	s	object:dependencies
+react-bootstrap	package.json	/^    "react-bootstrap": "^1.4.0",$/;"	s	object:dependencies
 react-dom	package.json	/^    "react-dom": "^17.0.1",$/;"	s	object:dependencies
+react-geolocated	package.json	/^    "react-geolocated": "^3.0.1",$/;"	s	object:dependencies
+react-helmet	package.json	/^    "react-helmet": "^6.1.0",$/;"	s	object:dependencies
 react-leaflet	package.json	/^    "react-leaflet": "^2.8.0",$/;"	s	object:dependencies
+react-router-dom	package.json	/^    "react-router-dom": "^5.2.0",$/;"	s	object:dependencies
 react-scripts	package.json	/^    "react-scripts": "3.4.4",$/;"	s	object:dependencies
 readContext	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ca
 readContext	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ea
@@ -2135,13 +2257,14 @@ readContext	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=th
 readContext	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:za
 reconstructWithOptions	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 rectangle	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
+reducer	src/components/AppContext/AppContext.js	/^const reducer = (state, action) => {$/;"	C
 ref	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:x
+refresh	public/serviceWorker.js	/^function refresh(response) {$/;"	f
 refs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:i.memoizedState
 refs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:t.memoizedState
-register	src/serviceWorker.js	/^export function register(config) {$/;"	f
 registerId	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
 registerName	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
-registerValidSW	src/serviceWorker.js	/^function registerValidSW(swUrl, config) {$/;"	f
+registerServiceWorker	src/services/serviceWorker.service.js	/^export const registerServiceWorker = () => {$/;"	C
 remove	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:AnonymousFunctiondd44793922100.n
 removeEventParent	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:C
 removeListener	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ue
@@ -2183,7 +2306,8 @@ s	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 s	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:wr
 s	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:AnonymousFunctiondd44793926100.n
 s	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-s	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+s	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+s	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b4800
 sa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 safari	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ct
 scale	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:$e
@@ -2197,11 +2321,35 @@ se	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 se	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 seal	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:AnonymousFunctiondd4479393000.t
 search	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Un
+search	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:t
+selectedIndex	src/components/AppContext/AppContext.js	/^  selectedIndex: null,$/;"	p	class:initialState
 selectedIndex	src/containers/provider.js	/^  const selectedIndex = match.params.id;$/;"	C
+selectedLocation	src/components/AppContext/AppContext.js	/^  selectedLocation: 'All',$/;"	p	class:initialState
 selectionRange	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ll.Bi
 service-worker.js	build/asset-manifest.json	/^    "service-worker.js": "\/service-worker.js",$/;"	s	object:files
+setData	src/components/AppContext/AppContext.js	/^  function setData(data) {$/;"	f
+setData	src/containers/list.js	/^  const [data, setData] = useState([]);$/;"	C
+setData	src/containers/map.js	/^  const [data, setData] = useState([]);$/;"	C
+setFetchingData	src/containers/list.js	/^  const [fetchingData, setFetchingData] = useState(false);$/;"	C
+setFetchingData	src/containers/map.js	/^  const [fetchingData, setFetchingData] = useState(false);$/;"	C
+setFooterVisible	src/containers/list.js	/^  const [footerVisible, setFooterVisible] = useState(true);$/;"	C
+setFooterVisible	src/containers/map.js	/^  const [footerVisible, setFooterVisible] = useState(true);$/;"	C
+setLocations	src/components/AppContext/AppContext.js	/^  function setLocations(locations) {$/;"	f
+setLocations	src/containers/list.js	/^  const [locations, setLocations] = useState([]);$/;"	C
+setLocations	src/containers/map.js	/^  const [locations, setLocations] = useState([]);$/;"	C
+setMapProps	src/containers/map.js	/^  const [mapProps, setMapProps] = useState(DEFAULT_UK_MAP_PROPS);$/;"	C
+setMarkers	src/containers/list.js	/^  const [markers, setMarkers] = useState();$/;"	C
+setMarkers	src/containers/map.js	/^  const [markers, setMarkers] = useState();$/;"	C
 setOptions	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:E
 setRefreshHandler	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:iu
+setResultsMode	src/containers/list.js	/^  const [resultsMode, setResultsMode] = useState("closest");$/;"	C
+setResultsMode	src/containers/map.js	/^  const [resultsMode, setResultsMode] = useState("closest");$/;"	C
+setSelectedIndex	src/components/AppContext/AppContext.js	/^  function setSelectedIndex(selectedIndex) {$/;"	f
+setSelectedIndex	src/containers/list.js	/^  const [selectedIndex, setSelectedIndex] = useState(null);$/;"	C
+setSelectedIndex	src/containers/map.js	/^  const [selectedIndex, setSelectedIndex] = useState(null);$/;"	C
+setSelectedLocation	src/components/AppContext/AppContext.js	/^  function setSelectedLocation(selectedLocation) {$/;"	f
+setSelectedLocation	src/containers/list.js	/^  const [selectedLocation, setSelectedLocation] = useState("All");$/;"	C
+setSelectedLocation	src/containers/map.js	/^  const [selectedLocation, setSelectedLocation] = useState("All");$/;"	C
 setSnapshot	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:i.memoizedState.refs
 setState	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:_
 setStyle	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:zn
@@ -2210,14 +2358,14 @@ shared	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.we
 shared	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:lr.n
 sheet	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 short_name	build/manifest.json	/^  "short_name": "React App",$/;"	s
-short_name	public/manifest.json	/^  "short_name": "React App",$/;"	s
+short_name	public/manifest.json	/^  "short_name": "FreeMealsUK",$/;"	s
 si	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
-signal	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.o
+signal	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.n
 simplify	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:pn
 siteId	.netlify/state.json	/^	"siteId": "047ccaa7-c33f-4df4-a38e-263293b88c9a"$/;"	s
-size	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	G	class:AnonymousFunction5182462b2000.f
-size	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.n
-size	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.o
+size	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	G	class:AnonymousFunction5182462b2500.f
+size	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.n
+size	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.o
 sizes	build/manifest.json	/^      "sizes": "192x192"$/;"	s	object:icons.1
 sizes	build/manifest.json	/^      "sizes": "512x512"$/;"	s	object:icons.2
 sizes	build/manifest.json	/^      "sizes": "64x64 32x32 24x24 16x16",$/;"	s	object:icons.0
@@ -2226,12 +2374,13 @@ sizes	public/manifest.json	/^      "sizes": "512x512"$/;"	s	object:icons.2
 sizes	public/manifest.json	/^      "sizes": "64x64 32x32 24x24 16x16",$/;"	s	object:icons.0
 skipped	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ue
 sl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
-slice	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	m	class:AnonymousFunction5182462b2000.f
+slice	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	m	class:AnonymousFunction5182462b2500.f
 sn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 so	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 sortIndex	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.unstable_scheduleCallback.t
 source	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:i.memoizedState
 source	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:t.memoizedState
+sphere-knn	package.json	/^    "sphere-knn": "^1.4.0",$/;"	s	object:dependencies
 splitWords	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:E
 sr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 src	build/manifest.json	/^      "src": "favicon.ico",$/;"	s	object:icons.0
@@ -2254,14 +2403,14 @@ static/css/main.b71878fb.chunk.css.map	build/asset-manifest.json	/^    "static\/
 static/js/2.bfe7432c.chunk.js	build/asset-manifest.json	/^    "static\/js\/2.bfe7432c.chunk.js": "\/static\/js\/2.bfe7432c.chunk.js",$/;"	s	object:files
 static/js/2.bfe7432c.chunk.js.LICENSE.txt	build/asset-manifest.json	/^    "static\/js\/2.bfe7432c.chunk.js.LICENSE.txt": "\/static\/js\/2.bfe7432c.chunk.js.LICENSE.tx/;"	s	object:files
 static/js/2.bfe7432c.chunk.js.map	build/asset-manifest.json	/^    "static\/js\/2.bfe7432c.chunk.js.map": "\/static\/js\/2.bfe7432c.chunk.js.map",$/;"	s	object:files
-status	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.n
-statusText	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.n
+status	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.o
+statusText	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.o
 stop	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:x
 stop	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ue
 stopOpacity	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.a
 stopOpacity	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:vt
 stopPropagation	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ue
-stream	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	m	class:AnonymousFunction5182462b2000.f
+stream	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	m	class:AnonymousFunction5182462b2500.f
 strokeDasharray	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.a
 strokeDasharray	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:vt
 strokeDashoffset	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.a
@@ -2306,20 +2455,21 @@ t	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 t	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:rn
 t	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 t	build/static/js/runtime-main.fac50e4b.js	/^!function(e){function r(r){for(var n,l,f=r[0],a=r[1],i=r[2],c=0,s=[];c<f.length;c++)l=f[c],Objec/;"	f	function:l
-t	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f	function:AnonymousFunction5182462b3d00
+t	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b4200
 ta	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 tabSize	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.a
 tabSize	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:vt
 tag	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:da.t
 tag	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:lr.a
-target	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:L.r
+target	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:k.r
+target	jsconfig.json	/^    "target": "es2016",$/;"	s	object:compilerOptions
 te	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 te	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 tel	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Un
 template	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:E
 test	package.json	/^    "test": "react-scripts test",$/;"	s	object:scripts
 text	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Un
-text	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	m	class:AnonymousFunction5182462b2000.f
+text	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	m	class:AnonymousFunction5182462b2500.f
 theme_color	build/manifest.json	/^  "theme_color": "#000000",$/;"	s
 theme_color	public/manifest.json	/^  "theme_color": "#000000",$/;"	s
 throttle	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:E
@@ -2327,8 +2477,8 @@ ti	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 ti	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 time	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Un
 timeStamp	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:hn
-timeout	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.n
-timeout	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.o
+timeout	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.n
+timeout	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.o
 timestamp	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:AnonymousFunctiondd447939cc00.r
 tl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 tn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -2342,7 +2492,7 @@ toString	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.
 toString	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:AnonymousFunctiondd4479391d00.t
 toString	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:D
 toString	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:M
-toString	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	m	class:AnonymousFunction5182462b2000.f
+toString	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	m	class:AnonymousFunction5182462b2500.f
 tooltip	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
 touch	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Ct
 touchstart	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:en
@@ -2363,15 +2513,17 @@ type	build/manifest.json	/^      "type": "image\/png",$/;"	s	object:icons.2
 type	build/manifest.json	/^      "type": "image\/x-icon"$/;"	s	object:icons.0
 type	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:a
 type	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:o
-type	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	G	class:AnonymousFunction5182462b2000.f
+type	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	G	class:AnonymousFunction5182462b2500.f
 type	public/manifest.json	/^      "type": "image\/png",$/;"	s	object:icons.1
 type	public/manifest.json	/^      "type": "image\/png",$/;"	s	object:icons.2
 type	public/manifest.json	/^      "type": "image\/x-icon"$/;"	s	object:icons.0
+type	public/serviceWorker.js	/^        type: 'refresh',$/;"	p	class:AnonymousFunction58b330a90800.message
 u	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 u	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 u	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:wr
 u	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-u	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+u	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
+u	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f	function:AnonymousFunction5182462b1100
 ua	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ue	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ui	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -2385,7 +2537,7 @@ unproject	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this
 unproject	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:gn
 unproject	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:j
 unproject	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:vn
-unregister	src/serviceWorker.js	/^export function unregister() {$/;"	f
+unregister	src/services/serviceWorker.service.js	/^export const unregister = () => {$/;"	C
 unscaleBy	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:M
 unstable_cancelCallback	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 unstable_continueExecution	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
@@ -2405,10 +2557,12 @@ unstable_scheduleCallback	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJso
 unstable_shouldYield	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 unstable_wrapCallback	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 untransform	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	m	class:W
+update	public/serviceWorker.js	/^function update(request) {$/;"	f
 updateQueue	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:t
 ur	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 url	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:Un
-url	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	p	class:AnonymousFunction5182462b3d00.n
+url	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	p	class:AnonymousFunction5182462b4200.o
+url	public/serviceWorker.js	/^        url: response.url,$/;"	p	class:AnonymousFunction58b330a90800.message
 us	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 use	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:l
 useCallback	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
@@ -2485,7 +2639,7 @@ v	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 v	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 v	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400
 v	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400.v
-v	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+v	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 va	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 ve	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 version	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:iu
@@ -2510,7 +2664,7 @@ vt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 w	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 w	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400
 w	build/static/js/main.34b88efd.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[0],{15:function(e,n,t){e.expo/;"	f	function:AnonymousFunctiondcbe83d40400.w
-w	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+w	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 wa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 wasMultiple	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:case._wrapperState
 we	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -2537,7 +2691,7 @@ x	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 x	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 x	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:AnonymousFunctiondd44793926100.n
 x	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
-x	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(o){if(t[o])retu/;"	f
+x	built-lambda/providers.js	/^!function(e,t){for(var r in t)e[r]=t[r]}(exports,function(e){var t={};function r(n){if(t[n])retu/;"	f
 xa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 xe	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 xe	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -2576,6 +2730,7 @@ zoom	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webp
 zoom	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:AnonymousFunctiondd44793926f00.t
 zoom	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.a
 zoom	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:vt
+zoom	src/containers/map.js	/^const DEFAULT_UK_MAP_PROPS = { coords: [55.378052, -3.435973], zoom: 6 };$/;"	p	class:DEFAULT_UK_MAP_PROPS
 zoomend	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:AnonymousFunctiondd44793926f00.t
 zr	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 zt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
