@@ -65,7 +65,8 @@ function App() {
         });
         setLocations(["All", ...locationSet]);
       });
-  }, [coords, isGeolocationAvailable, selectedLocation, setData, setLocations, setSelectedIndex]);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coords, isGeolocationAvailable, selectedLocation]);
 
   return (
     <>

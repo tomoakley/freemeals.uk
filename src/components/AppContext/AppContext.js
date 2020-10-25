@@ -36,7 +36,7 @@ const initialState = {
   data: null,
   selectedIndex: null,
   locations: null,
-  selectedLocation: null,
+  selectedLocation: 'All',
 };
 
 export const AppContext = React.createContext(initialState);
@@ -61,7 +61,7 @@ const AppContextProvider = (props) => {
   function setLocations(locations) {
     dispatch({
       type: "SET_LOCATIONS",
-      payload: locations, 
+      payload: locations,
     })
   }
 
