@@ -30,12 +30,14 @@ export const buildAddressString = (provider) => {
 };
 
 function App() {
-  const { setData, setSelectedIndex } = React.useContext(AppContext);
+  const {
+    setData,
+    setLocations,
+    selectedLocation
+  } = React.useContext(AppContext);
   const { isGeolocationAvailable, coords } = useContext(GeoContext);
   const [fetchingData, setFetchingData] = useState(false);
-  const [locations, setLocations] = useState([]);
-  const [resultsMode, setResultsMode] = useState("closest");
-  const [selectedLocation, setSelectedLocation] = useState("All");
+  const resultsMode = "closest"
 
   useEffect(() => {
     setFetchingData(true);
@@ -57,17 +59,13 @@ function App() {
 
         const locationSet = new Set();
         data.forEach((provider) => {
+          console.log(provider);
           locationSet.add(provider["provider town/city"]);
         });
         setLocations(["All", ...locationSet]);
       });
-  }, [
-    selectedLocation,
-    locations.length,
-    coords,
-    isGeolocationAvailable,
-    resultsMode,
-  ]);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coords, isGeolocationAvailable, selectedLocation]);
 
   return (
     <>
