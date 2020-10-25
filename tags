@@ -88,6 +88,7 @@ ADDRESS_2	src/App.js	/^  const ADDRESS_2 = provider["provider address 2"];$/;"	C
 ADDRESS_2	src/containers/list.js	/^  const ADDRESS_2 = provider["provider address 2"];$/;"	C
 ADDRESS_2	src/containers/map.js	/^  const ADDRESS_2 = provider["provider address 2"];$/;"	C
 Aa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+About	src/containers/home.js	/^const About = styled.div`$/;"	C
 AddListingLink	src/components/Header/index.js	/^const AddListingLink = styled.a`$/;"	C
 Ae	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ae	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
@@ -922,6 +923,7 @@ Apps	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webp
 As	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 At	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 B	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+BREAKPOINTS	src/constants/index.js	/^export const BREAKPOINTS = {$/;"	c
 Ba	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Be	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Bi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:Ll
@@ -1044,6 +1046,7 @@ I	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 I	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 INSTRUCTIONS	src/constants/index.js	/^export const INSTRUCTIONS = "how to claim";$/;"	C
 Ia	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+IconLocation	src/images/IconLocation.js	/^const IconLocation = ({ strokeColor = '#BA0D37' }) => ($/;"	C
 Ie	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Ii	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Il	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1987,6 +1990,7 @@ le	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 le	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 leaflet	package.json	/^    "leaflet": "^1.7.1",$/;"	s	object:dependencies
 length	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:r
+lg	src/constants/index.js	/^  lg: '1000px',$/;"	p	class:BREAKPOINTS
 li	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 li	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 lineClamp	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:vt
@@ -2015,6 +2019,8 @@ map	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpa
 map	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.Children
 mark	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
 marker	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:t
+max	src/constants/index.js	/^  max: '1680px'$/;"	p	class:BREAKPOINTS
+md	src/constants/index.js	/^  md: '768px',$/;"	p	class:BREAKPOINTS
 me	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 memo	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f	function:e
 memoizedState	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c	class:e
@@ -2697,6 +2703,7 @@ xe	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 xe	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 xi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 xl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
+xl	src/constants/index.js	/^  xl: '1200px',$/;"	p	class:BREAKPOINTS
 xn	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	c
 xs	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 xt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
