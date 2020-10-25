@@ -1,18 +1,17 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
-
 import { AppContext } from "components/AppContext/AppContext";
-
 import { NAME } from "../../constants";
-
 import { buildAddressString } from "App";
 
 function ProviderList() {
   const history = useHistory();
-  const { data, selectedIndex, setSelectedIndex } = React.useContext(
-    AppContext
-  );
+  const {
+    data,
+    selectedIndex,
+    setSelectedIndex,
+  } = React.useContext(AppContext);
 
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
@@ -21,9 +20,9 @@ function ProviderList() {
 
   return (
     <VendorList>
-      {data ? (
+      {!!data ? (
         <>
-          <p>{data?.length} results</p>
+          <p>{data.length} results</p>
           <div>
             {data.map((provider, i) => (
               <VendorContainer
@@ -32,8 +31,8 @@ function ProviderList() {
                 className={selectedIndex === i && "active"}
               >
                 <div>
-                  <h5>{provider[NAME]}</h5>
-                  <p>{buildAddressString(provider)}</p>
+                  {/* <h5>{provider[NAME]}</h5>
+                  <p>{buildAddressString(provider)}</p> */}
                 </div>
                 {selectedIndex === i && (
                   <svg

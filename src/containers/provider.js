@@ -12,7 +12,7 @@ const Provider = ({ match }) => {
 
   useEffect(() => {
     setSelectedIndex(selectedIndex);
-  }, [setSelectedIndex]);
+  }, [setSelectedIndex, selectedIndex]);
 
   return (
     <ProviderContainer>

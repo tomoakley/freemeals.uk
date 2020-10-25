@@ -1,17 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import Block from "../Block";
+import { AppContext } from "../AppContext/AppContext";
 
-function LocationFilter({ locations, selectedLocation, setSelectedLocation }) {
+function LocationFilter() {
+  const { locations, setSelectedLocation, selectedLocation } = React.useContext(AppContext);
+
   const handleLocationClick = (e, location) => {
     e.preventDefault();
     setSelectedLocation(location);
+    console.log(selectedLocation);
   };
 
   return (
     <LocationFilterContainer>
       <strong>Filter by location</strong>
-      {!!locations.length &&
+      {!!locations?.length &&
         locations.sort().slice().map((location) => (
           <LocationItem key={location}>
             <Block
@@ -19,7 +23,6 @@ function LocationFilter({ locations, selectedLocation, setSelectedLocation }) {
               href="#"
               onClick={(e) => handleLocationClick(e, location)}
             >
-              {location === selectedLocation && <span>&#10003;</span>}
               {location}
             </Block>
           </LocationItem>

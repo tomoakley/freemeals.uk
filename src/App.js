@@ -1,4 +1,4 @@
-import React, { Suspense, useContext, useEffect, useState } from "react";
+import React, { Suspense, useContext, useEffect } from "react";
 import { Router, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
@@ -29,16 +29,19 @@ export const buildAddressString = (provider) => {
 };
 
 function App() {
-  const { setData, setSelectedIndex } = React.useContext(AppContext);
+  const {
+    setData,
+    setSelectedIndex,
+    setLocations,
+    selectedLocation
+  } = React.useContext(AppContext);
   const { isGeolocationAvailable, coords } = useContext(GeoContext);
-  const [fetchingData, setFetchingData] = useState(false);
-  const [locations, setLocations] = useState([]);
-  const [resultsMode, setResultsMode] = useState("closest");
-  const [selectedLocation, setSelectedLocation] = useState("All");
+  // const [fetchingData, setFetchingData] = useState(false);
+  const resultsMode = "closest"
 
   useEffect(() => {
-    setSelectedIndex(null);
-    setFetchingData(true);
+    // setSelectedIndex(null);
+    // setFetchingData(true);
 
     let url = `.netlify/functions/providers?location=${selectedLocation}`;
 
@@ -51,23 +54,18 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then(async (data) => {
-        setFetchingData(false);
+        // setFetchingData(false);
         const [first, ...results] = data;
         setData([first, ...results]);
 
         const locationSet = new Set();
         data.forEach((provider) => {
+          console.log(provider);
           locationSet.add(provider["provider town/city"]);
         });
         setLocations(["All", ...locationSet]);
       });
-  }, [
-    selectedLocation,
-    locations.length,
-    coords,
-    isGeolocationAvailable,
-    resultsMode,
-  ]);
+  }, [coords, isGeolocationAvailable, selectedLocation, setData, setLocations, setSelectedIndex]);
 
   return (
     <>
