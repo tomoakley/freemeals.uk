@@ -25,27 +25,38 @@ function ContributingFooter({ setFooterVisible }) {
 }
 
 const ContributingFooterContainer = styled.div`
-  align-items: center;
-  background: #ba0d37;
-  bottom: 25px;
-  color: #fff;
-  height: 63px;
   display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  position: fixed;
-  width: calc(100% - 140px);
+  flex-direction: column;
+  align-items: flex-start;
+  background: #ba0d37;
+  color: #fff;
+  padding: 20px;
   z-index: 10;
-
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  @media screen and (min-width: 1000px) {
+    position: sticky;
+    bottom: 25px;
+  }
   img {
-    margin-left: 30px;
+    margin-bottom: 10px;
     object-fit: contain;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0;
+      margin-right: 15px;
+    }
   }
 
   p {
     font-size: 14px;
-    margin: 0;
-
+    margin: 0 0 10px;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 0;
+      margin-right: 15px;
+    }
     a {
       color: #fff;
     }
@@ -57,9 +68,10 @@ const ContributingFooterContainer = styled.div`
     box-shadow: none;
     color: #fff;
     font-weight: 700;
-    height: 40px;
+    padding: 10px 20px;
     text-transform: uppercase;
-    width: 200px;
+    max-width: 240px;
+    flex-shrink: 0;
   }
 `;
 
