@@ -13,6 +13,7 @@ import ProviderMap from "components/ProviderMap";
 import SelectedPane from "components/SelectedPane";
 import { GeoContext } from "components/GeoProvider";
 import Spinner from "components/Spinner";
+import { RESULTS_MODE } from "constants/index";
 
 const Container = styled.div`
   display: flex;
@@ -37,7 +38,7 @@ export const buildAddressString = (provider) => {
 
 const MapView = () => {
   const { isGeolocationAvailable, coords } = useContext(GeoContext);
-  const [resultsMode, setResultsMode] = useState("closest");
+  const [resultsMode, setResultsMode] = useState(RESULTS_MODE.closest);
   const [data, setData] = useState([]);
   const [fetchingData, setFetchingData] = useState(false)
 
@@ -56,7 +57,7 @@ const MapView = () => {
     let url = `.netlify/functions/providers?location=${selectedLocation}`;
 
     if (isGeolocationAvailable) {
-      if (coords && resultsMode === "closest") {
+      if (coords && resultsMode === RESULTS_MODE.closest) {
         url = `${url}&coords=${coords.latitude},${coords.longitude}`;
       }
     }

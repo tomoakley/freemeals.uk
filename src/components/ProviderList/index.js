@@ -3,9 +3,11 @@ import styled from "styled-components";
 
 import Block from "../Block";
 
-import { NAME, URL } from "../../constants";
+import { NAME, RESULTS_MODE, URL } from "../../constants";
+import Button from "components/Button";
 
 function ProviderList({
+  resultsMode,
   buildAddressString,
   data,
   handleProviderClick,
@@ -28,6 +30,15 @@ function ProviderList({
         ))
       ) : (
         <span>Getting list of fantastic providers...</span>
+      )}
+      {resultsMode === RESULTS_MODE.closest && (
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          padding: '20px'
+        }}>
+          <Button text={'Show more'} to={'/page1'} />
+        </div>
       )}
     </List>
   );

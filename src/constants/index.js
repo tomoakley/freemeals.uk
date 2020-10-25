@@ -7,3 +7,8 @@ export const OFFER_DAYS = "offer days";
 export const OPEN_TIME = "opening time";
 export const PROVIDER_SOURCE_URL = "provider source url";
 export const URL = "provider url";
+export const GOOGLE_DOC_LINK = "https://docs.google.com/forms/d/e/1FAIpQLSct2Y4Vl63EODdz-68EUj-ZpO2kVycnGsO_EOhx_Cb-aK1ojQ/viewform";
+export const RESULTS_MODE = {
+  all: 'all',
+  closest: 'closest'
+}
