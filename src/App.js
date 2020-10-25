@@ -37,7 +37,6 @@ function App() {
   const [selectedLocation, setSelectedLocation] = useState("All");
 
   useEffect(() => {
-    setSelectedIndex(null);
     setFetchingData(true);
 
     let url = `/.netlify/functions/providers?location=${selectedLocation}`;

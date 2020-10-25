@@ -1,5 +1,6 @@
 import React from "react";
 import { Map, TileLayer } from "react-leaflet";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import { AppContext } from "components/AppContext/AppContext";
@@ -20,6 +21,7 @@ import {
 } from "../../constants";
 
 function SelectedPane() {
+  const history = useHistory();
   const { data, selectedIndex, setSelectedIndex } = React.useContext(
     AppContext
   );
@@ -30,10 +32,15 @@ function SelectedPane() {
     return null;
   }
 
+  const handleCloseClick = () => {
+    setSelectedIndex(null);
+    history.push(`/`);
+  };
+
   return (
     <SelectedPaneContainer isMapMode={mode === "map"}>
       <small>
-        <CloseButton onClick={() => setSelectedIndex(null)}>Close</CloseButton>
+        <CloseButton onClick={handleCloseClick}>Close</CloseButton>
       </small>
       {/* <div style={{ height: "50%", width: "100%" }}>
         {[
