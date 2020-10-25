@@ -8,12 +8,10 @@ import { buildAddressString } from "App";
 
 function ProviderList() {
   const history = useHistory();
-  const {
-    data,
-    selectedIndex,
-    setSelectedIndex,
-  } = React.useContext(AppContext);
-  const {mode} = React.useContext(GeoContext)
+  const { data, selectedIndex, setSelectedIndex } = React.useContext(
+    AppContext
+  );
+  const { mode } = React.useContext(GeoContext);
 
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
@@ -21,20 +19,22 @@ function ProviderList() {
   };
 
   const resultsLabel = () => {
-    switch(mode) {
-      case 'geo':
-      case 'postcode':
-        return 'near you'
+    switch (mode) {
+      case "geo":
+      case "postcode":
+        return "near you";
       default:
-        return 'across the country'
+        return "across the country";
     }
-  }
+  };
 
   return (
     <VendorList>
       {!!data ? (
         <>
-          <p>{data.length} venues {resultsLabel()}</p>
+          <p>
+            {data.length} venues {resultsLabel()}
+          </p>
           <div>
             {data.map((provider, i) => (
               <VendorContainer

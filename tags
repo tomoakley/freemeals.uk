@@ -1030,6 +1030,7 @@ Ha	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpac
 He	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Header	src/components/Header/index.js	/^function Header({ resultsMode, setResultsMode }) {$/;"	f
 HeaderContainer	src/components/Header/index.js	/^const HeaderContainer = styled.div`$/;"	C
+HeaderTopRow	src/components/SelectedPane/index.js	/^const HeaderTopRow = styled.div`$/;"	C
 Heading	src/components/Header/index.js	/^const Heading = styled.h1`$/;"	C
 Hi	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Hl	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1173,8 +1174,10 @@ PostcodeSearch	src/components/PostcodeSearch/index.js	/^function PostcodeSearch(
 Provider	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:e.createContext.AnonymousClassdd4479394401
 Provider	src/containers/provider.js	/^const Provider = ({ match }) => {$/;"	C
 ProviderContainer	src/containers/provider.js	/^const ProviderContainer = styled.div`$/;"	C
+ProviderHeader	src/components/SelectedPane/index.js	/^const ProviderHeader = styled.div`$/;"	C
 ProviderList	src/components/ProviderList/index.js	/^function ProviderList() {$/;"	f
 ProviderMap	src/components/ProviderMap/index.js	/^function ProviderMap({ mapProps, markers }) {$/;"	f
+ProviderName	src/components/SelectedPane/index.js	/^const ProviderName = styled.h2`$/;"	C
 ProviderSection	src/components/ProviderSection/ProviderSection.js	/^const ProviderSection = () => {$/;"	C
 Ps	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
 Pt	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
@@ -1217,6 +1220,7 @@ S	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpack
 Sa	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	f
 Scroll	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	p	class:xn
 Se	build/static/js/2.bfe7432c.chunk.js	/^(this.webpackJsonpfreemeals=this.webpackJsonpfreemeals||[]).push([[2],[function(t,e,n){"use stri/;"	v
+SectionHeading	src/components/SelectedPane/index.js	/^const SectionHeading = styled.h3`$/;"	C
 SelectedItemIcon	src/components/LocationFilter/index.js	/^const SelectedItemIcon = styled.img`$/;"	C
 SelectedPane	src/components/SelectedPane/index.js	/^function SelectedPane() {$/;"	f
 SelectedPaneContainer	src/components/SelectedPane/index.js	/^const SelectedPaneContainer = styled.div`$/;"	C
