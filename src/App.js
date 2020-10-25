@@ -1,4 +1,4 @@
-import React, { Suspense, useContext, useEffect, useState } from "react";
+import React, { Suspense, useContext, useEffect } from "react";
 import { Router, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
@@ -36,11 +36,11 @@ function App() {
     selectedLocation
   } = React.useContext(AppContext);
   const { isGeolocationAvailable, coords } = useContext(GeoContext);
-  const [fetchingData, setFetchingData] = useState(false);
+  //const [fetchingData, setFetchingData] = useState(false);
   const resultsMode = "closest"
 
   useEffect(() => {
-    setFetchingData(true);
+    //setFetchingData(true);
 
     let url = `/.netlify/functions/providers?location=${selectedLocation}`;
 
@@ -53,7 +53,7 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then(async (data) => {
-        setFetchingData(false);
+        //setFetchingData(false);
         const [first, ...results] = data;
         setData([first, ...results]);
 

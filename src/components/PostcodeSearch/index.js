@@ -18,7 +18,7 @@ function PostcodeSearch() {
   const handlePostcodeChange = (e) => {
     const {value} = e.currentTarget
     setPostcode(value);
-    if (value == '')  {
+    if (value === '')  {
       currentSetMapProps.current({name: null})
     }
   };
