@@ -27,6 +27,13 @@ const NavSectionContainer = styled.div`
       margin-top: -15px;
     }
   }
+  .filters {
+    display: none;
+    @media screen and (min-width: ${BREAKPOINTS.md}) {
+      display: block;
+      margin-top: 10px;
+    }
+  }
 `;
 
 const NavSection = () => {
@@ -35,8 +42,10 @@ const NavSection = () => {
     <NavSectionContainer>
       <img className="header" src={Header} alt={"FREE SCHOOL MEALS"} />
       <img className="banner" src={Banner} alt={"FREE SCHOOL MEALS"} />
-      <PostcodeSearch />
-      <LocationFilter />
+      <div className="filters">
+        <PostcodeSearch />
+        <LocationFilter />
+      </div>
     </NavSectionContainer>
   );
 };

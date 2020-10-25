@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import styled from "styled-components";
 import { GeoContext } from "../GeoProvider";
-import LocationIcon from '../../images/icon-location.svg'
+import { ReactComponent as IconLocation } from '../../images/icon-location.svg'
 
 const POSTCODE_REGEX = /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$/;
 
@@ -57,7 +57,7 @@ function PostcodeSearch() {
           onClick={() => setMode({ name: mode === "geo" ? null : "geo" })}
           isInGeoMode={mode === "geo"}
         >
-          <img src={LocationIcon} alt='Use browser location' />
+          <IconLocation alt='Use browser location' />
         </GeoServicesButton>
         <PostcodeInput
           onChange={handlePostcodeChange}
@@ -74,7 +74,6 @@ function PostcodeSearch() {
 }
 const PostcodeInputContainer = styled.div`
   display: flex;
-  margin-top: 10px;
   align-items: baseline;
 `;
 
@@ -105,7 +104,9 @@ const GeoServicesButton = styled.button`
   ${({ isInGeoMode }) =>
     isInGeoMode &&
     `
-    background: white;
+    > svg > g {
+      stroke: #f2c867;
+    }
   `}
 `;
 
