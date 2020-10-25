@@ -2,6 +2,8 @@ import React from "react";
 import { Map, TileLayer } from "react-leaflet";
 import styled from "styled-components";
 
+import { AppContext } from "components/AppContext/AppContext";
+
 import { buildAddressString } from "containers/list";
 import Block from "../Block";
 
@@ -17,19 +19,18 @@ import {
   URL,
 } from "../../constants";
 
-function SelectedPane({
-  data,
-  markers,
-  mode,
-  selectedIndex,
-  setSelectedIndex,
-}) {
+function SelectedPane() {
+  const { data, selectedIndex, setSelectedIndex } = React.useContext(
+    AppContext
+  );
+
+  const mode = "list";
   return (
     <SelectedPaneContainer isMapMode={mode === "map"}>
       <small>
         <CloseButton onClick={() => setSelectedIndex(null)}>Close</CloseButton>
       </small>
-      <div style={{ height: "50%", width: "100%" }}>
+      {/* <div style={{ height: "50%", width: "100%" }}>
         {[
           data[selectedIndex]["latitude"] && data[selectedIndex]["longitude"],
         ] ? (
@@ -48,7 +49,7 @@ function SelectedPane({
             {markers}
           </Map>
         ) : null}
-      </div>
+      </div> */}
       <h2>{data[selectedIndex][NAME]}</h2>
       <Block>
         <strong>Description</strong>: {data[selectedIndex][OFFERS] || "???"}
