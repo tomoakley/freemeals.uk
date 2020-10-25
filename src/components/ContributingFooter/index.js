@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
+import FooterLogo from "images/footer.svg";
+
 function ContributingFooter({ setFooterVisible }) {
   return (
     <ContributingFooterContainer>
-      <span>
-        <span role="img" aria-label="Wave">
+      <img src={FooterLogo} alt={"#FREESCHOOLMEALS"} />
+      <p>
+        <span role="img" aria-label="Wave" style={{ marginRight: 10 }}>
           👋
         </span>{" "}
         Hi there! If you'd like to contribute, head over to the{" "}
@@ -15,32 +18,48 @@ function ContributingFooter({ setFooterVisible }) {
           Google Sheet
         </a>
         . Thanks!
-      </span>{" "}
-      <button onClick={() => setFooterVisible(false)}>Hide</button>
+      </p>{" "}
+      <button>Add your venue</button>
     </ContributingFooterContainer>
   );
 }
 
 const ContributingFooterContainer = styled.div`
+  align-items: center;
+  background: #ba0d37;
+  bottom: 25px;
+  color: #fff;
+  height: 63px;
   display: flex;
-  box-sizing: border-box;
-  justify-content: space-between;
-  position: fixed;
-  z-index: 999;
-  width: 100%;
-  bottom: 0;
+  justify-content: space-around;
   padding: 10px;
-  background: #aaa;
-  color: white;
-  font-weight: bold;
-  a {
-    color: white;
+  position: fixed;
+  width: calc(100% - 140px);
+  z-index: 10;
+
+  img {
+    margin-left: 30px;
+    object-fit: contain;
   }
+
+  p {
+    font-size: 14px;
+    margin: 0;
+
+    a {
+      color: #fff;
+    }
+  }
+
   button {
-    appearance: none;
-    background: white;
-    color: #aaa;
-    border: white;
+    background: #000;
+    border: 0;
+    box-shadow: none;
+    color: #fff;
+    font-weight: 700;
+    height: 40px;
+    text-transform: uppercase;
+    width: 200px;
   }
 `;
 
