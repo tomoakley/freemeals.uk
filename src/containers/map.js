@@ -133,7 +133,7 @@ const MapView = () => {
         {fetchingData ?
           <Spinner /> : 
           <>
-            {/* <PostcodeSearch setMapProps={setMapProps} /> */}
+            <PostcodeSearch setMapProps={setMapProps} />
             <LocationFilter
               locations={locations}
               selectedLocation={selectedLocation}
