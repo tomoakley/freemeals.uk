@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ProviderSection from "components/ProviderSection";
 
 import Header from "images/header.svg";
+import { BREAKPOINTS } from "../constants";
 
 const HomeView = () => {
   return (
@@ -54,17 +55,22 @@ const Quotes = () => (
 
 const HomeContainer = styled.div`
   display: grid;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
     grid-template-columns: 1fr;
+    grid-gap: 30px;
   }
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+  }
+  @media screen and (min-width: 1200px) {
+    grid-gap: 70px;
   }
 `;
 
 const HomeSection = styled.div`
   overflow-y: auto;
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
     height: calc(100vh - 88px);
     /* padding: 60px 80px; */
   }
@@ -75,7 +81,7 @@ const HomeSection = styled.div`
 
   .standout {
     display: none;
-    @media screen and (min-width: 1000px) {
+    @media screen and (min-width: ${BREAKPOINTS.xl}) {
       display: block;
     }
   }
@@ -95,8 +101,8 @@ const HomeSection = styled.div`
 `;
 
 const About = styled.div`
-display: none;
-@media screen and (min-width: 768px) {
+  display: none;
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
     display: block;
   }
 `

@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 import Banner from "images/banner.svg";
+import { BREAKPOINTS } from "../../constants";
 
 const NavSectionContainer = styled.div`
   width: 100%;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
     display: block;
   }
 `;

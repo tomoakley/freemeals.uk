@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import FooterLogo from "images/footer.svg";
+import { BREAKPOINTS } from "../../constants";
 
 function ContributingFooter({ setFooterVisible }) {
   return (
@@ -32,19 +33,20 @@ const ContributingFooterContainer = styled.div`
   color: #fff;
   padding: 20px;
   z-index: 10;
-  @media screen and (min-width: 768px) {
+  margin-bottom: 20px;
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
   }
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
     position: sticky;
     bottom: 25px;
   }
   img {
     margin-bottom: 10px;
     object-fit: contain;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${BREAKPOINTS.md}) {
       margin-bottom: 0;
       margin-right: 15px;
     }
@@ -53,7 +55,7 @@ const ContributingFooterContainer = styled.div`
   p {
     font-size: 14px;
     margin: 0 0 10px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: ${BREAKPOINTS.md}) {
       margin-bottom: 0;
       margin-right: 15px;
     }

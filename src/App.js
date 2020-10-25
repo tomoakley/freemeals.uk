@@ -14,6 +14,7 @@ import Provider from "containers/provider";
 import Footer from "components/ContributingFooter";
 import NavSection from "components/NavSection";
 import Route from "components/Routes/Route";
+import { BREAKPOINTS } from "./constants";
 
 export const buildAddressString = (provider) => {
   const ADDRESS_1 = provider["provider address 1"];
@@ -112,8 +113,8 @@ const ListViewWrapper = styled.div`
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1440px;
-  @media screen and (min-width: 768px) {
+  max-width: ${BREAKPOINTS.max};
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
     padding-left: 30px;
     padding-right: 30px;
   }
@@ -121,11 +122,14 @@ const ListViewWrapper = styled.div`
 
 const ListViewContainer = styled.div`
   display: grid;
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
     grid-template-columns: 200px 1fr;
-    grid-gap: 70px;
+    grid-gap: 30px;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: ${BREAKPOINTS.lg}) {
+    grid-gap: 50px;
+  }
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
     grid-gap: 70px;
   }
 `;
