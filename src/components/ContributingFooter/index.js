@@ -26,15 +26,14 @@ function ContributingFooter({ setFooterVisible }) {
 }
 
 const ContributingFooterContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: none;
   background: #ba0d37;
   color: #fff;
   padding: 20px;
   z-index: 10;
   margin-bottom: 20px;
   @media screen and (min-width: ${BREAKPOINTS.md}) {
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;

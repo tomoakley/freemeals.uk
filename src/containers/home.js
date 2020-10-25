@@ -10,9 +10,7 @@ const HomeView = () => {
   return (
     <HomeContainer>
       <HomeSection>
-        <div className="standout">
-              <img src={Header} alt={"No child should go hungry"} />
-      </div>
+        <img className="header" src={Header} alt={"No child should go hungry"} />
         <About>
           <h1>No child should go hungry</h1>
           <p>
@@ -59,11 +57,11 @@ const HomeContainer = styled.div`
     grid-template-columns: 1fr;
     grid-gap: 30px;
   }
-  @media screen and (min-width: ${BREAKPOINTS.xl}) {
+  @media screen and (min-width: ${BREAKPOINTS.lg}) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
   }
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
     grid-gap: 70px;
   }
 `;
@@ -72,15 +70,15 @@ const HomeSection = styled.div`
   overflow-y: auto;
   @media screen and (min-width: ${BREAKPOINTS.xl}) {
     height: calc(100vh - 88px);
-    /* padding: 60px 80px; */
   }
 
   &::-webkit-scrollbar {
     width: 0 !important;
   }
 
-  .standout {
+  .header {
     display: none;
+    max-width: 440px;
     @media screen and (min-width: ${BREAKPOINTS.xl}) {
       display: block;
     }
