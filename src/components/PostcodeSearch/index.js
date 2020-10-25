@@ -15,21 +15,27 @@ function PostcodeSearch({ setMapProps }) {
     if (!postcode || !postcode.match(POSTCODE_REGEX)) {
       return;
     }
+    let current = true;
     async function fetchPostCodeDetails(value) {
-      await fetch(`https://api.postcodes.io/postcodes/${value}`)
-        .then((response) => response.json())
-        .then(async (data) => {
-          if (data.status === 200) {
-            const { latitude, longitude } = data.result;
-            setMapProps({ coords: [latitude, longitude], zoom: 12 });
-            setError(false);
-          } else {
-            setError(true);
-          }
-        });
+      const data = await (await fetch(`https://api.postcodes.io/postcodes/${value}`)).json();
+      if (!current) {
+        // The requested props have changed, so this is no longer
+        // the most recent request. Do not update the map state.
+        return;
+      }
+      if (data.status === 200) {
+        const { latitude, longitude } = data.result;
+        setMapProps({ coords: [latitude, longitude], zoom: 12 });
+        setError(false);
+      } else {
+        setError(true);
+      }
     }
     fetchPostCodeDetails(postcode);
-  }, [postcode, setMapProps]);
+    return () => {
+      current = false;
+    };
+  }, [postcode, setMapProps, setError]);
 
   return (
     <>
