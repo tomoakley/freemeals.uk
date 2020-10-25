@@ -9,6 +9,7 @@ import { buildAddressString } from "containers/list";
 import Block from "../Block";
 
 import {
+  BREAKPOINTS,
   CLOSE_TIME,
   INSTRUCTIONS,
   MARCUS_SOURCE_URL,
@@ -120,11 +121,11 @@ const SelectedPaneContainer = styled.div`
   height: 100vh;
   padding: 10px;
   overflow-y: scroll;
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
     display: block;
     max-width: 50%;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     position: fixed;
     top: 0;
     right: 0;

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import FooterLogo from "images/footer.svg";
+import { BREAKPOINTS } from "../../constants";
 
 function ContributingFooter({ setFooterVisible }) {
   return (
@@ -25,27 +26,38 @@ function ContributingFooter({ setFooterVisible }) {
 }
 
 const ContributingFooterContainer = styled.div`
-  align-items: center;
+  display: none;
   background: #ba0d37;
-  bottom: 25px;
   color: #fff;
-  height: 63px;
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  position: fixed;
-  width: calc(100% - 140px);
+  padding: 20px;
   z-index: 10;
-
+  margin-bottom: 20px;
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
+    position: sticky;
+    bottom: 25px;
+  }
   img {
-    margin-left: 30px;
+    margin-bottom: 10px;
     object-fit: contain;
+    @media screen and (min-width: ${BREAKPOINTS.md}) {
+      margin-bottom: 0;
+      margin-right: 15px;
+    }
   }
 
   p {
     font-size: 14px;
-    margin: 0;
-
+    margin: 0 0 10px;
+    @media screen and (min-width: ${BREAKPOINTS.md}) {
+      margin-bottom: 0;
+      margin-right: 15px;
+    }
     a {
       color: #fff;
     }
@@ -57,9 +69,10 @@ const ContributingFooterContainer = styled.div`
     box-shadow: none;
     color: #fff;
     font-weight: 700;
-    height: 40px;
+    padding: 10px 20px;
     text-transform: uppercase;
-    width: 200px;
+    max-width: 240px;
+    flex-shrink: 0;
   }
 `;
 

@@ -4,32 +4,35 @@ import styled from "styled-components";
 import ProviderSection from "components/ProviderSection";
 
 import Header from "images/header.svg";
+import { BREAKPOINTS } from "../constants";
 
 const HomeView = () => {
   return (
     <HomeContainer>
       <HomeSection>
-        <img src={Header} alt={"No child should go hungry"} />
-        <h1>No child should go hungry</h1>
-        <p>
-          Manchester United and England footballer Marcus Rashford’s campaign to
-          alleviate child poverty has inspired businesses, charities and local
-          authorities to offer free meals to struggling families over the
-          half-term school holidays, after Conservative MPs voted against
-          extending free school meals.
-        </p>
-        <p style={{ fontSize: 21, position: "relative" }}>
-          <span className={"quotes"}>
-            <Quotes />
-          </span>
-          <em>
-            The superstars of this nation lie in local communities. Even after
-            taking the biggest hits you have wrapped your arms around your
-            community to catch children as they fell. I really can’t thank you
-            enough, you’re amazing.
-          </em>
-        </p>
-        <p style={{ color: "#BA0D37" }}>Marcus Rashford</p>
+        <img className="header" src={Header} alt={"No child should go hungry"} />
+        <About>
+          <h1>No child should go hungry</h1>
+          <p>
+            Manchester United and England footballer Marcus Rashford’s campaign to
+            alleviate child poverty has inspired businesses, charities and local
+            authorities to offer free meals to struggling families over the
+            half-term school holidays, after Conservative MPs voted against
+            extending free school meals.
+          </p>
+          <p style={{ fontSize: 21, position: "relative" }}>
+            <span className={"quotes"}>
+              <Quotes />
+            </span>
+            <em>
+              The superstars of this nation lie in local communities. Even after
+              taking the biggest hits you have wrapped your arms around your
+              community to catch children as they fell. I really can’t thank you
+              enough, you’re amazing.
+            </em>
+          </p>
+          <p style={{ color: "#BA0D37" }}>Marcus Rashford</p>
+        </About>
       </HomeSection>
       <ProviderSection />
     </HomeContainer>
@@ -50,17 +53,35 @@ const Quotes = () => (
 
 const HomeContainer = styled.div`
   display: grid;
-  grid-gap: 50px;
-  grid-template-columns: 1fr 420px;
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
+    grid-template-columns: 1fr;
+    grid-gap: 30px;
+  }
+  @media screen and (min-width: ${BREAKPOINTS.lg}) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
+  }
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
+    grid-gap: 70px;
+  }
 `;
 
 const HomeSection = styled.div`
-  height: calc(100vh - 88px);
   overflow-y: auto;
-  padding: 60px 80px;
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
+    height: calc(100vh - 88px);
+  }
 
   &::-webkit-scrollbar {
     width: 0 !important;
+  }
+
+  .header {
+    display: none;
+    max-width: 440px;
+    @media screen and (min-width: ${BREAKPOINTS.xl}) {
+      display: block;
+    }
   }
 
   .quotes {
@@ -76,3 +97,10 @@ const HomeSection = styled.div`
     width: 100%;
   }
 `;
+
+const About = styled.div`
+  display: none;
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
+    display: block;
+  }
+`
