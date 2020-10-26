@@ -35,7 +35,6 @@ function App() {
   );
   const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
   //const [fetchingData, setFetchingData] = useState(false);
-  const resultsMode = "closest";
 
   useEffect(() => {
     //setFetchingData(true);
