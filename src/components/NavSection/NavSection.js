@@ -18,6 +18,7 @@ const NavSectionContainer = styled.div`
   }
   .header {
     display: block;
+    width: 100%;
     @media screen and (min-width: ${BREAKPOINTS.md}) {
       display: none;
     }
@@ -27,13 +28,6 @@ const NavSectionContainer = styled.div`
     @media screen and (min-width: ${BREAKPOINTS.md}) {
       display: block;
       margin-top: -15px;
-    }
-  }
-  .filters {
-    display: none;
-    @media screen and (min-width: ${BREAKPOINTS.md}) {
-      display: block;
-      margin-top: 10px;
     }
   }
 `;

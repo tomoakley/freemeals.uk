@@ -5,6 +5,7 @@ import { AppContext } from "components/AppContext/AppContext";
 import { GeoContext } from "components/GeoProvider";
 import { NAME } from "../../constants";
 import { buildAddressString } from "utils/buildAddressString";
+
 import Spinner from "../Spinner";
 
 function ProviderList() {
@@ -86,10 +87,14 @@ const VendorList = styled.ul`
   height: 100vh;
   list-style: none;
   margin: 0;
-  overflow-y: auto;
-  padding: 0;
+  padding: 0 0 20px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
+    height: 100vh;
+    overflow-y: auto;
+  }
 
   &::-webkit-scrollbar {
     width: 0 !important;

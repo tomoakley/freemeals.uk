@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
 import IconSelected from "../../images/icon-selected.svg";
+import { BREAKPOINTS } from "../../constants";
 
 function LocationFilter() {
   const {
@@ -28,7 +29,7 @@ function LocationFilter() {
   };
 
   return (
-    <>
+    <Container>
       <strong>Choose location</strong>
       <LocationFilterContainer>
         {!!locations?.length &&
@@ -49,7 +50,7 @@ function LocationFilter() {
               </LocationItem>
             ))}
       </LocationFilterContainer>
-    </>
+    </Container>
   );
 }
 
@@ -60,7 +61,7 @@ const Block = styled.a`
   text-decoration: none;
   cursor: pointer;
   &:hover {
-    color: #ffffff;
+    color: rgb(242,200,103);
   }
   ${({ isSelected }) =>
     isSelected &&
@@ -68,6 +69,14 @@ const Block = styled.a`
     font-weight: bold;
   `}
 `;
+
+const Container = styled.div`
+  display: none;
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
+    display: block;
+    margin-top: 10px;
+  }
+`
 
 const LocationFilterContainer = styled.ul`
   flex: 1;

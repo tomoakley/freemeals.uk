@@ -44,6 +44,11 @@ function App() {
     fetch(URL)
       .then((response) => response.json())
       .then(async (data) => {
+        // first result in spreadsheet is null.
+        // So when retrieving all results, remove first result
+        if (mode == null) {
+          data.shift();
+        }
         setFetchingData(false);
 
         const [first, ...results] = data;
@@ -51,6 +56,7 @@ function App() {
 
         const locationsSet = buildLocationsSet(data);
         setLocations(["All", ...Array.from(locationsSet).sort()]);
+
       });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coords, isGeolocationAvailable, selectedLocation]);
