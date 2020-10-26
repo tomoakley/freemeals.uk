@@ -17,20 +17,21 @@ const Spinner = () => (
 );
 
 const SpinnerContainer = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 200px;
+  display: inline-flex;
 `;
 
 const StyledSpinner = styled.svg`
+  margin: auto;
+  align-self: center;
   animation: rotate 2s linear infinite;
-  margin: -25px 0 0 -25px;
+  margin: auto;
   width: 50px;
   height: 50px;
   
   & .path {
-    stroke: #85de77;
+    stroke: #BB0E37;
     stroke-linecap: round;
     animation: dash 1.5s ease-in-out infinite;
   }

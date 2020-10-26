@@ -1,11 +1,17 @@
-import React from "react";
-import { Map, TileLayer } from "react-leaflet";
+import React, { useEffect, useState } from "react";
+import L from "leaflet";
+import { Map, TileLayer, Marker } from "react-leaflet";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+
+import { AppContext } from "components/AppContext/AppContext";
 
 import { buildAddressString } from "containers/list";
 import Block from "../Block";
+import { ReactComponent as IconClose } from "images/icon-close.svg";
 
 import {
+  BREAKPOINTS,
   CLOSE_TIME,
   INSTRUCTIONS,
   MARCUS_SOURCE_URL,
@@ -17,26 +23,71 @@ import {
   URL,
 } from "../../constants";
 
-function SelectedPane({
-  data,
-  markers,
-  mode,
-  selectedIndex,
-  setSelectedIndex,
-}) {
-  return (
+function SelectedPane() {
+  const history = useHistory();
+  const { data, selectedIndex, setSelectedIndex } = React.useContext(
+    AppContext
+  );
+  const [selectedProvider, setSelectedProvider] = useState([]);
+
+  useEffect(() => {
+    if (data && selectedIndex != null) {
+      setSelectedProvider(data[selectedIndex]);
+    }
+  }, [selectedIndex, data]);
+
+  const mode = "list";
+
+  const customIcon = L.icon({
+    iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
+    iconSize: [35, 46],
+    iconAnchor: [17, 46],
+  });
+
+  const handleCloseClick = () => {
+    setSelectedIndex(null);
+    history.push(`/`);
+  };
+
+  const buildAvailiblityString = (provider) => {
+    const days = selectedProvider[OFFER_DAYS];
+    const openTime = selectedProvider[OPEN_TIME];
+    const closeTime = selectedProvider[CLOSE_TIME];
+
+    return `${!!days ? `${days}: ` : ""}${!!openTime ? openTime : ""}${
+      !!closeTime ? `- ${closeTime}` : ""
+    }`;
+  };
+
+  const verifyUrl = (url) => {
+    return url && url.startsWith("http");
+  };
+
+  return !data || selectedIndex == null ? null : (
     <SelectedPaneContainer isMapMode={mode === "map"}>
-      <small>
-        <CloseButton onClick={() => setSelectedIndex(null)}>Close</CloseButton>
-      </small>
+      <ProviderHeader>
+        <HeaderTopRow>
+          <ProviderName>{selectedProvider[NAME]}</ProviderName>
+          <CloseButton onClick={handleCloseClick}>
+            <IconClose />
+          </CloseButton>
+        </HeaderTopRow>
+        <a
+          href={`https://www.google.co.uk/maps/place/${buildAddressString(
+            selectedProvider
+          )}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {buildAddressString(selectedProvider)}
+        </a>
+      </ProviderHeader>
       <div style={{ height: "50%", width: "100%" }}>
-        {[
-          data[selectedIndex]["latitude"] && data[selectedIndex]["longitude"],
-        ] ? (
+        {selectedProvider["latitude"] && selectedProvider["longitude"] ? (
           <Map
             center={[
-              data[selectedIndex]["latitude"],
-              data[selectedIndex]["longitude"],
+              selectedProvider["latitude"],
+              selectedProvider["longitude"],
             ]}
             zoom={20}
             className="leaflet-map"
@@ -45,78 +96,67 @@ function SelectedPane({
               attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            {markers}
+            <Marker
+              position={[selectedProvider.latitude, selectedProvider.longitude]}
+              icon={customIcon}
+            />
           </Map>
         ) : null}
       </div>
-      <h2>{data[selectedIndex][NAME]}</h2>
-      <Block>
-        <strong>Description</strong>: {data[selectedIndex][OFFERS] || "???"}
-      </Block>
-      <Block>
-        <strong>Availability</strong>:
-      </Block>
-      <ul style={{ margin: 0 }}>
-        <li>
-          Times: {data[selectedIndex][OPEN_TIME] || "Not specified"} -{" "}
-          {data[selectedIndex][CLOSE_TIME] || "Not specified"}
-        </li>
-        <li>Days: {data[selectedIndex][OFFER_DAYS] || "Not specified"}</li>
-      </ul>
-      <Block>
-        <strong>How to claim</strong>:{" "}
-        {data[selectedIndex][INSTRUCTIONS] || "???"}
-      </Block>
-      <Block>
-        <strong>Website</strong>:{" "}
-        <a href={data[selectedIndex][URL]}>
-          {data[selectedIndex][URL] || "???"}
-        </a>
-      </Block>
-      <Block>
-        <strong>Location</strong>:{" "}
-        <a
-          href={`https://www.google.co.uk/maps/place/${buildAddressString(
-            data[selectedIndex]
-          )}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {buildAddressString(data[selectedIndex])}
-        </a>
-      </Block>
-      <Block>
-        <strong>Source</strong>:{" "}
-        <a href={data[selectedIndex][MARCUS_SOURCE_URL]}>
-          {data[selectedIndex][MARCUS_SOURCE_URL]}
-        </a>
-        ,{" "}
-        <a href={data[selectedIndex][PROVIDER_SOURCE_URL]}>
-          {data[selectedIndex][PROVIDER_SOURCE_URL]}
-        </a>
-      </Block>
+      {buildAvailiblityString(selectedProvider)}
+      {selectedProvider[URL] && (
+        <Block>
+          <a href={selectedProvider[URL]}>{selectedProvider[URL]}</a>
+        </Block>
+      )}
+      {selectedProvider[OFFERS] && (
+        <Block>
+          <SectionHeading>What's available?</SectionHeading>
+          <span>{selectedProvider[OFFERS]}</span>
+        </Block>
+      )}
+      {selectedProvider[INSTRUCTIONS] && (
+        <Block>
+          <SectionHeading>How to claim</SectionHeading>
+          {selectedProvider[INSTRUCTIONS]}
+        </Block>
+      )}
+      <small>
+        {verifyUrl(selectedProvider[MARCUS_SOURCE_URL]) ||
+        verifyUrl(selectedProvider[PROVIDER_SOURCE_URL]) ? (
+          <>
+            <strong>Source</strong>:{" "}
+            <a href={selectedProvider[MARCUS_SOURCE_URL]}>
+              {selectedProvider[MARCUS_SOURCE_URL]}
+            </a>
+            ,
+            <a href={selectedProvider[PROVIDER_SOURCE_URL]}>
+              {selectedProvider[PROVIDER_SOURCE_URL]}
+            </a>
+          </>
+        ) : null}
+      </small>
     </SelectedPaneContainer>
   );
 }
 
 const SelectedPaneContainer = styled.div`
+  background: #262626;
   flex: 2;
   min-width: 50%;
   margin-left: 20px;
-  background: white;
-  height: 100vh;
-  padding: 10px;
-  overflow-y: scroll;
-  @media screen and (min-width: 600px) {
+  height: 100%;
+  padding: 10px 10px 20px;
+  overflow-y: auto;
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
     display: block;
-    max-width: 50%;
   }
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 768px) {
     position: fixed;
     top: 0;
     right: 0;
     z-index: 1000;
-    width: 75%;
+    width: 100%;
   }
   ${(props) =>
     props.isMapMode &&
@@ -126,19 +166,46 @@ const SelectedPaneContainer = styled.div`
     right: 0;
     z-index: 500;
   `}
+  a {
+    color: #ea1045;
+    &:hover {
+      color: rgb(242,200,103);
+    }
+  }
 `;
 
 const CloseButton = styled.button`
   cursor: pointer;
-  background: #85de77;
-  color: white;
-  appearance: none;
+  background: transparent;
   border: none;
-  padding: 5px;
-  border-radius: 20px;
+  appearance: none;
+  transition: all 0.2s ease;
+  width: 24px;
+  height: 24px;
+  padding: 0;
   &:hover {
-    background: #65de77;
+    > svg > g {
+      stroke: #f2c867;
+    }
   }
+`;
+
+const ProviderHeader = styled.div`
+  margin-bottom: 10px;
+`;
+
+const HeaderTopRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ProviderName = styled.h2`
+  margin-bottom: 0;
+`;
+
+const SectionHeading = styled.h3`
+  margin: 0;
 `;
 
 export default SelectedPane;

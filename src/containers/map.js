@@ -40,7 +40,7 @@ const MapView = () => {
   const { isGeolocationAvailable, coords } = useContext(GeoContext);
   const [resultsMode, setResultsMode] = useState(RESULTS_MODE.closest);
   const [data, setData] = useState([]);
-  const [fetchingData, setFetchingData] = useState(false)
+  const [fetchingData, setFetchingData] = useState(false);
 
   const [markers, setMarkers] = useState();
 
@@ -54,7 +54,7 @@ const MapView = () => {
     setSelectedIndex(null);
     setFetchingData(true);
 
-    let url = `.netlify/functions/providers?location=${selectedLocation}`;
+    let url = `/.netlify/functions/providers?location=${selectedLocation}`;
 
     if (isGeolocationAvailable) {
       if (coords && resultsMode === RESULTS_MODE.closest) {
@@ -73,7 +73,6 @@ const MapView = () => {
             ? DEFAULT_UK_MAP_PROPS
             : { coords: [first["latitude"], first["longitude"]], zoom: 12 }
         );
-        console.log(data);
 
         const locationSet = new Set();
         data.forEach((provider) => {
@@ -86,7 +85,7 @@ const MapView = () => {
     locations.length,
     coords,
     isGeolocationAvailable,
-    resultsMode
+    resultsMode,
   ]);
 
   useEffect(() => {
@@ -129,8 +128,9 @@ const MapView = () => {
     <>
       <Header setResultsMode={setResultsMode} resultsMode={resultsMode} />
       <Container>
-        {fetchingData ?
-          <Spinner /> : 
+        {fetchingData ? (
+          <Spinner />
+        ) : (
           <>
             <div>
               <PostcodeSearch setMapProps={setMapProps} />
@@ -150,8 +150,7 @@ const MapView = () => {
               />
             ) : null}
           </>
-        }
-        
+        )}
       </Container>
       {selectedIndex != null && <Overlay />}
       {footerVisible && (

@@ -38,7 +38,7 @@ const ListView = () => {
   const { isGeolocationAvailable, coords } = useContext(GeoContext);
   const [resultsMode, setResultsMode] = useState(RESULTS_MODE.closest);
   const [data, setData] = useState([]);
-  const [fetchingData, setFetchingData] = useState(false)
+  const [fetchingData, setFetchingData] = useState(false);
 
   const [markers, setMarkers] = useState();
 
@@ -51,7 +51,7 @@ const ListView = () => {
     setSelectedIndex(null);
     setFetchingData(true);
 
-    let url = `.netlify/functions/providers?location=${selectedLocation}`;
+    let url = `/.netlify/functions/providers?location=${selectedLocation}`;
 
     if (isGeolocationAvailable) {
       if (coords && resultsMode === RESULTS_MODE.closest) {
@@ -65,21 +65,20 @@ const ListView = () => {
         setFetchingData(false);
         const [first, ...results] = data;
         setData([first, ...results]);
-        console.log(data);
 
         const locationSet = new Set();
-        data.forEach(provider => {
+        data.forEach((provider) => {
           locationSet.add(provider["provider town/city"]);
         });
         setLocations([RESULTS_MODE.all, ...locationSet]);
       });
   }, [
-  selectedLocation,
-  locations.length,
-  coords,
-  isGeolocationAvailable,
-  resultsMode
-]);
+    selectedLocation,
+    locations.length,
+    coords,
+    isGeolocationAvailable,
+    resultsMode,
+  ]);
 
   useEffect(() => {
     (async () => {
@@ -121,8 +120,9 @@ const ListView = () => {
     <>
       <Header setResultsMode={setResultsMode} resultsMode={resultsMode} />
       <Container>
-        {fetchingData ? 
-          <Spinner /> :
+        {fetchingData ? (
+          <Spinner />
+        ) : (
           <>
             <LocationFilter
               locations={locations}
@@ -145,7 +145,7 @@ const ListView = () => {
               />
             ) : null}
           </>
-        }
+        )}
       </Container>
       {selectedIndex != null && <Overlay />}
       {footerVisible && (
