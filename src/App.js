@@ -30,22 +30,19 @@ export const buildAddressString = (provider) => {
 };
 
 function App() {
-  const {
-    setData,
-    setLocations,
-    selectedLocation
-  } = React.useContext(AppContext);
-  const { isGeolocationAvailable, coords } = useContext(GeoContext);
+  const { setData, setLocations, selectedLocation } = React.useContext(
+    AppContext
+  );
+  const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
   //const [fetchingData, setFetchingData] = useState(false);
-  const resultsMode = "closest"
 
   useEffect(() => {
     //setFetchingData(true);
 
     let url = `/.netlify/functions/providers?location=${selectedLocation}`;
 
-    if (isGeolocationAvailable) {
-      if (coords && resultsMode === "closest") {
+    if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
+      if (coords) {
         url = `${url}&coords=${coords.latitude},${coords.longitude}`;
       }
     }
