@@ -2,21 +2,23 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "components/AppContext/AppContext";
-import { GeoContext } from "components/GeoProvider";
 import { NAME, BREAKPOINTS } from "../../constants";
 import { buildAddressString } from "utils/buildAddressString";
+import { GeoContext } from "../GeoProvider/index";
 
 import Spinner from "../Spinner";
 
 function ProviderList() {
   const history = useHistory();
-  const { mode } = useContext(GeoContext);
   const {
     data,
     filteredData,
     selectedIndex,
     setSelectedIndex,
+    selectedLocation,
+    selectedPostcode,
   } = useContext(AppContext);
+  const { mode } = useContext(GeoContext);
 
 
   const handleProviderClick = (i) => {
@@ -27,10 +29,11 @@ function ProviderList() {
   const resultsLabel = () => {
     switch (mode) {
       case "geo":
-      case "postcode":
-        return "closest to you";
-      default:
-        return "across the country";
+         return "closest to you";
+      case "postcode":	
+         return `closest to ${selectedPostcode}`
+      default:	
+        return selectedLocation === "All" ? "across the country" : `closest to ${selectedLocation}`;	
     }
   };
 
@@ -41,7 +44,7 @@ function ProviderList() {
       {!!providerData ? (
         <>
           <p>
-            Showing {providerData.length} venues {resultsLabel()}
+            Showing {providerData.length} venue{providerData.length > 1 ? 's' : null} {resultsLabel()}
           </p>
           <div>
             {providerData.map((provider, i) => (
