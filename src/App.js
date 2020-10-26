@@ -1,4 +1,4 @@
-import React, { Suspense, useContext, useEffect } from "react";
+import React, { Suspense, useContext, useEffect, useState } from "react";
 import { Router, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
@@ -37,6 +37,7 @@ function App() {
     setSelectedIndex,
   } = React.useContext(AppContext);
   const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
+  const [footerVisible, setFooterVisible] = useState(true);
   //const [fetchingData, setFetchingData] = useState(false);
 
   useEffect(() => {
@@ -105,7 +106,9 @@ function App() {
             </Switch>
           </Router>
         </ListViewContainer>
-        <Footer />
+      {footerVisible && (
+        <Footer setFooterVisible={setFooterVisible} />
+      )}
       </ListViewWrapper>
     </>
   );
