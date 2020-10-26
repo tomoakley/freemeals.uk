@@ -168,6 +168,9 @@ const SelectedPaneContainer = styled.div`
   `}
   a {
     color: #ea1045;
+    &:hover {
+      color: rgb(242,200,103);
+    }
   }
 `;
 
