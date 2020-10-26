@@ -9,8 +9,17 @@ function GeoProvider({
   coords: geoCoords,
   children,
 }) {
-  const [mode, setMode] = useState({name: "geo", coords: geoCoords});
+  const checkGeoIsAvailable = isGeolocationAvailable && geoCoords != null;
+  const [mode, setMode] = useState(
+    checkGeoIsAvailable ? { name: "geo", coords: geoCoords } : { name: null }
+  );
   const [coords, setCoords] = useState(geoCoords);
+
+  useEffect(() => {
+    if (isGeolocationAvailable) {
+      setMode({ name: "geo" });
+    }
+  }, [isGeolocationAvailable]);
 
   useEffect(() => {
     const switchMode = () => {
@@ -22,8 +31,8 @@ function GeoProvider({
           setCoords(mode.coords);
           break;
         default:
-          setCoords(null)
-          break
+          setCoords(null);
+          break;
       }
     };
     switchMode();
