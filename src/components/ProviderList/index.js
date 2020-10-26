@@ -30,14 +30,14 @@ function ProviderList() {
     switch (mode) {
       case "geo":
          return "closest to you";
-      case "postcode":	
+      case "postcode":
          return `closest to ${selectedPostcode}`
-      default:	
-        return selectedLocation === "All" ? "across the country" : `closest to ${selectedLocation}`;	
+      default:
+        return selectedLocation === "All" ? "across the country" : `closest to ${selectedLocation}`;
     }
   };
 
-  const providerData = filteredData !== null ? filteredData : data;  
+  const providerData = filteredData !== null ? filteredData : data;
 
   return (
     <VendorList>
@@ -87,7 +87,7 @@ function ProviderList() {
 }
 
 const VendorList = styled.ul`
-  height: 100vh;
+  height: calc(100vh - 208px);
   list-style: none;
   margin: 0;
   padding: 0 0 20px;
