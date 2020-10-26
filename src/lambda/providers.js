@@ -6,7 +6,6 @@ const sheet1 = require("../../data/sheet1.json");
 export async function handler(event, context) {
   try {
     const { location, coords } = event.queryStringParameters;
-    console.log(location);
     const data = await new Promise((resolve, reject) => {
       GSheetReader(
         {

@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
 import IconSelected from "../../images/icon-selected.svg";
 import { BREAKPOINTS } from "../../constants";
 
 function LocationFilter() {
-  const { locations, setSelectedLocation, selectedLocation } = React.useContext(
-    AppContext
-  );
+  const {
+    data,
+    locations,
+    setSelectedLocation,
+    selectedLocation,
+    setFilteredData,
+  } = useContext(AppContext);
+
+  const filterDataByLocation = (location) => {
+    return data.filter((provider) => provider["provider town/city"] === location)
+  }
 
   const handleLocationClick = (e, location) => {
     e.preventDefault();
     setSelectedLocation(location);
+    if (location === "All") {
+      setFilteredData(null)
+    } else {
+      const filteredData = filterDataByLocation(location);
+      setFilteredData(filteredData);
+    }
   };
 
   return (
@@ -19,15 +33,11 @@ function LocationFilter() {
       <strong>Choose location</strong>
       <LocationFilterContainer>
         {!!locations?.length &&
-          locations
-            .sort()
-            .slice()
-            .map((location) => (
+          locations.map((location) => (
               <LocationItem key={location}>
                 <Block
                   href="#"
                   onClick={(e) => handleLocationClick(e, location)}
-                  isSelected={selectedLocation === location}
                 >
                   {selectedLocation === location && (
                     <SelectedItemIcon
