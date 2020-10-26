@@ -57,7 +57,7 @@ function PostcodeSearch() {
     return () => {
       current = false;
     };
-  }, [postcode, currentSetMapProps, setError]);
+  }, [postcode, currentSetMapProps, setError, setSelectedPostcode]);
 
   return (
     <>
