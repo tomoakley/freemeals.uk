@@ -87,7 +87,7 @@ function ProviderList() {
 }
 
 const VendorList = styled.ul`
-  height: calc(100vh - 208px);
+  height: 100vh;
   list-style: none;
   margin: 0;
   padding: 0 0 20px;
@@ -95,7 +95,7 @@ const VendorList = styled.ul`
   flex-direction: column;
 
   @media screen and (min-width: ${BREAKPOINTS.md}) {
-    height: 100vh;
+    height: calc(100vh - 208px);
     overflow-y: auto;
   }
 
