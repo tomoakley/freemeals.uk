@@ -29,13 +29,6 @@ const NavSectionContainer = styled.div`
       margin-top: -15px;
     }
   }
-  .filters {
-    display: none;
-    @media screen and (min-width: ${BREAKPOINTS.md}) {
-      display: block;
-      margin-top: 10px;
-    }
-  }
 `;
 
 const NavSection = ({ setSelectedIndex }) => {
