@@ -57,7 +57,8 @@ function PostcodeSearch() {
     return () => {
       current = false;
     };
-  }, [postcode, currentSetMapProps, setError, setSelectedPostcode]);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [postcode, currentSetMapProps, setError]);
 
   return (
     <>
