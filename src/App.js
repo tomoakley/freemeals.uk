@@ -75,6 +75,14 @@ function App() {
           rel="stylesheet"
         />
         <title>#FreeSchoolMeals - No child should go hungry</title>
+        <meta
+          property="og:title"
+          content="#FreeSchoolMeals - No child should go hungry"
+        />
+        <meta
+          property="og:description"
+          content="Venues offering free meals to UK school children during half-term holidays. Because no child should go hungry."
+        />
       </Helmet>
       <ListViewWrapper>
         <ListViewContainer>
