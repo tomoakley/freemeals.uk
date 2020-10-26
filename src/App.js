@@ -15,7 +15,7 @@ import Provider from "containers/provider";
 import Footer from "components/ContributingFooter";
 import NavSection from "components/NavSection";
 import Route from "components/Routes/Route";
-import { buildLocationSet } from "./utils/buildLocations";
+import { buildLocationsSet } from "./utils/buildLocations";
 
 function App() {
   const [footerVisible, setFooterVisible] = useState(true);
@@ -47,8 +47,8 @@ function App() {
         const [first, ...results] = data;
         setData([first, ...results]);
 
-        const locationSet = buildLocationSet(data);
-        setLocations([...locationSet]);
+        const locationsSet = buildLocationsSet(data);
+        setLocations(["All", ...Array.from(locationsSet).sort()]);
       });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coords, isGeolocationAvailable, selectedLocation]);

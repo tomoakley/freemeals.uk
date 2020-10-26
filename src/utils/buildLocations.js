@@ -1,8 +1,7 @@
-export const buildLocationSet = (providerData) => {
-  const locationSet = new Set();
+export const buildLocationsSet = (providerData) => {
+  const locationsSet = new Set();
   providerData.forEach((provider) => {
-    console.log(provider);
-    locationSet.add(provider["provider town/city"]);
+    locationsSet.add(provider["provider town/city"]);
   });
-  return locationSet;
+  return locationsSet;
 }

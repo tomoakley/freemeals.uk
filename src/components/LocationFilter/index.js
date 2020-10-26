@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
 import IconSelected from "../../images/icon-selected.svg";
 
 function LocationFilter() {
-  const { locations, setSelectedLocation, selectedLocation } = React.useContext(
-    AppContext
-  );
+  const {
+    locations,
+    setSelectedLocation,
+    selectedLocation
+  } = useContext(AppContext);
 
   const handleLocationClick = (e, location) => {
     e.preventDefault();
@@ -18,15 +20,11 @@ function LocationFilter() {
       <strong>Choose location</strong>
       <LocationFilterContainer>
         {!!locations?.length &&
-          locations
-            .sort()
-            .slice()
-            .map((location) => (
+          locations.map((location) => (
               <LocationItem key={location}>
                 <Block
                   href="#"
                   onClick={(e) => handleLocationClick(e, location)}
-                  isSelected={selectedLocation === location}
                 >
                   {selectedLocation === location && (
                     <SelectedItemIcon
