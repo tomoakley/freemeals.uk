@@ -51,7 +51,7 @@ const Block = styled.a`
   text-decoration: none;
   cursor: pointer;
   &:hover {
-    color: #ffffff;
+    color: rgb(242,200,103);
   }
   ${({ isSelected }) =>
     isSelected &&
