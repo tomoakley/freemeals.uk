@@ -74,7 +74,6 @@ const HomeContainer = styled.div`
 
 const HomeSection = styled.div`
   overflow-y: auto;
-  padding-top: 40px;
   @media screen and (min-width: ${BREAKPOINTS.xl}) {
     height: calc(100vh - 88px);
   }
