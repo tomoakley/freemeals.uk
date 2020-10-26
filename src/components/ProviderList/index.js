@@ -22,7 +22,7 @@ function ProviderList() {
     switch (mode) {
       case "geo":
       case "postcode":
-        return "near you";
+        return "closest to you";
       default:
         return "across the country";
     }
@@ -33,7 +33,7 @@ function ProviderList() {
       {!!data ? (
         <>
           <p>
-            {data.length} venues {resultsLabel()}
+            Showing {data.length} venues {resultsLabel()}
           </p>
           <div>
             {data.map((provider, i) => (
