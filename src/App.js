@@ -55,8 +55,7 @@ function App() {
         }
         setFetchingData(false);
 
-        const [first, ...results] = data;
-        setData([first, ...results]);
+        setData(data);
 
         const locationsSet = buildLocationsSet(data);
         setLocations(["All", ...Array.from(locationsSet).sort()]);
