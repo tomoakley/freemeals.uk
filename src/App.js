@@ -33,10 +33,10 @@ function App() {
   const {
     setData,
     setLocations,
-    selectedLocation
+    selectedLocation,
+    setFetchingData,
   } = React.useContext(AppContext);
   const { isGeolocationAvailable, coords } = useContext(GeoContext);
-  const [fetchingData, setFetchingData] = useState(false);
   const resultsMode = "closest"
 
   useEffect(() => {
