@@ -5,14 +5,22 @@ import IconSelected from "../../images/icon-selected.svg";
 
 function LocationFilter() {
   const {
+    data,
     locations,
     setSelectedLocation,
-    selectedLocation
+    selectedLocation,
+    setFilteredData,
   } = useContext(AppContext);
+
+  const filterDataByLocation = (location) => {
+    return data.filter((provider) => provider["provider town/city"] === location)
+  }
 
   const handleLocationClick = (e, location) => {
     e.preventDefault();
     setSelectedLocation(location);
+    const filteredData = filterDataByLocation(location);
+    setFilteredData(filteredData);
   };
 
   return (
