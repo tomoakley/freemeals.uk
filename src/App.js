@@ -2,43 +2,32 @@ import React, { Suspense, useContext, useEffect, useState } from "react";
 import { Router, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
+import history from "services/history";
 
 import { AppContext } from "components/AppContext/AppContext";
 import { GeoContext } from "components/GeoProvider";
-import history from "services/history";
+
+import { BREAKPOINTS } from "./constants";
 
 import Home from "containers/home";
 import Map from "containers/map";
 import Provider from "containers/provider";
-
 import Footer from "components/ContributingFooter";
 import NavSection from "components/NavSection";
 import Route from "components/Routes/Route";
-import { BREAKPOINTS } from "./constants";
-
-export const buildAddressString = (provider) => {
-  const ADDRESS_1 = provider["provider address 1"];
-  const ADDRESS_2 = provider["provider address 2"];
-  const COUNTY = provider["provider county"];
-  const TOWN = provider["provider town/city"];
-  const POSTCODE = provider["provider postcode"];
-
-  const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter(
-    (parts) => parts !== "Not Available" && parts
-  );
-  return addressArray.join(", ");
-};
+import { buildLocationSet } from "./utils/buildLocations";
 
 function App() {
+  const [footerVisible, setFooterVisible] = useState(true);
+  const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
   const {
     setData,
     setLocations,
     selectedLocation,
     setSelectedIndex,
     setFetchingData,
-  } = React.useContext(AppContext);
-  const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
-  const [footerVisible, setFooterVisible] = useState(true);
+  } = useContext(AppContext);
+
 
   useEffect(() => {
     setFetchingData(true);
@@ -55,14 +44,11 @@ function App() {
       .then((response) => response.json())
       .then(async (data) => {
         setFetchingData(false);
+
         const [first, ...results] = data;
         setData([first, ...results]);
 
-        const locationSet = new Set();
-        data.forEach((provider) => {
-          console.log(provider);
-          locationSet.add(provider["provider town/city"]);
-        });
+        const locationSet = buildLocationSet(data);
         setLocations(["All", ...locationSet]);
       });
     //eslint-disable-next-line react-hooks/exhaustive-deps

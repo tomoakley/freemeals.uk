@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { AppContext } from "components/AppContext/AppContext";
 import { GeoContext } from "components/GeoProvider";
 import { NAME } from "../../constants";
-import { buildAddressString } from "App";
+import { buildAddressString } from "utils/buildAddressString";
 import Spinner from "../Spinner";
 
 function ProviderList() {
