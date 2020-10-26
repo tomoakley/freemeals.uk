@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+/built-lambda
+
 # testing
 /coverage
 
@@ -18,6 +20,7 @@
 .env.test.local
 .env.production.local
 .idea
+tags
 
 npm-debug.log*
 yarn-debug.log*

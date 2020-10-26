@@ -10,14 +10,18 @@ function PostcodeSearch() {
   const [error, setError] = useState(false);
   const { setMode, mode } = useContext(GeoContext);
 
-  const handlePostcodeChange = (e) => {
-    setPostcode(e.currentTarget.value);
-  };
-
   const currentSetMapProps = useRef(setMode);
   useEffect(() => {
     currentSetMapProps.current = setMode;
   });
+
+  const handlePostcodeChange = (e) => {
+    const {value} = e.currentTarget
+    setPostcode(value);
+    if (value === '')  {
+      currentSetMapProps.current({name: null})
+    }
+  };
 
   useEffect(() => {
     if (!postcode || !postcode.match(POSTCODE_REGEX)) {
