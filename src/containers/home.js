@@ -35,7 +35,7 @@ const HomeView = () => {
               enough, you’re amazing.
             </em>
           </p>
-          <p style={{ color: "#EA1045" }}>Marcus Rashford</p>
+          <RashfordLink href="https://twitter.com/marcusrashford">Marcus Rashford</RashfordLink>
         </About>
       </HomeSection>
       <ProviderSection />
@@ -72,6 +72,7 @@ const HomeContainer = styled.div`
 
 const HomeSection = styled.div`
   overflow-y: auto;
+  padding-top: 40px;
   @media screen and (min-width: ${BREAKPOINTS.xl}) {
     height: calc(100vh - 88px);
   }
@@ -108,3 +109,10 @@ const About = styled.div`
     display: block;
   }
 `;
+
+const RashfordLink = styled.a`
+  color: #ea1045;
+  &:hover {
+    color: rgb(242,200,103);
+  }
+`
