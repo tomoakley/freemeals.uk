@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 
 import FooterLogo from "images/footer.svg";
 import { BREAKPOINTS } from "../../constants";
+import { ReactComponent as IconClose } from "images/icon-close.svg";
 
 function ContributingFooter({ setFooterVisible }) {
   return (
@@ -20,7 +21,10 @@ function ContributingFooter({ setFooterVisible }) {
         </a>
         . Thanks!
       </p>{" "}
-      <button>Add your venue</button>
+      <AddVenueButton>Add your venue</AddVenueButton>
+      <CloseButton onClick={() => setFooterVisible(false)}>
+        <IconClose />
+      </CloseButton>
     </ContributingFooterContainer>
   );
 }
@@ -62,17 +66,36 @@ const ContributingFooterContainer = styled.div`
       color: #fff;
     }
   }
+`;
 
-  button {
-    background: #000;
-    border: 0;
-    box-shadow: none;
-    color: #fff;
-    font-weight: 700;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    max-width: 240px;
-    flex-shrink: 0;
+const AddVenueButton = styled.button`
+  background: #000;
+  border: 0;
+  box-shadow: none;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  max-width: 240px;
+  flex-shrink: 0;
+`;
+
+const CloseButton = styled.button`
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  appearance: none;
+  transition: all 0.2s ease;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  > svg > g {
+    stroke: white;
+  }
+  &:hover {
+    > svg > g {
+      stroke: #f2c867;
+    }
   }
 `;
 
