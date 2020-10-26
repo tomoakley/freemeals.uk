@@ -54,13 +54,18 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then(async (data) => {
+        // first result in spreadsheet is null.
+        // So when retrieving all results, remove first result
+        if (mode == null) {
+          data.shift();
+        }
         setFetchingData(false);
         const [first, ...results] = data;
         setData([first, ...results]);
 
         const locationSet = new Set();
         data.forEach((provider) => {
-          console.log(provider);
+          // console.log(provider);
           locationSet.add(provider["provider town/city"]);
         });
         setLocations(["All", ...locationSet]);
