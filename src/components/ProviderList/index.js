@@ -6,6 +6,7 @@ import { GeoContext } from "components/GeoProvider";
 import { NAME, BREAKPOINTS } from "../../constants";
 import { buildAddressString } from "App";
 import Spinner from "../Spinner";
+import Button from "components/Button";
 
 function ProviderList() {
   const history = useHistory();
@@ -67,6 +68,13 @@ function ProviderList() {
                 )}
               </VendorContainer>
             ))}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              padding: '20px'
+            }}>
+              <Button onClick={() => console.log('show more')} text={'Show more'} />
+           </div>
           </div>
         </>
       ) : (
