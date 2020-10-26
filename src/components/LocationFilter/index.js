@@ -19,8 +19,12 @@ function LocationFilter() {
   const handleLocationClick = (e, location) => {
     e.preventDefault();
     setSelectedLocation(location);
-    const filteredData = filterDataByLocation(location);
-    setFilteredData(filteredData);
+    if (location === "All") {
+      setFilteredData(null)
+    } else {
+      const filteredData = filterDataByLocation(location);
+      setFilteredData(filteredData);
+    }
   };
 
   return (
