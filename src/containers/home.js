@@ -10,14 +10,18 @@ const HomeView = () => {
   return (
     <HomeContainer>
       <HomeSection>
-        <img className="header" src={Header} alt={"No child should go hungry"} />
+        <img
+          className="header"
+          src={Header}
+          alt={"No child should go hungry"}
+        />
         <About>
           <h1>No child should go hungry</h1>
           <p>
-            Manchester United and England footballer Marcus Rashford’s campaign to
-            alleviate child poverty has inspired businesses, charities and local
-            authorities to offer free meals to struggling families over the
-            half-term school holidays, after Conservative MPs voted against
+            Manchester United and England footballer Marcus Rashford’s campaign
+            to alleviate child poverty has inspired businesses, charities and
+            local authorities to offer free meals to struggling families over
+            the half-term school holidays, after Conservative MPs voted against
             extending free school meals.
           </p>
           <p style={{ fontSize: 21, position: "relative" }}>
@@ -31,7 +35,7 @@ const HomeView = () => {
               enough, you’re amazing.
             </em>
           </p>
-          <p style={{ color: "#BA0D37" }}>Marcus Rashford</p>
+          <p style={{ color: "#EA1045" }}>Marcus Rashford</p>
         </About>
       </HomeSection>
       <ProviderSection />
@@ -103,4 +107,4 @@ const About = styled.div`
   @media screen and (min-width: ${BREAKPOINTS.md}) {
     display: block;
   }
-`
+`;
