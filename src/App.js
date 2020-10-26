@@ -34,9 +34,11 @@ function App() {
     setData,
     setLocations,
     selectedLocation,
+    setSelectedIndex,
     setFetchingData,
   } = React.useContext(AppContext);
   const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
+  const [footerVisible, setFooterVisible] = useState(true);
 
   useEffect(() => {
     setFetchingData(true);
