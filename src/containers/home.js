@@ -57,6 +57,7 @@ const Quotes = () => (
 
 const HomeContainer = styled.div`
   display: grid;
+  padding-top: 30px;
   @media screen and (min-width: ${BREAKPOINTS.md}) {
     grid-template-columns: 1fr;
     grid-gap: 30px;
@@ -64,6 +65,7 @@ const HomeContainer = styled.div`
   @media screen and (min-width: ${BREAKPOINTS.lg}) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
+    padding-top: 50px;
   }
   @media screen and (min-width: ${BREAKPOINTS.xl}) {
     grid-gap: 70px;
@@ -72,7 +74,6 @@ const HomeContainer = styled.div`
 
 const HomeSection = styled.div`
   overflow-y: auto;
-  padding-top: 40px;
   @media screen and (min-width: ${BREAKPOINTS.xl}) {
     height: calc(100vh - 88px);
   }
