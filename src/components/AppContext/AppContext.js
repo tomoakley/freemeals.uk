@@ -46,10 +46,11 @@ const reducer = (state, action) => {
 
 const initialState = {
   data: null,
-  selectedIndex: null,
-  locations: null,
-  selectedLocation: 'All',
   fetchingData: false,
+  filteredData: null,
+  locations: null,
+  selectedIndex: null,
+  selectedLocation: 'All',
 };
 
 export const AppContext = React.createContext(initialState);
