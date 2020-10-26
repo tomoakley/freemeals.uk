@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { AppContext } from "components/AppContext/AppContext";
 import { NAME, BREAKPOINTS } from "../../constants";
 import { buildAddressString } from "utils/buildAddressString";
+import { GeoContext } from "../GeoProvider/index";
 
 import Spinner from "../Spinner";
 
@@ -17,6 +18,7 @@ function ProviderList() {
     selectedLocation,
     selectedPostcode,
   } = useContext(AppContext);
+  const { mode } = useContext(GeoContext);
 
 
   const handleProviderClick = (i) => {
@@ -25,16 +27,14 @@ function ProviderList() {
   };
 
   const resultsLabel = () => {
-    if (selectedPostcode !== null || selectedLocation !== "All") {
-      return `closest to ${selectedPostcode || selectedLocation}`
+    switch (mode) {
+      case "geo":
+         return "closest to you";
+      case "postcode":	
+         return `closest to ${selectedPostcode}`
+      default:	
+        return selectedLocation === "All" ? "across the country" : `closest to ${selectedLocation}`;	
     }
-    if (selectedLocation === "All") {
-      return `across the country`
-    }
-    // never reaches this case, as selectedLocation must either be All OR a specific location.
-    // if (mode === "geo") {
-    //   return `closest to you`
-    // }
   };
 
   const providerData = filteredData !== null ? filteredData : data;  
