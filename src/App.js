@@ -30,9 +30,12 @@ export const buildAddressString = (provider) => {
 };
 
 function App() {
-  const { setData, setLocations, selectedLocation } = React.useContext(
-    AppContext
-  );
+  const {
+    setData,
+    setLocations,
+    selectedLocation,
+    setSelectedIndex,
+  } = React.useContext(AppContext);
   const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
   //const [fetchingData, setFetchingData] = useState(false);
 
@@ -72,11 +75,19 @@ function App() {
           rel="stylesheet"
         />
         <title>#FreeSchoolMeals - No child should go hungry</title>
+        <meta
+          property="og:title"
+          content="#FreeSchoolMeals - No child should go hungry"
+        />
+        <meta
+          property="og:description"
+          content="Venues offering free meals to UK school children during half-term holidays. Because no child should go hungry."
+        />
       </Helmet>
       <ListViewWrapper>
         <ListViewContainer>
-          <NavSection />
           <Router history={history}>
+            <NavSection setSelectedIndex={setSelectedIndex} />
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/map" exact component={Map} />
