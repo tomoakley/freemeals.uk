@@ -2,56 +2,46 @@ import React, { Suspense, useContext, useEffect, useState } from "react";
 import { Router, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
+import history from "services/history";
 
 import { AppContext } from "components/AppContext/AppContext";
 import { GeoContext } from "components/GeoProvider";
-import history from "services/history";
+
+import { BREAKPOINTS, ALL_PROVIDERS_LAMBDA, BASE_PROVIDERS_LAMBDA } from "./constants";
 
 import Home from "containers/home";
 import Map from "containers/map";
 import Provider from "containers/provider";
-
 import Footer from "components/ContributingFooter";
 import NavSection from "components/NavSection";
 import Route from "components/Routes/Route";
-import { BREAKPOINTS } from "./constants";
-
-export const buildAddressString = (provider) => {
-  const ADDRESS_1 = provider["provider address 1"];
-  const ADDRESS_2 = provider["provider address 2"];
-  const COUNTY = provider["provider county"];
-  const TOWN = provider["provider town/city"];
-  const POSTCODE = provider["provider postcode"];
-
-  const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter(
-    (parts) => parts !== "Not Available" && parts
-  );
-  return addressArray.join(", ");
-};
+import { buildLocationsSet } from "./utils/buildLocationsSet";
 
 function App() {
+  const [footerVisible, setFooterVisible] = useState(true);
+  const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
   const {
     setData,
     setLocations,
     selectedLocation,
     setSelectedIndex,
     setFetchingData,
-  } = React.useContext(AppContext);
-  const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
-  const [footerVisible, setFooterVisible] = useState(true);
+  } = useContext(AppContext);
 
   useEffect(() => {
     setFetchingData(true);
 
-    let url = `/.netlify/functions/providers?location=${selectedLocation}`;
-
+    let URL;
     if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
       if (coords) {
-        url = `${url}&coords=${coords.latitude},${coords.longitude}`;
+        const {latitude, longitude} = coords
+        URL = `${BASE_PROVIDERS_LAMBDA}?&coords=${latitude},${longitude}`;
       }
+    } else {
+      URL = ALL_PROVIDERS_LAMBDA
     }
 
-    fetch(url)
+    fetch(URL)
       .then((response) => response.json())
       .then(async (data) => {
         // first result in spreadsheet is null.
@@ -60,15 +50,13 @@ function App() {
           data.shift();
         }
         setFetchingData(false);
+
         const [first, ...results] = data;
         setData([first, ...results]);
 
-        const locationSet = new Set();
-        data.forEach((provider) => {
-          // console.log(provider);
-          locationSet.add(provider["provider town/city"]);
-        });
-        setLocations(["All", ...locationSet]);
+        const locationsSet = buildLocationsSet(data);
+        setLocations(["All", ...Array.from(locationsSet).sort()]);
+
       });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coords, isGeolocationAvailable, selectedLocation]);

@@ -64,7 +64,6 @@ const ListView = () => {
         setFetchingData(false);
         const [first, ...results] = data;
         setData([first, ...results]);
-        console.log(data);
 
         const locationSet = new Set();
         data.forEach((provider) => {
