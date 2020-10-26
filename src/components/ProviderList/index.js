@@ -5,6 +5,7 @@ import { AppContext } from "components/AppContext/AppContext";
 import { GeoContext } from "components/GeoProvider";
 import { NAME } from "../../constants";
 import { buildAddressString } from "App";
+import Spinner from "../Spinner";
 
 function ProviderList() {
   const history = useHistory();
@@ -69,7 +70,7 @@ function ProviderList() {
           </div>
         </>
       ) : (
-        <span>Getting list of fantastic providers...</span>
+        <Spinner />
       )}
     </VendorList>
   );
@@ -81,6 +82,8 @@ const VendorList = styled.ul`
   margin: 0;
   overflow-y: auto;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 
   &::-webkit-scrollbar {
     width: 0 !important;

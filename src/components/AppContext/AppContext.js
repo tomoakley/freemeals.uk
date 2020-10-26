@@ -27,6 +27,12 @@ const reducer = (state, action) => {
         selectedLocation: action.payload,
       }
 
+    case "SET_FETCHING_DATA":
+      return {
+        ...state,
+        fetchingData: action.payload,
+      }
+
     default:
       return { ...state };
   }
@@ -37,6 +43,7 @@ const initialState = {
   selectedIndex: null,
   locations: null,
   selectedLocation: 'All',
+  fetchingData: false,
 };
 
 export const AppContext = React.createContext(initialState);
@@ -72,15 +79,24 @@ const AppContextProvider = (props) => {
     })
   }
 
+  function setFetchingData(status) {
+    dispatch({
+      type: "SET_FETCHING_DATA",
+      payload: !!status
+    })
+  }
+
   return (
     <AppContext.Provider
       value={{
         data: state.data,
+        fetchingData: state.fetchingData,
         locations: state.locations,
         selectedIndex: state.selectedIndex,
         selectedLocation: state.selectedLocation,
         setData,
         setLocations,
+        setFetchingData,
         setSelectedIndex,
         setSelectedLocation,
       }}
