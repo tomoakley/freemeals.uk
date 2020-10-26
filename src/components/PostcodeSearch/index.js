@@ -27,7 +27,6 @@ function PostcodeSearch() {
 
   useEffect(() => {
     if (!postcode || !postcode.match(POSTCODE_REGEX)) {
-      setSelectedPostcode(null);
       return;
     } else {
       setSelectedPostcode(postcode);
