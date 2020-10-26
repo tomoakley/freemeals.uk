@@ -146,8 +146,8 @@ const SelectedPaneContainer = styled.div`
   min-width: 50%;
   margin-left: 20px;
   height: 100%;
-  padding: 10px;
-  overflow-y: scroll;
+  padding: 10px 10px 20px;
+  overflow-y: auto;
   @media screen and (min-width: ${BREAKPOINTS.md}) {
     display: block;
   }

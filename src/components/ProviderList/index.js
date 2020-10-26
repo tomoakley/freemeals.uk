@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "components/AppContext/AppContext";
 import { GeoContext } from "components/GeoProvider";
-import { NAME } from "../../constants";
+import { NAME, BREAKPOINTS } from "../../constants";
 import { buildAddressString } from "App";
 import Spinner from "../Spinner";
 
@@ -80,10 +80,14 @@ const VendorList = styled.ul`
   height: 100vh;
   list-style: none;
   margin: 0;
-  overflow-y: auto;
   padding: 0 0 20px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
+    height: 100vh;
+    overflow-y: auto;
+  }
 
   &::-webkit-scrollbar {
     width: 0 !important;

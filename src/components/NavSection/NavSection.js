@@ -18,6 +18,7 @@ const NavSectionContainer = styled.div`
   }
   .header {
     display: block;
+    width: 100%;
     @media screen and (min-width: ${BREAKPOINTS.md}) {
       display: none;
     }
