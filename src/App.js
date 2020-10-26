@@ -40,7 +40,7 @@ function App() {
   const resultsMode = "closest"
 
   useEffect(() => {
-    //setFetchingData(true);
+    setFetchingData(true);
 
     let url = `/.netlify/functions/providers?location=${selectedLocation}`;
 
@@ -53,7 +53,7 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then(async (data) => {
-        //setFetchingData(false);
+        setFetchingData(false);
         const [first, ...results] = data;
         setData([first, ...results]);
 
