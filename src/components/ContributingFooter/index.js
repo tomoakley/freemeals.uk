@@ -20,7 +20,13 @@ function ContributingFooter({ setFooterVisible }) {
         </a>
         . Thanks!
       </p>{" "}
-      <button>Add your venue</button>
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSct2Y4Vl63EODdz-68EUj-ZpO2kVycnGsO_EOhx_Cb-aK1ojQ/viewform"
+        target="_blank"
+        className="button"
+      >
+        Add your venue
+      </a>
     </ContributingFooterContainer>
   );
 }
@@ -63,7 +69,7 @@ const ContributingFooterContainer = styled.div`
     }
   }
 
-  button {
+  .button {
     background: #000;
     border: 0;
     box-shadow: none;
@@ -73,6 +79,10 @@ const ContributingFooterContainer = styled.div`
     text-transform: uppercase;
     max-width: 240px;
     flex-shrink: 0;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 `;
 
