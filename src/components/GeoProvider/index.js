@@ -14,6 +14,7 @@ function GeoProvider({
     checkGeoIsAvailable ? { name: "geo", coords: geoCoords } : { name: null }
   );
   const [coords, setCoords] = useState(geoCoords);
+  const [radius, setRadius] = useState(Infinity);
 
   useEffect(() => {
     if (isGeolocationAvailable) {
@@ -37,7 +38,7 @@ function GeoProvider({
     };
     switchMode();
   }, [mode, geoCoords]);
-
+  
   return (
     <GeoContext.Provider
       value={{
@@ -46,6 +47,8 @@ function GeoProvider({
         coords,
         mode: mode.name,
         setMode,
+        radius,
+        setRadius
       }}
     >
       {children}

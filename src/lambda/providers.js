@@ -5,7 +5,7 @@ const sheet1 = require("../../data/sheet1.json");
 
 export async function handler(event, context) {
   try {
-    const { location, coords } = event.queryStringParameters;
+    const { location, coords, radius = Infinity } = event.queryStringParameters;
     console.log(location);
     const data = await new Promise((resolve, reject) => {
       GSheetReader(
@@ -31,7 +31,7 @@ export async function handler(event, context) {
             });
 
             const geolookupData = sphereKnn(resultsWithCoords);
-            const geolocatedResults = geolookupData(latitude, longitude, 10);
+            const geolocatedResults = geolookupData(latitude, longitude, 10, radius);
 
             resolve(geolocatedResults);
           } else {

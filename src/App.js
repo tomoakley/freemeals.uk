@@ -33,17 +33,19 @@ function App() {
   const { setData, setLocations, selectedLocation } = React.useContext(
     AppContext
   );
-  const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
+  const { isGeolocationAvailable, coords, mode, radius } = useContext(GeoContext);
   //const [fetchingData, setFetchingData] = useState(false);
 
   useEffect(() => {
     //setFetchingData(true);
-
     let url = `/.netlify/functions/providers?location=${selectedLocation}`;
-
     if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
       if (coords) {
         url = `${url}&coords=${coords.latitude},${coords.longitude}`;
+      }
+
+      if (radius) {
+        url = `${url}&radius=${radius}`
       }
     }
 
@@ -51,18 +53,16 @@ function App() {
       .then((response) => response.json())
       .then(async (data) => {
         //setFetchingData(false);
-        const [first, ...results] = data;
-        setData([first, ...results]);
+        setData(data);
 
         const locationSet = new Set();
         data.forEach((provider) => {
-          console.log(provider);
           locationSet.add(provider["provider town/city"]);
         });
         setLocations(["All", ...locationSet]);
       });
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [coords, isGeolocationAvailable, selectedLocation]);
+  }, [coords, radius, isGeolocationAvailable, selectedLocation]);
 
   return (
     <>

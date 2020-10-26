@@ -7,8 +7,9 @@ const POSTCODE_REGEX = /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-
 
 function PostcodeSearch() {
   const [postcode, setPostcode] = useState("");
+  const [radius, setRadius] = useState("");
   const [error, setError] = useState(false);
-  const { setMode, mode } = useContext(GeoContext);
+  const { setMode, mode, setRadius: setRadiusOnContext } = useContext(GeoContext);
 
   const currentSetMapProps = useRef(setMode);
   useEffect(() => {
@@ -21,6 +22,14 @@ function PostcodeSearch() {
     if (value === '')  {
       currentSetMapProps.current({name: null})
     }
+  };
+
+  const handleRadiusChange = (e) => {
+    const {value} = e.currentTarget
+    
+    setRadius(value);
+    const valueKm = parseInt(value) * 1000;
+    setRadiusOnContext(valueKm);
   };
 
   useEffect(() => {
@@ -52,7 +61,7 @@ function PostcodeSearch() {
     return () => {
       current = false;
     };
-  }, [postcode, currentSetMapProps, setError]);
+  }, [postcode, radius, currentSetMapProps, setError]);
 
   return (
     <>
@@ -70,6 +79,12 @@ function PostcodeSearch() {
           value={postcode}
         />
       </PostcodeInputContainer>
+        <PostcodeInput
+          onChange={handleRadiusChange}
+          placeholder="Search radius (km)"
+          type="number"
+          value={radius}
+        />
       {error && (
         <Error>Unable to fetch postcode details. Please try again later.</Error>
       )}
