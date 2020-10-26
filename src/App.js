@@ -7,7 +7,7 @@ import history from "services/history";
 import { AppContext } from "components/AppContext/AppContext";
 import { GeoContext } from "components/GeoProvider";
 
-import { BREAKPOINTS } from "./constants";
+import { BREAKPOINTS, ALL_PROVIDERS_LAMBDA } from "./constants";
 
 import Home from "containers/home";
 import Map from "containers/map";
@@ -32,15 +32,14 @@ function App() {
   useEffect(() => {
     setFetchingData(true);
 
-    let url = `/.netlify/functions/providers?location=${selectedLocation}`;
+    // if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
+    //   if (coords) {
+    //     const {latitude, longitude} = coords
+    //     url = `${BASE_FETCH_URL}&coords=${latitude},${longitude}`;
+    //   }
+    // }
 
-    if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
-      if (coords) {
-        url = `${url}&coords=${coords.latitude},${coords.longitude}`;
-      }
-    }
-
-    fetch(url)
+    fetch(ALL_PROVIDERS_LAMBDA)
       .then((response) => response.json())
       .then(async (data) => {
         setFetchingData(false);
@@ -49,7 +48,7 @@ function App() {
         setData([first, ...results]);
 
         const locationSet = buildLocationSet(data);
-        setLocations(["All", ...locationSet]);
+        setLocations([...locationSet]);
       });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coords, isGeolocationAvailable, selectedLocation]);

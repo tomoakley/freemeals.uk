@@ -13,3 +13,4 @@ export const BREAKPOINTS = {
   xl: '1200px',
   max: '1680px'
 }
+export const ALL_PROVIDERS_LAMBDA = "/.netlify/functions/providers?location=All"
