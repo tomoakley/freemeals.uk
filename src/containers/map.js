@@ -72,7 +72,6 @@ const MapView = () => {
             ? DEFAULT_UK_MAP_PROPS
             : { coords: [first["latitude"], first["longitude"]], zoom: 12 }
         );
-        console.log(data);
 
         const locationSet = new Set();
         data.forEach((provider) => {

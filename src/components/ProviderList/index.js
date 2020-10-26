@@ -35,8 +35,6 @@ function ProviderList() {
 
   const providerData = filteredData !== null ? filteredData : data;  
 
-  console.log(providerData);
-  
   return (
     <VendorList>
       {!!providerData ? (
