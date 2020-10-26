@@ -30,9 +30,12 @@ export const buildAddressString = (provider) => {
 };
 
 function App() {
-  const { setData, setLocations, selectedLocation } = React.useContext(
-    AppContext
-  );
+  const {
+    setData,
+    setLocations,
+    selectedLocation,
+    setSelectedIndex,
+  } = React.useContext(AppContext);
   const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
   //const [fetchingData, setFetchingData] = useState(false);
 
@@ -75,8 +78,8 @@ function App() {
       </Helmet>
       <ListViewWrapper>
         <ListViewContainer>
-          <NavSection />
           <Router history={history}>
+            <NavSection setSelectedIndex={setSelectedIndex} />
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/map" exact component={Map} />
