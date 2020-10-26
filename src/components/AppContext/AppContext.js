@@ -39,6 +39,12 @@ const reducer = (state, action) => {
         filteredData: action.payload,
       }
 
+    case "SET_SELECTED_POSTCODE":
+      return {
+        ...state,
+        selectedPostcode: action.payload,
+      }
+
     default:
       return { ...state };
   }
@@ -51,6 +57,7 @@ const initialState = {
   locations: null,
   selectedIndex: null,
   selectedLocation: 'All',
+  selectedPostcode: null,
 };
 
 export const AppContext = React.createContext(initialState);
@@ -100,6 +107,13 @@ const AppContextProvider = (props) => {
     })
   }
 
+  function setSelectedPostcode(postcode) {
+    dispatch({
+      type: "SET_SELECTED_POSTCODE",
+      payload: postcode
+    })
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -109,12 +123,14 @@ const AppContextProvider = (props) => {
         locations: state.locations,
         selectedIndex: state.selectedIndex,
         selectedLocation: state.selectedLocation,
+        selectedPostcode: state.selectedPostcode,
         setData,
         setFetchingData,
         setFilteredData,
         setLocations,
         setSelectedIndex,
         setSelectedLocation,
+        setSelectedPostcode,
       }}
     >
       {props.children}
