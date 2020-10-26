@@ -7,7 +7,7 @@ import history from "services/history";
 import { AppContext } from "components/AppContext/AppContext";
 import { GeoContext } from "components/GeoProvider";
 
-import { BREAKPOINTS, ALL_PROVIDERS_LAMBDA } from "./constants";
+import { BREAKPOINTS, ALL_PROVIDERS_LAMBDA, BASE_PROVIDERS_LAMBDA } from "./constants";
 
 import Home from "containers/home";
 import Map from "containers/map";
@@ -15,7 +15,7 @@ import Provider from "containers/provider";
 import Footer from "components/ContributingFooter";
 import NavSection from "components/NavSection";
 import Route from "components/Routes/Route";
-import { buildLocationsSet } from "./utils/buildLocations";
+import { buildLocationsSet } from "./utils/buildLocationsSet";
 
 function App() {
   const [footerVisible, setFooterVisible] = useState(true);
@@ -28,18 +28,20 @@ function App() {
     setFetchingData,
   } = useContext(AppContext);
 
-
   useEffect(() => {
     setFetchingData(true);
 
-    // if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
-    //   if (coords) {
-    //     const {latitude, longitude} = coords
-    //     url = `${BASE_FETCH_URL}&coords=${latitude},${longitude}`;
-    //   }
-    // }
+    let URL;
+    if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
+      if (coords) {
+        const {latitude, longitude} = coords
+        URL = `${BASE_PROVIDERS_LAMBDA}&coords=${latitude},${longitude}`;
+      }
+    } else {
+      URL = ALL_PROVIDERS_LAMBDA
+    }
 
-    fetch(ALL_PROVIDERS_LAMBDA)
+    fetch(URL)
       .then((response) => response.json())
       .then(async (data) => {
         setFetchingData(false);
