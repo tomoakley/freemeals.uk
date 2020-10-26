@@ -5,6 +5,7 @@ import { AppContext } from "components/AppContext/AppContext";
 import { GeoContext } from "components/GeoProvider";
 import { NAME } from "../../constants";
 import { buildAddressString } from "App";
+import Spinner from "../Spinner";
 
 function ProviderList() {
   const history = useHistory();
@@ -22,7 +23,7 @@ function ProviderList() {
     switch (mode) {
       case "geo":
       case "postcode":
-        return "near you";
+        return "closest to you";
       default:
         return "across the country";
     }
@@ -33,7 +34,7 @@ function ProviderList() {
       {!!data ? (
         <>
           <p>
-            {data.length} venues {resultsLabel()}
+            Showing {data.length} venues {resultsLabel()}
           </p>
           <div>
             {data.map((provider, i) => (
@@ -69,7 +70,7 @@ function ProviderList() {
           </div>
         </>
       ) : (
-        <span>Getting list of fantastic providers...</span>
+        <Spinner />
       )}
     </VendorList>
   );
@@ -80,7 +81,9 @@ const VendorList = styled.ul`
   list-style: none;
   margin: 0;
   overflow-y: auto;
-  padding: 0;
+  padding: 0 0 20px;
+  display: flex;
+  flex-direction: column;
 
   &::-webkit-scrollbar {
     width: 0 !important;

@@ -1,4 +1,4 @@
-import React, { Suspense, useContext, useEffect } from "react";
+import React, { Suspense, useContext, useEffect, useState } from "react";
 import { Router, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
@@ -33,19 +33,20 @@ function App() {
   const {
     setData,
     setLocations,
-    selectedLocation
+    selectedLocation,
+    setSelectedIndex,
+    setFetchingData,
   } = React.useContext(AppContext);
-  const { isGeolocationAvailable, coords } = useContext(GeoContext);
-  //const [fetchingData, setFetchingData] = useState(false);
-  const resultsMode = "closest"
+  const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
+  const [footerVisible, setFooterVisible] = useState(true);
 
   useEffect(() => {
-    //setFetchingData(true);
+    setFetchingData(true);
 
     let url = `/.netlify/functions/providers?location=${selectedLocation}`;
 
-    if (isGeolocationAvailable) {
-      if (coords && resultsMode === "closest") {
+    if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
+      if (coords) {
         url = `${url}&coords=${coords.latitude},${coords.longitude}`;
       }
     }
@@ -53,7 +54,12 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then(async (data) => {
-        data.shift();
+        // first result in spreadsheet is null.
+        // So when retrieving all results, remove first result
+        if (mode == null) {
+          data.shift();
+        }
+        setFetchingData(false);
         const [first, ...results] = data;
         setData([first, ...results]);
 
@@ -75,11 +81,19 @@ function App() {
           rel="stylesheet"
         />
         <title>#FreeSchoolMeals - No child should go hungry</title>
+        <meta
+          property="og:title"
+          content="#FreeSchoolMeals - No child should go hungry"
+        />
+        <meta
+          property="og:description"
+          content="Venues offering free meals to UK school children during half-term holidays. Because no child should go hungry."
+        />
       </Helmet>
       <ListViewWrapper>
         <ListViewContainer>
-          <NavSection />
           <Router history={history}>
+            <NavSection setSelectedIndex={setSelectedIndex} />
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/map" exact component={Map} />
@@ -97,7 +111,9 @@ function App() {
             </Switch>
           </Router>
         </ListViewContainer>
-        <Footer />
+      {footerVisible && (
+        <Footer setFooterVisible={setFooterVisible} />
+      )}
       </ListViewWrapper>
     </>
   );
