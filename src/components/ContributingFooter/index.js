@@ -21,7 +21,13 @@ function ContributingFooter({ setFooterVisible }) {
         </a>
         . Thanks!
       </p>{" "}
-      <AddVenueButton>Add your venue</AddVenueButton>
+      <AddVenueButton
+        href="https://docs.google.com/forms/d/e/1FAIpQLSct2Y4Vl63EODdz-68EUj-ZpO2kVycnGsO_EOhx_Cb-aK1ojQ/viewform"
+        target="_blank"
+        className="button"
+      >
+        Add your venue
+      </AddVenueButton>
       <CloseButton onClick={() => setFooterVisible(false)}>
         <IconClose />
       </CloseButton>
@@ -68,16 +74,20 @@ const ContributingFooterContainer = styled.div`
   }
 `;
 
-const AddVenueButton = styled.button`
-  background: #000;
-  border: 0;
-  box-shadow: none;
-  color: #fff;
-  font-weight: 700;
-  padding: 10px 20px;
-  text-transform: uppercase;
-  max-width: 240px;
-  flex-shrink: 0;
+const AddVenueButton = styled.a`
+    background: #000;
+    border: 0;
+    box-shadow: none;
+    color: #fff;
+    font-weight: 700;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    max-width: 240px;
+    flex-shrink: 0;
+
+    &:hover {
+      color: #f2c867;
+      text-decoration: none;
 `;
 
 const CloseButton = styled.button`
