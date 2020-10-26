@@ -35,7 +35,7 @@ function App() {
     if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
       if (coords) {
         const {latitude, longitude} = coords
-        URL = `${BASE_PROVIDERS_LAMBDA}&coords=${latitude},${longitude}`;
+        URL = `${BASE_PROVIDERS_LAMBDA}?&coords=${latitude},${longitude}`;
       }
     } else {
       URL = ALL_PROVIDERS_LAMBDA
