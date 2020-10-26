@@ -81,7 +81,7 @@ const VendorList = styled.ul`
   list-style: none;
   margin: 0;
   overflow-y: auto;
-  padding: 0;
+  padding: 0 0 20px;
   display: flex;
   flex-direction: column;
 
