@@ -53,13 +53,13 @@ function App() {
     fetch(url)
       .then((response) => response.json())
       .then(async (data) => {
-        //setFetchingData(false);
+        data.shift();
         const [first, ...results] = data;
         setData([first, ...results]);
 
         const locationSet = new Set();
         data.forEach((provider) => {
-          console.log(provider);
+          // console.log(provider);
           locationSet.add(provider["provider town/city"]);
         });
         setLocations(["All", ...locationSet]);
