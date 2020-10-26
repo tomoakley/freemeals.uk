@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "components/AppContext/AppContext";
 import { GeoContext } from "components/GeoProvider";
-import { NAME } from "../../constants";
-import { buildAddressString } from "App";
+import { NAME, BREAKPOINTS } from "../../constants";
+import { buildAddressString } from "utils/buildAddressString";
+
+import Spinner from "../Spinner";
 
 function ProviderList() {
   const history = useHistory();
-  const { data, selectedIndex, setSelectedIndex } = React.useContext(
-    AppContext
-  );
-  const { mode } = React.useContext(GeoContext);
+  const { mode } = useContext(GeoContext);
+  const {
+    data,
+    filteredData,
+    selectedIndex,
+    setSelectedIndex,
+  } = useContext(AppContext);
+
 
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
@@ -28,15 +34,17 @@ function ProviderList() {
     }
   };
 
+  const providerData = filteredData !== null ? filteredData : data;  
+
   return (
     <VendorList>
-      {!!data ? (
+      {!!providerData ? (
         <>
           <p>
-            Showing {data.length} venues {resultsLabel()}
+            Showing {providerData.length} venues {resultsLabel()}
           </p>
           <div>
-            {data.map((provider, i) => (
+            {providerData.map((provider, i) => (
               <VendorContainer
                 key={i}
                 onClick={() => handleProviderClick(i)}
@@ -69,7 +77,7 @@ function ProviderList() {
           </div>
         </>
       ) : (
-        <span>Getting list of fantastic providers...</span>
+        <Spinner />
       )}
     </VendorList>
   );
@@ -79,8 +87,14 @@ const VendorList = styled.ul`
   height: 100vh;
   list-style: none;
   margin: 0;
-  overflow-y: auto;
-  padding: 0;
+  padding: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
+    height: 100vh;
+    overflow-y: auto;
+  }
 
   &::-webkit-scrollbar {
     width: 0 !important;

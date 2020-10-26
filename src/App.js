@@ -1,65 +1,66 @@
-import React, { Suspense, useContext, useEffect } from "react";
+import React, { Suspense, useContext, useEffect, useState } from "react";
 import { Router, Switch } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
+import history from "services/history";
 
 import { AppContext } from "components/AppContext/AppContext";
 import { GeoContext } from "components/GeoProvider";
-import history from "services/history";
+
+import { BREAKPOINTS, ALL_PROVIDERS_LAMBDA, BASE_PROVIDERS_LAMBDA } from "./constants";
 
 import Home from "containers/home";
 import Map from "containers/map";
 import Provider from "containers/provider";
-
 import Footer from "components/ContributingFooter";
 import NavSection from "components/NavSection";
 import Route from "components/Routes/Route";
-import { BREAKPOINTS } from "./constants";
-
-export const buildAddressString = (provider) => {
-  const ADDRESS_1 = provider["provider address 1"];
-  const ADDRESS_2 = provider["provider address 2"];
-  const COUNTY = provider["provider county"];
-  const TOWN = provider["provider town/city"];
-  const POSTCODE = provider["provider postcode"];
-
-  const addressArray = [ADDRESS_1, ADDRESS_2, COUNTY, TOWN, POSTCODE].filter(
-    (parts) => parts !== "Not Available" && parts
-  );
-  return addressArray.join(", ");
-};
+import { buildLocationsSet } from "./utils/buildLocationsSet";
 
 function App() {
-  const { setData, setLocations, selectedLocation } = React.useContext(
-    AppContext
-  );
+  const [footerVisible, setFooterVisible] = useState(true);
   const { isGeolocationAvailable, coords, mode, radius } = useContext(GeoContext);
-  //const [fetchingData, setFetchingData] = useState(false);
+  const {
+    setData,
+    setLocations,
+    selectedLocation,
+    setSelectedIndex,
+    setFetchingData,
+  } = useContext(AppContext);
 
   useEffect(() => {
-    //setFetchingData(true);
-    let url = `/.netlify/functions/providers?location=${selectedLocation}`;
+    setFetchingData(true);
+
+    let URL;
     if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
       if (coords) {
-        url = `${url}&coords=${coords.latitude},${coords.longitude}`;
+        const {latitude, longitude} = coords
+        URL = `${BASE_PROVIDERS_LAMBDA}?&coords=${latitude},${longitude}`;
       }
 
       if (radius) {
-        url = `${url}&radius=${radius}`
+        URL = `${URL}&radius=${radius}`
       }
+    } else {
+      URL = ALL_PROVIDERS_LAMBDA
     }
 
-    fetch(url)
+    fetch(URL)
       .then((response) => response.json())
       .then(async (data) => {
-        //setFetchingData(false);
-        setData(data);
+        // first result in spreadsheet is null.
+        // So when retrieving all results, remove first result
+        if (mode == null) {
+          data.shift();
+        }
+        setFetchingData(false);
 
-        const locationSet = new Set();
-        data.forEach((provider) => {
-          locationSet.add(provider["provider town/city"]);
-        });
-        setLocations(["All", ...locationSet]);
+        const [first, ...results] = data;
+        setData([first, ...results]);
+
+        const locationsSet = buildLocationsSet(data);
+        setLocations(["All", ...Array.from(locationsSet).sort()]);
+
       });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coords, radius, isGeolocationAvailable, selectedLocation]);
@@ -72,11 +73,19 @@ function App() {
           rel="stylesheet"
         />
         <title>#FreeSchoolMeals - No child should go hungry</title>
+        <meta
+          property="og:title"
+          content="#FreeSchoolMeals - No child should go hungry"
+        />
+        <meta
+          property="og:description"
+          content="Venues offering free meals to UK school children during half-term holidays. Because no child should go hungry."
+        />
       </Helmet>
       <ListViewWrapper>
         <ListViewContainer>
-          <NavSection />
           <Router history={history}>
+            <NavSection setSelectedIndex={setSelectedIndex} />
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/map" exact component={Map} />
@@ -94,7 +103,9 @@ function App() {
             </Switch>
           </Router>
         </ListViewContainer>
-        <Footer />
+      {footerVisible && (
+        <Footer setFooterVisible={setFooterVisible} />
+      )}
       </ListViewWrapper>
     </>
   );

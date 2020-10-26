@@ -27,6 +27,18 @@ const reducer = (state, action) => {
         selectedLocation: action.payload,
       }
 
+    case "SET_FETCHING_DATA":
+      return {
+        ...state,
+        fetchingData: action.payload,
+      }
+
+    case "SET_FILTERED_DATA":
+      return {
+        ...state,
+        filteredData: action.payload,
+      }
+
     default:
       return { ...state };
   }
@@ -34,8 +46,10 @@ const reducer = (state, action) => {
 
 const initialState = {
   data: null,
-  selectedIndex: null,
+  fetchingData: false,
+  filteredData: null,
   locations: null,
+  selectedIndex: null,
   selectedLocation: 'All',
 };
 
@@ -72,14 +86,32 @@ const AppContextProvider = (props) => {
     })
   }
 
+  function setFetchingData(status) {
+    dispatch({
+      type: "SET_FETCHING_DATA",
+      payload: !!status
+    })
+  }
+
+  function setFilteredData(filteredData) {
+    dispatch({
+      type: "SET_FILTERED_DATA",
+      payload: filteredData
+    })
+  }
+
   return (
     <AppContext.Provider
       value={{
         data: state.data,
+        fetchingData: state.fetchingData,
+        filteredData: state.filteredData,
         locations: state.locations,
         selectedIndex: state.selectedIndex,
         selectedLocation: state.selectedLocation,
         setData,
+        setFetchingData,
+        setFilteredData,
         setLocations,
         setSelectedIndex,
         setSelectedLocation,

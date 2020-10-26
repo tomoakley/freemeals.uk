@@ -8,7 +8,7 @@ import { AppContext } from "components/AppContext/AppContext";
 
 import { buildAddressString } from "containers/list";
 import Block from "../Block";
-import {ReactComponent as IconClose} from "images/icon-close.svg"
+import { ReactComponent as IconClose } from "images/icon-close.svg";
 
 import {
   BREAKPOINTS,
@@ -68,7 +68,9 @@ function SelectedPane() {
       <ProviderHeader>
         <HeaderTopRow>
           <ProviderName>{selectedProvider[NAME]}</ProviderName>
-          <CloseButton onClick={handleCloseClick}><IconClose /></CloseButton>
+          <CloseButton onClick={handleCloseClick}>
+            <IconClose />
+          </CloseButton>
         </HeaderTopRow>
         <a
           href={`https://www.google.co.uk/maps/place/${buildAddressString(
@@ -144,8 +146,8 @@ const SelectedPaneContainer = styled.div`
   min-width: 50%;
   margin-left: 20px;
   height: 100%;
-  padding: 10px;
-  overflow-y: scroll;
+  padding: 10px 10px 20px;
+  overflow-y: auto;
   @media screen and (min-width: ${BREAKPOINTS.md}) {
     display: block;
   }
@@ -165,7 +167,10 @@ const SelectedPaneContainer = styled.div`
     z-index: 500;
   `}
   a {
-    color: #ba0d37;
+    color: #ea1045;
+    &:hover {
+      color: rgb(242,200,103);
+    }
   }
 `;
 
