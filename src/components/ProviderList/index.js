@@ -82,8 +82,8 @@ const VendorList = styled.ul`
   margin: 0;
   overflow-y: auto;
   padding: 0;
-  display: inline-flex;
-  width: 500;
+  display: flex;
+  flex-direction: column;
 
   &::-webkit-scrollbar {
     width: 0 !important;
