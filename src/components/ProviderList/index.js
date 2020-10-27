@@ -80,7 +80,7 @@ function ProviderList() {
               </VendorContainer>
             ))}
           </VendorList>
-          <AttributionLabel>Build and hosting services by <a href="https://netlify.com">Netlify</a>. Data provided from <a href="https://allofustogether.uk">AllOfUsTogehter</a>.</AttributionLabel>
+          <AttributionLabel>Build and hosting services by <a href="https://netlify.com">Netlify</a>. Data provided from <a href="https://allofustogether.uk">AllOfUsTogether</a>.</AttributionLabel>
         </>
       ) : (
         <Spinner />
@@ -90,11 +90,10 @@ function ProviderList() {
 }
 
 const VendorListContainer = styled.div`
-
+  padding-bottom: 20px;
 `
 
 const VendorList = styled.ul`
-  height: 100vh;
   list-style: none;
   margin: 0;
   padding: 0 0 20px;
@@ -152,7 +151,9 @@ const VendorContainer = styled.li`
 
 const AttributionLabel = styled.small`
   display: block;
-  margin-top: 50px;
+  @media screen and (min-width: 768px) {
+    margin-top: 50px;
+  }
   a {
     color: #ea1045;
     &:hover {
