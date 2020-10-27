@@ -55,7 +55,7 @@ function App() {
             return JSON.stringify(obj) === _venue;
           });
         });
-        setData([...uniqueVenuesArray]);
+        setData(uniqueVenuesArray);
 
         const locationsSet = buildLocationsSet(data);
         setLocations(["All", ...Array.from(locationsSet).sort()]);
