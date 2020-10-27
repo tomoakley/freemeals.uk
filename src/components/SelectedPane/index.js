@@ -138,12 +138,6 @@ const SelectedPaneContainer = styled.div`
   height: 100%;
   padding: 10px 10px 20px;
   overflow-y: scroll;
-  @media screen and (max-width: ${BREAKPOINTS.md}) {
-    width: 100%;
-  }
-  @media screen and (min-width: ${BREAKPOINTS.md}) {
-    margin-left: 20px;
-  }
   ${(props) =>
     props.isMapMode &&
     `
@@ -157,6 +151,19 @@ const SelectedPaneContainer = styled.div`
     &:hover {
       color: rgb(242,200,103);
     }
+  }
+  @media screen and (max-width: ${BREAKPOINTS.md}) {
+    width: 100%;
+  }
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
+    margin-left: 20px;
+  }
+  @media screen and (max-width: ${BREAKPOINTS.lg}) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
   }
 `;
 
