@@ -80,7 +80,7 @@ function ProviderList() {
               </VendorContainer>
             ))}
           </VendorList>
-          <AttributionLabel>Build and hosting services by <a href="https://netlify.com">Netlify</a>. Data provided from <a href="https://allofustogether.uk">AllOfUsTogether</a>.</AttributionLabel>
+          <AttributionLabel>Hosting by <strong><a href="https://netlify.com">Netlify</a></strong>. Data from <strong><a href="https://allofustogether.uk">AllOfUsTogether</a></strong>. Built by volunteers.</AttributionLabel>
         </>
       ) : (
         <Spinner />
