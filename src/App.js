@@ -46,14 +46,14 @@ function App() {
       .then(async (data) => {
         setFetchingData(false);
         // first result in spreadsheet is null.
-        // removes first result
+        data.shift();
         const [...uniqueVenuesArray] = data.filter((venue, index) => {
           const _venue = JSON.stringify(venue);
           return index === data.findIndex(obj => {
             return JSON.stringify(obj) === _venue;
           });
         });
-        setData([...uniqueVenuesArray.shift()]);
+        setData([...uniqueVenuesArray]);
 
         const locationsSet = buildLocationsSet(data);
         setLocations(["All", ...Array.from(locationsSet).sort()]);
