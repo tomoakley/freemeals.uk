@@ -135,14 +135,14 @@ function SelectedPane() {
 }
 
 const SelectedPaneContainer = styled.div`
-  background: #262626;
-  flex: 2;
-  min-width: 50%;
-  margin-left: 20px;
   height: 100%;
   padding: 10px 10px 20px;
+  overflow-y: scroll;
+  @media screen and (max-width: ${BREAKPOINTS.md}) {
+    width: 100%;
+  }
   @media screen and (min-width: ${BREAKPOINTS.md}) {
-    display: block;
+    margin-left: 20px;
   }
   ${(props) =>
     props.isMapMode &&
