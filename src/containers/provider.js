@@ -37,7 +37,7 @@ export default Provider;
 
 const ProviderSectionContainer = styled.div`
   display: none;
-  @media screen and (min-width: ${BREAKPOINTS.lg}) {
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
     display: block;
   }
 `;
@@ -45,18 +45,9 @@ const ProviderSectionContainer = styled.div`
 const ProviderContainer = styled.div`
   background: #262626;
   height: 100%;
-  overflow-y: scroll;
-  @media screen and (min-width: ${BREAKPOINTS.lg}) {
-    margin-left: 20px;
-    display: grid;
+  display: grid;
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
     /* grid-gap: 130px; */
     grid-template-columns: 420px 1fr;
-  }
-  @media screen and (max-width: ${BREAKPOINTS.lg}) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    width: 100%;
   }
 `;

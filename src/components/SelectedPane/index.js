@@ -135,6 +135,7 @@ function SelectedPane() {
 }
 
 const SelectedPaneContainer = styled.div`
+  background: #262626;
   height: 100%;
   padding: 10px 10px 20px;
   overflow-y: scroll;
@@ -154,16 +155,14 @@ const SelectedPaneContainer = styled.div`
   }
   @media screen and (max-width: ${BREAKPOINTS.md}) {
     width: 100%;
-  }
-  @media screen and (min-width: ${BREAKPOINTS.md}) {
-    margin-left: 20px;
-  }
-  @media screen and (max-width: ${BREAKPOINTS.lg}) {
     position: fixed;
     top: 0;
     right: 0;
     z-index: 1000;
     width: 100%;
+  }
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
+    margin-left: 20px;
   }
 `;
 
