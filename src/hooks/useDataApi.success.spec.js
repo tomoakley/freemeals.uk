@@ -27,7 +27,7 @@ describe("useDataApi", () => {
       returnedData: "successData"
     });
     expect(result.current.error).toBe(false);
-    expect(result.current.fetching)
+    expect(result.current.fetching).toBe(false);
   });
 });
 
