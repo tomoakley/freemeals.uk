@@ -17,48 +17,41 @@ import NavSection from "components/NavSection";
 import Route from "components/Routes/Route";
 import { buildLocationsSet } from "./utils/buildLocationsSet";
 import { getUniqueVenues } from "./utils/getUniqueVenues";
+import { useDataApi } from "./hooks/useDataApi";
 
 function App() {
   const [footerVisible, setFooterVisible] = useState(true);
+  const { data, fetching, callApi } = useDataApi();
   const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
-  const {
-    setData,
-    setLocations,
-    selectedLocation,
-    setSelectedIndex,
-    setFetchingData,
-  } = useContext(AppContext);
+  const { setData, setLocations, setSelectedIndex } = useContext(AppContext);
+
+  // to be refactored
+  let URL;
+  if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
+    if (coords) {
+      const {latitude, longitude} = coords
+      URL = `${BASE_PROVIDERS_LAMBDA}?&coords=${latitude},${longitude}`;
+    }
+  } else {
+    URL = ALL_PROVIDERS_LAMBDA
+  }
 
   useEffect(() => {
-    setFetchingData(true);
-
-    let URL;
-    if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
-      if (coords) {
-        const {latitude, longitude} = coords
-        URL = `${BASE_PROVIDERS_LAMBDA}?&coords=${latitude},${longitude}`;
+    callApi(URL);
+    if (data) {
+      // first result contains null
+      if (mode === null) {
+        data.shift()
       }
-    } else {
-      URL = ALL_PROVIDERS_LAMBDA
+      
+      const uniqueVenuesArray = getUniqueVenues(data);
+      setData(uniqueVenuesArray);
+
+      const locationsSet = buildLocationsSet(data);
+      setLocations(["All", ...Array.from(locationsSet).sort()]);
     }
-
-    fetch(URL)
-      .then((response) => response.json())
-      .then(async (data) => {
-        setFetchingData(false);
-        // first result in spreadsheet is null.
-        if (mode == null) {	
-          data.shift();	
-        }
-        
-        const uniqueVenuesArray = getUniqueVenues(data)
-        setData(uniqueVenuesArray);
-
-        const locationsSet = buildLocationsSet(data);
-        setLocations(["All", ...Array.from(locationsSet).sort()]);
-      });
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [coords, isGeolocationAvailable, selectedLocation]);
+  }, [fetching, coords, isGeolocationAvailable]);
 
   return (
     <>
