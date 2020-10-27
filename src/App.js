@@ -16,6 +16,7 @@ import Footer from "components/ContributingFooter";
 import NavSection from "components/NavSection";
 import Route from "components/Routes/Route";
 import { buildLocationsSet } from "./utils/buildLocationsSet";
+import { getUniqueVenues } from "./utils/getUniqueVenues";
 
 function App() {
   const [footerVisible, setFooterVisible] = useState(true);
@@ -49,12 +50,8 @@ function App() {
         if (mode == null) {	
           data.shift();	
         }
-        const uniqueVenuesArray = data.filter((venue, index) => {
-          const _venue = JSON.stringify(venue);
-          return index === data.findIndex(obj => {
-            return JSON.stringify(obj) === _venue;
-          });
-        });
+        
+        const uniqueVenuesArray = getUniqueVenues(data)
         setData(uniqueVenuesArray);
 
         const locationsSet = buildLocationsSet(data);
