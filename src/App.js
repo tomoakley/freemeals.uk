@@ -46,8 +46,10 @@ function App() {
       .then(async (data) => {
         setFetchingData(false);
         // first result in spreadsheet is null.
-        data.shift();
-        const [...uniqueVenuesArray] = data.filter((venue, index) => {
+        if (mode == null) {	
+          data.shift();	
+        }
+        const uniqueVenuesArray = data.filter((venue, index) => {
           const _venue = JSON.stringify(venue);
           return index === data.findIndex(obj => {
             return JSON.stringify(obj) === _venue;
