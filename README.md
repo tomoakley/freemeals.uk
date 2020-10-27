@@ -4,6 +4,8 @@ This repo is for the [freemeals.uk](https://freemeals.uk) project, based on the 
 
 ## Contributing
 
+Please read the [Code of conduct](https://github.com/tomoakley/freemeals.uk/CODE-OF-CONDUCT.md) before contributing.
+
 The data is currently being crowd sourced by a team of volunteers, head to the [Google Sheet](https://docs.google.com/spreadsheets/d/1OaRn7UHsFpFLOfTeiUnIBr7ofjcemBEvf_gl5b1PoTY/edit#gid=593288514) to find out more. Data entry is the biggest issue right now so please help if you are able!
 
 If you can code, we would welcome help on the tech side! Clone the repo, work on some improvements, and make a PR. Currently, we're working on adding mapping and search cappabilities, and some design assistance would be useful too.

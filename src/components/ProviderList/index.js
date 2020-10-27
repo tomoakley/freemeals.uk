@@ -20,7 +20,6 @@ function ProviderList() {
   } = useContext(AppContext);
   const { mode } = useContext(GeoContext);
 
-
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
     history.push(`/provider/${i}`);
@@ -29,24 +28,27 @@ function ProviderList() {
   const resultsLabel = () => {
     switch (mode) {
       case "geo":
-         return "closest to you";
+        return "closest to you";
       case "postcode":
-         return `closest to ${selectedPostcode}`
+        return `closest to ${selectedPostcode}`;
       default:
-        return selectedLocation === "All" ? "across the country" : `closest to ${selectedLocation}`;
+        return selectedLocation === "All"
+          ? "across the country"
+          : `closest to ${selectedLocation}`;
     }
   };
 
   const providerData = filteredData !== null ? filteredData : data;
 
   return (
-    <VendorList>
+    <VendorListContainer>
       {!!providerData ? (
         <>
           <p>
-            Showing {providerData.length} venue{providerData.length > 1 ? 's' : null} {resultsLabel()}
+            Showing {providerData.length} venue
+            {providerData.length > 1 ? "s" : null} {resultsLabel()}
           </p>
-          <div>
+          <VendorList>
             {providerData.map((provider, i) => (
               <VendorContainer
                 key={i}
@@ -77,14 +79,19 @@ function ProviderList() {
                 )}
               </VendorContainer>
             ))}
-          </div>
+          </VendorList>
+          <AttributionLabel>Build and hosting services by <a href="https://netlify.com">Netlify</a>. Data provided from <a href="https://allofustogether.uk">AllOfUsTogehter</a>.</AttributionLabel>
         </>
       ) : (
         <Spinner />
       )}
-    </VendorList>
+    </VendorListContainer>
   );
 }
+
+const VendorListContainer = styled.div`
+
+`
 
 const VendorList = styled.ul`
   height: 100vh;
@@ -142,5 +149,16 @@ const VendorContainer = styled.li`
     width: 24px;
   }
 `;
+
+const AttributionLabel = styled.small`
+  display: block;
+  margin-top: 50px;
+  a {
+    color: #ea1045;
+    &:hover {
+      color: rgb(242,200,103);
+    }
+  }
+`
 
 export default ProviderList;
