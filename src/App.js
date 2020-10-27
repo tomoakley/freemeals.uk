@@ -40,8 +40,10 @@ function App() {
     callApi(URL);
     if (data) {
       // first result contains null
-      data.shift()
-
+      if (mode === null) {
+        data.shift()
+      }
+      
       const uniqueVenuesArray = getUniqueVenues(data);
       setData(uniqueVenuesArray);
 
