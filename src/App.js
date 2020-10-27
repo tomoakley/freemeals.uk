@@ -23,11 +23,7 @@ function App() {
   const [footerVisible, setFooterVisible] = useState(true);
   const { data, fetching, callApi } = useDataApi();
   const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
-  const {
-    setData,
-    setLocations,
-    setSelectedIndex,
-  } = useContext(AppContext);
+  const { setData, setLocations, setSelectedIndex } = useContext(AppContext);
 
   // to be refactored
   let URL;
@@ -41,19 +37,19 @@ function App() {
   }
 
   useEffect(() => {
-      callApi(URL);
-      if (data) {
-        // first result contains null
-        data.shift()
+    callApi(URL);
+    if (data) {
+      // first result contains null
+      data.shift()
 
-        const uniqueVenuesArray = getUniqueVenues(data);
-        setData(uniqueVenuesArray);
+      const uniqueVenuesArray = getUniqueVenues(data);
+      setData(uniqueVenuesArray);
 
-        const locationsSet = buildLocationsSet(data);
-        setLocations(["All", ...Array.from(locationsSet).sort()]);
-      }
-      //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetching])
+      const locationsSet = buildLocationsSet(data);
+      setLocations(["All", ...Array.from(locationsSet).sort()]);
+    }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fetching, coords]);
 
   return (
     <>
