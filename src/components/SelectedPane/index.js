@@ -142,16 +142,8 @@ const SelectedPaneContainer = styled.div`
   margin-left: 20px;
   height: 100%;
   padding: 10px 10px 20px;
-  overflow-y: auto;
   @media screen and (min-width: ${BREAKPOINTS.md}) {
     display: block;
-  }
-  @media screen and (max-width: 768px) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    width: 100%;
   }
   ${(props) =>
     props.isMapMode &&
