@@ -44,19 +44,19 @@ function App() {
     fetch(URL)
       .then((response) => response.json())
       .then(async (data) => {
-        // first result in spreadsheet is null.
-        // So when retrieving all results, remove first result
-        if (mode == null) {
-          data.shift();
-        }
         setFetchingData(false);
-
-        const [first, ...results] = data;
-        setData([first, ...results]);
+        // first result in spreadsheet is null.
+        // removes first result
+        const [_, ...uniqueVenuesArray] = data.filter((venue, index) => {
+          const _venue = JSON.stringify(venue);
+          return index === data.findIndex(obj => {
+            return JSON.stringify(obj) === _venue;
+          });
+        });
+        setData([...uniqueVenuesArray]);
 
         const locationsSet = buildLocationsSet(data);
         setLocations(["All", ...Array.from(locationsSet).sort()]);
-
       });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coords, isGeolocationAvailable, selectedLocation]);
