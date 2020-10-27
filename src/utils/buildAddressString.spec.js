@@ -1,4 +1,4 @@
-import {buildAddressString} from './buildAddressString'
+import { buildAddressString } from './buildAddressString'
 
 const data = {
   "provider name": "Athena B",
