@@ -24,16 +24,17 @@ import {
 
 function SelectedPane() {
   const history = useHistory();
-  const { data, selectedIndex, setSelectedIndex } = React.useContext(
+  const { data, selectedIndex, setSelectedIndex, filteredData } = React.useContext(
     AppContext
   );
   const [selectedProvider, setSelectedProvider] = useState([]);
 
   useEffect(() => {
-    if (data && selectedIndex != null) {
-      setSelectedProvider(data[selectedIndex]);
+    if(!!data && selectedIndex != null) {
+      const providerData = filteredData !== null ? filteredData : data;
+      setSelectedProvider(providerData[selectedIndex]);
     }
-  }, [selectedIndex, data]);
+  }, [selectedIndex, data, filteredData]);
 
   const mode = "list";
 
