@@ -32,7 +32,15 @@ const Provider = ({ match }) => {
 export default Provider;
 
 const ProviderContainer = styled.div`
+  height: 100vh;
   display: grid;
   /* grid-gap: 130px; */
   grid-template-columns: 420px 1fr;
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+  }
 `;

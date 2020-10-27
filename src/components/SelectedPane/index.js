@@ -122,14 +122,9 @@ function SelectedPane() {
         </Block>
       )}
       <small>
-        {verifyUrl(selectedProvider[MARCUS_SOURCE_URL]) ||
-        verifyUrl(selectedProvider[PROVIDER_SOURCE_URL]) ? (
+        {verifyUrl(selectedProvider[PROVIDER_SOURCE_URL]) ? (
           <>
             <strong>Source</strong>:{" "}
-            <a href={selectedProvider[MARCUS_SOURCE_URL]}>
-              {selectedProvider[MARCUS_SOURCE_URL]}
-            </a>
-            ,
             <a href={selectedProvider[PROVIDER_SOURCE_URL]}>
               {selectedProvider[PROVIDER_SOURCE_URL]}
             </a>
@@ -205,7 +200,7 @@ const ProviderName = styled.h2`
 `;
 
 const SectionHeading = styled.h3`
-  margin: 0;
+  margin: 0 0 15px;
 `;
 
 export default SelectedPane;
