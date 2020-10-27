@@ -51,7 +51,7 @@ function App() {
       setLocations(["All", ...Array.from(locationsSet).sort()]);
     }
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetching, coords]);
+  }, [fetching, coords, isGeolocationAvailable]);
 
   return (
     <>
