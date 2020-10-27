@@ -110,7 +110,7 @@ const VendorContainer = styled.li`
   display: grid;
   grid-gap: 30px;
   grid-template-columns: 1fr 24px;
-  height: 100px;
+  min-height: 100px;
   margin-bottom: 10px;
   padding: 10px 20px;
 
