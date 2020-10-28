@@ -47,10 +47,10 @@ function App() {
       .then(async (data) => {
         setFetchingData(false);
         // first result in spreadsheet is null.
-        if (mode == null) {	
-          data.shift();	
+        if (mode == null) {
+          data.shift();
         }
-        
+
         const uniqueVenuesArray = getUniqueVenues(data)
         setData(uniqueVenuesArray);
 
