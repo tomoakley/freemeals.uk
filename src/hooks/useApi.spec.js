@@ -1,4 +1,4 @@
-import { useDataApi } from "./useDataApi";
+import { useDataApi } from "./useApi";
 import "whatwg-fetch";
 import { renderHook } from "@testing-library/react-hooks";
 import fetchMock from "fetch-mock";
