@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GeoContext } from "../GeoProvider";
+import { GOOGLE_DOC_LINK, RESULTS_MODE } from '../../constants';
+import Button from "components/Button";
 
 function Header({ resultsMode, setResultsMode }) {
   const { isGeolocationEnabled } = useContext(GeoContext);
@@ -12,9 +14,7 @@ function Header({ resultsMode, setResultsMode }) {
     <HeaderContainer>
       <div>
         <Heading>#FreeSchoolMeals information</Heading>
-        <AddListingLink href="https://docs.google.com/forms/d/e/1FAIpQLSct2Y4Vl63EODdz-68EUj-ZpO2kVycnGsO_EOhx_Cb-aK1ojQ/viewform">
-          Add your listing
-        </AddListingLink>
+        <Button text={'Add your listing'} externalLink={GOOGLE_DOC_LINK} />
       </div>
       <SubHeading>
         A collated list of venues offering free meals to UK school children
@@ -31,15 +31,15 @@ function Header({ resultsMode, setResultsMode }) {
         </ModeSelect>
         <ModeSelect>
           <Option
-            isSelected={resultsMode === "closest"}
-            onClick={() => setResultsMode("closest")}
+            isSelected={resultsMode === RESULTS_MODE.closest}
+            onClick={() => setResultsMode(RESULTS_MODE.closest)}
             disabled={!isGeolocationEnabled}
           >
             Show results closest to me
           </Option>
           <Option
-            isSelected={resultsMode === "all"}
-            onClick={() => setResultsMode("all")}
+            isSelected={resultsMode === RESULTS_MODE.all}
+            onClick={() => setResultsMode(RESULTS_MODE.all)}
           >
             Show all results
           </Option>
@@ -66,20 +66,6 @@ const SubHeading = styled.span`
   font-size: 20px;
   display: block;
   padding: 10px 0;
-`;
-
-const AddListingLink = styled.a`
-  background: #85de77;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  align-self: flex-start;
-  &:hover {
-    background: #65de77;
-  }
 `;
 
 const ModeSelect = styled.div`

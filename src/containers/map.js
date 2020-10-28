@@ -13,6 +13,7 @@ import ProviderMap from "components/ProviderMap";
 import SelectedPane from "components/SelectedPane";
 import { GeoContext } from "components/GeoProvider";
 import Spinner from "components/Spinner";
+import { RESULTS_MODE } from "../constants";
 
 const Container = styled.div`
   display: flex;
@@ -37,7 +38,7 @@ export const buildAddressString = (provider) => {
 
 const MapView = () => {
   const { isGeolocationAvailable, coords } = useContext(GeoContext);
-  const [resultsMode, setResultsMode] = useState("closest");
+  const [resultsMode, setResultsMode] = useState(RESULTS_MODE.closest);
   const [data, setData] = useState([]);
   const [fetchingData, setFetchingData] = useState(false);
 
@@ -45,7 +46,7 @@ const MapView = () => {
 
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [locations, setLocations] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState("All");
+  const [selectedLocation, setSelectedLocation] = useState(RESULTS_MODE.all);
   const [mapProps, setMapProps] = useState(DEFAULT_UK_MAP_PROPS);
   const [footerVisible, setFooterVisible] = useState(true);
 
@@ -56,7 +57,7 @@ const MapView = () => {
     let url = `/.netlify/functions/providers?location=${selectedLocation}`;
 
     if (isGeolocationAvailable) {
-      if (coords && resultsMode === "closest") {
+      if (coords && resultsMode === RESULTS_MODE.closest) {
         url = `${url}&coords=${coords.latitude},${coords.longitude}`;
       }
     }
@@ -68,7 +69,7 @@ const MapView = () => {
         const [first, ...results] = data;
         setData([first, ...results]);
         setMapProps(
-          selectedLocation === "All"
+          selectedLocation === RESULTS_MODE.all
             ? DEFAULT_UK_MAP_PROPS
             : { coords: [first["latitude"], first["longitude"]], zoom: 12 }
         );
@@ -77,7 +78,7 @@ const MapView = () => {
         data.forEach((provider) => {
           locationSet.add(provider["provider town/city"]);
         });
-        setLocations(["All", ...locationSet]);
+        setLocations([RESULTS_MODE.all, ...locationSet]);
       });
   }, [
     selectedLocation,
