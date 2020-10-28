@@ -19,6 +19,7 @@ import { useAPI } from "./hooks/useApi";
 
 function App() {
   const [footerVisible, setFooterVisible] = useState(true);
+  // eslint-disable-next-line
   const [ data, locations, isLoading, error, retry ] = useAPI('loadAllProviders');
   // const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
   const { setData, setLocations, setSelectedIndex } = useContext(AppContext);
