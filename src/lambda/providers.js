@@ -1,5 +1,6 @@
 import GSheetReader from "g-sheets-api";
 import sphereKnn from "sphere-knn";
+import { getUniqueVenues } from "../utils/getUniqueVenues";
 
 const sheet1 = require("../../data/sheet1.json");
 
@@ -17,11 +18,14 @@ export async function handler(event, context) {
           },
         },
         (results) => {
-          const resultsWithSheet1 = [ ...results, ...sheet1 ].filter(result => result != null);
+          // first result from google sheets is null
+          const [_, ...resultsNoNull] = results
+          const allResults = [ ...resultsNoNull, ...sheet1 ].filter((provider) => provider !== null);
+          const uniqueAllResults = getUniqueVenues(allResults);
+
           if (coords != null) {
             const [latitude, longitude] = coords.split(",");
-
-            const resultsWithCoords = resultsWithSheet1.map((provider) => {
+            const resultsWithCoords = uniqueAllResults.map((provider) => {
               return {
                 ...provider,
                 latitude: Number(provider.latitude),
@@ -30,11 +34,11 @@ export async function handler(event, context) {
             });
 
             const geolookupData = sphereKnn(resultsWithCoords);
-            const geolocatedResults = geolookupData(latitude, longitude, 10);
+            const uniqueGeolocatedResults = geolookupData(latitude, longitude, 10);
 
-            resolve(geolocatedResults);
+            resolve(uniqueGeolocatedResults);
           } else {
-            resolve(resultsWithSheet1);
+            resolve(uniqueAllResults);
           }
         },
         (error) => {
