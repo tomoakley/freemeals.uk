@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "components/AppContext/AppContext";
@@ -19,6 +19,11 @@ function ProviderList() {
     selectedPostcode,
   } = useContext(AppContext);
   const { mode } = useContext(GeoContext);
+  const [providerData, setProviderData] = useState(null);
+
+  useEffect(() => {
+    setProviderData(filteredData !== null ? filteredData : data);
+  }, [data, filteredData])
 
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
@@ -38,11 +43,9 @@ function ProviderList() {
     }
   };
 
-  const providerData = filteredData !== null ? filteredData : data;
-
   return (
     <VendorListContainer>
-      {!!providerData ? (
+      {(providerData && providerData.length > 0) ? (
         <>
           <p>
             Showing {providerData.length} venue

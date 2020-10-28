@@ -5,9 +5,9 @@ import styled from "styled-components";
 import history from "services/history";
 
 import { AppContext } from "components/AppContext/AppContext";
-import { GeoContext } from "components/GeoProvider";
+// import { GeoContext } from "components/GeoProvider";
 
-import { BREAKPOINTS, ALL_PROVIDERS_LAMBDA, BASE_PROVIDERS_LAMBDA } from "./constants";
+import { BREAKPOINTS } from "./constants";
 
 import Home from "containers/home";
 import Map from "containers/map";
@@ -15,43 +15,31 @@ import Provider from "containers/provider";
 import Footer from "components/ContributingFooter";
 import NavSection from "components/NavSection";
 import Route from "components/Routes/Route";
-import { buildLocationsSet } from "./utils/buildLocationsSet";
-import { getUniqueVenues } from "./utils/getUniqueVenues";
-import { useDataApi } from "./hooks/useDataApi";
+import { useAPI } from "./hooks/useApi";
 
 function App() {
   const [footerVisible, setFooterVisible] = useState(true);
-  const { data, fetching, callApi } = useDataApi();
-  const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
+  const [ data, locations, isLoading, error, retry ] = useAPI('loadAllProviders');
+  // const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
   const { setData, setLocations, setSelectedIndex } = useContext(AppContext);
 
   // to be refactored
-  let URL;
-  if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
-    if (coords) {
-      const {latitude, longitude} = coords
-      URL = `${BASE_PROVIDERS_LAMBDA}?&coords=${latitude},${longitude}`;
-    }
-  } else {
-    URL = ALL_PROVIDERS_LAMBDA
-  }
+  // let URL;
+  // if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
+  //   if (coords) {
+  //     const {latitude, longitude} = coords
+  //     URL = `${BASE_PROVIDERS_LAMBDA}?&coords=${latitude},${longitude}`;
+  //   }
+  // } else {
+  //   URL = ALL_PROVIDERS_LAMBDA
+  // }
 
+  
   useEffect(() => {
-    callApi(URL);
-    if (data) {
-      // first result contains null
-      if (mode === null) {
-        data.shift()
-      }
-      
-      const uniqueVenuesArray = getUniqueVenues(data);
-      setData(uniqueVenuesArray);
-
-      const locationsSet = buildLocationsSet(data);
-      setLocations(["All", ...Array.from(locationsSet).sort()]);
-    }
+    setData(data);
+    setLocations(locations);
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetching, coords, isGeolocationAvailable]);
+  }, [data, locations]);
 
   return (
     <>
