@@ -3,14 +3,17 @@ import styled from "styled-components";
 import { AppContext } from "../AppContext/AppContext";
 import IconSelected from "../../images/icon-selected.svg";
 import { BREAKPOINTS } from "../../constants";
+import { useHistory } from "react-router-dom";
 
 function LocationFilter() {
+  const history = useHistory();
   const {
     data,
     locations,
     setSelectedLocation,
     selectedLocation,
     setFilteredData,
+    setSelectedIndex,
   } = useContext(AppContext);
 
   const filterDataByLocation = (location) => {
@@ -18,8 +21,10 @@ function LocationFilter() {
   }
 
   const handleLocationClick = (e, location) => {
+    history.push(`/`);
     e.preventDefault();
     setSelectedLocation(location);
+    setSelectedIndex(null)
     if (location === "All") {
       setFilteredData(null)
     } else {
