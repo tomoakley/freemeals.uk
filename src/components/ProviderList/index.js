@@ -2,22 +2,23 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { AppContext } from "components/AppContext/AppContext";
-import { GeoContext } from "components/GeoProvider";
 import { NAME, BREAKPOINTS } from "../../constants";
 import { buildAddressString } from "utils/buildAddressString";
+import { GeoContext } from "../GeoProvider/index";
 
 import Spinner from "../Spinner";
 
 function ProviderList() {
   const history = useHistory();
-  const { mode } = useContext(GeoContext);
   const {
     data,
     filteredData,
     selectedIndex,
     setSelectedIndex,
+    selectedLocation,
+    selectedPostcode,
   } = useContext(AppContext);
-
+  const { mode } = useContext(GeoContext);
 
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
@@ -27,23 +28,27 @@ function ProviderList() {
   const resultsLabel = () => {
     switch (mode) {
       case "geo":
-      case "postcode":
         return "closest to you";
+      case "postcode":
+        return `closest to ${selectedPostcode}`;
       default:
-        return "across the country";
+        return selectedLocation === "All"
+          ? "across the country"
+          : `closest to ${selectedLocation}`;
     }
   };
 
-  const providerData = filteredData !== null ? filteredData : data;  
+  const providerData = filteredData !== null ? filteredData : data;
 
   return (
-    <VendorList>
+    <VendorListContainer>
       {!!providerData ? (
         <>
           <p>
-            Showing {providerData.length} venues {resultsLabel()}
+            Showing {providerData.length} venue
+            {providerData.length > 1 ? "s" : null} {resultsLabel()}
           </p>
-          <div>
+          <VendorList>
             {providerData.map((provider, i) => (
               <VendorContainer
                 key={i}
@@ -74,17 +79,21 @@ function ProviderList() {
                 )}
               </VendorContainer>
             ))}
-          </div>
+          </VendorList>
+          <AttributionLabel>Hosting by <strong><a href="https://netlify.com">Netlify</a></strong>. Data from <strong><a href="https://allofustogether.uk">AllOfUsTogether</a></strong>. Built by volunteers.</AttributionLabel>
         </>
       ) : (
         <Spinner />
       )}
-    </VendorList>
+    </VendorListContainer>
   );
 }
 
+const VendorListContainer = styled.div`
+  padding-bottom: 20px;
+`
+
 const VendorList = styled.ul`
-  height: 100vh;
   list-style: none;
   margin: 0;
   padding: 0 0 20px;
@@ -92,7 +101,7 @@ const VendorList = styled.ul`
   flex-direction: column;
 
   @media screen and (min-width: ${BREAKPOINTS.md}) {
-    height: 100vh;
+    height: calc(100vh - 208px);
     overflow-y: auto;
   }
 
@@ -107,7 +116,7 @@ const VendorContainer = styled.li`
   display: grid;
   grid-gap: 30px;
   grid-template-columns: 1fr 24px;
-  height: 100px;
+  min-height: 100px;
   margin-bottom: 10px;
   padding: 10px 20px;
 
@@ -139,5 +148,18 @@ const VendorContainer = styled.li`
     width: 24px;
   }
 `;
+
+const AttributionLabel = styled.small`
+  display: block;
+  @media screen and (min-width: 768px) {
+    margin-top: 50px;
+  }
+  a {
+    color: #ea1045;
+    &:hover {
+      color: rgb(242,200,103);
+    }
+  }
+`
 
 export default ProviderList;
