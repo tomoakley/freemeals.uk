@@ -12,6 +12,7 @@ function PostcodeSearch() {
   const [error, setError] = useState(false);
   const { setMode, mode, setRadius: setRadiusOnContext } = useContext(GeoContext);
   const { setSelectedPostcode } = useContext(AppContext);
+  const isInGeoMode = mode === "geo";
 
   const currentSetMapProps = useRef(setMode);
   useEffect(() => {
@@ -28,7 +29,9 @@ function PostcodeSearch() {
 
   const handleRadiusChange = (e) => {
     const {value} = e.currentTarget
-    
+    if (!isInGeoMode) {
+      setMode({ name: "geo" });
+    }
     setRadius(value);
     const valueKm = parseInt(value) * 1000;
     setRadiusOnContext(valueKm);
@@ -68,12 +71,13 @@ function PostcodeSearch() {
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postcode, radius, currentSetMapProps, setError]);
 
+
   return (
     <>
       <PostcodeInputContainer>
         <GeoServicesButton
-          onClick={() => setMode({ name: mode === "geo" ? null : "geo" })}
-          isInGeoMode={mode === "geo"}
+          onClick={() => setMode({ name: isInGeoMode ? null : "geo" })}
+          isInGeoMode={isInGeoMode}
         >
           <IconLocation alt='Use browser location' />
         </GeoServicesButton>

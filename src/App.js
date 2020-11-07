@@ -33,7 +33,7 @@ function App() {
     setFetchingData(true);
 
     let URL;
-    if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
+    if ((isGeolocationAvailable && mode === "geo" && coords) || mode === "postcode") {
       if (coords) {
         const {latitude, longitude} = coords
         URL = `${BASE_PROVIDERS_LAMBDA}?&coords=${latitude},${longitude}`;
