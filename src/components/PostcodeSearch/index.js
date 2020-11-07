@@ -37,6 +37,11 @@ function PostcodeSearch() {
     setRadiusOnContext(valueKm);
   };
 
+  const handleGeoModeChange = () => {
+    setMode({ name: isInGeoMode ? null : "geo" });
+    setRadius("");
+  };
+
   useEffect(() => {
     if (!postcode || !postcode.match(POSTCODE_REGEX)) {
       return;
@@ -76,7 +81,7 @@ function PostcodeSearch() {
     <>
       <PostcodeInputContainer>
         <GeoServicesButton
-          onClick={() => setMode({ name: isInGeoMode ? null : "geo" })}
+          onClick={handleGeoModeChange}
           isInGeoMode={isInGeoMode}
         >
           <IconLocation alt='Use browser location' />
