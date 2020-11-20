@@ -5,7 +5,7 @@ const sheet1 = require("../../data/sheet1.json");
 
 export async function handler(event, context) {
   try {
-    const { location, coords, radius = Infinity } = event.queryStringParameters;
+    const { location, coords, radius = 15000 } = event.queryStringParameters;
     const data = await new Promise((resolve, reject) => {
       GSheetReader(
         {

@@ -14,7 +14,7 @@ function GeoProvider({
     checkGeoIsAvailable ? { name: "geo", coords: geoCoords } : { name: null }
   );
   const [coords, setCoords] = useState(geoCoords);
-  const [radius, setRadius] = useState(Infinity);
+  const [radius, setRadius] = useState(15000);
 
   useEffect(() => {
     if (isGeolocationAvailable) {
