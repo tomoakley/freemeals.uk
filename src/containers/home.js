@@ -35,7 +35,7 @@ const HomeView = () => {
               enough, you’re amazing.
             </em>
           </p>
-          <p style={{ color: "#EA1045" }}>Marcus Rashford</p>
+          <RashfordLink href="https://twitter.com/marcusrashford">Marcus Rashford</RashfordLink>
         </About>
       </HomeSection>
       <ProviderSection />
@@ -57,6 +57,7 @@ const Quotes = () => (
 
 const HomeContainer = styled.div`
   display: grid;
+  padding-top: 30px;
   @media screen and (min-width: ${BREAKPOINTS.md}) {
     grid-template-columns: 1fr;
     grid-gap: 30px;
@@ -64,6 +65,7 @@ const HomeContainer = styled.div`
   @media screen and (min-width: ${BREAKPOINTS.lg}) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 50px;
+    padding-top: 50px;
   }
   @media screen and (min-width: ${BREAKPOINTS.xl}) {
     grid-gap: 70px;
@@ -108,3 +110,10 @@ const About = styled.div`
     display: block;
   }
 `;
+
+const RashfordLink = styled.a`
+  color: #ea1045;
+  &:hover {
+    color: rgb(242,200,103);
+  }
+`

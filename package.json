@@ -19,8 +19,8 @@
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
     "react-geolocated": "^3.0.1",
+    "react-helmet": "^6.1.0",
     "react-leaflet": "^2.8.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.4",
@@ -51,5 +51,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:9000"
+  "proxy": "http://localhost:9000",
+  "devDependencies": {
+    "csvtojson": "^2.0.10"
+  }
 }

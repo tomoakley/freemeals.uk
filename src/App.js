@@ -16,6 +16,7 @@ import Footer from "components/ContributingFooter";
 import NavSection from "components/NavSection";
 import Route from "components/Routes/Route";
 import { buildLocationsSet } from "./utils/buildLocationsSet";
+import { getUniqueVenues } from "./utils/getUniqueVenues";
 
 function App() {
   const [footerVisible, setFooterVisible] = useState(true);
@@ -48,18 +49,17 @@ function App() {
     fetch(URL)
       .then((response) => response.json())
       .then(async (data) => {
+        setFetchingData(false);
         // first result in spreadsheet is null.
-        // So when retrieving all results, remove first result
         if (mode == null) {
           data.shift();
         }
-        setFetchingData(false);
 
-        setData(data);
+        const uniqueVenuesArray = getUniqueVenues(data)
+        setData(uniqueVenuesArray);
 
         const locationsSet = buildLocationsSet(data);
         setLocations(["All", ...Array.from(locationsSet).sort()]);
-
       });
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coords, radius, isGeolocationAvailable, selectedLocation]);

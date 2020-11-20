@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import styled from "styled-components";
 import { GeoContext } from "../GeoProvider";
 import { ReactComponent as IconLocation } from '../../images/icon-location.svg'
+import { AppContext } from "../AppContext/AppContext";
 
 const POSTCODE_REGEX = /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$/;
 
@@ -10,6 +11,7 @@ function PostcodeSearch() {
   const [radius, setRadius] = useState("");
   const [error, setError] = useState(false);
   const { setMode, mode, setRadius: setRadiusOnContext } = useContext(GeoContext);
+  const { setSelectedPostcode } = useContext(AppContext);
 
   const currentSetMapProps = useRef(setMode);
   useEffect(() => {
@@ -35,6 +37,8 @@ function PostcodeSearch() {
   useEffect(() => {
     if (!postcode || !postcode.match(POSTCODE_REGEX)) {
       return;
+    } else {
+      setSelectedPostcode(postcode);
     }
     let current = true;
     async function fetchPostCodeDetails(value) {
@@ -61,6 +65,7 @@ function PostcodeSearch() {
     return () => {
       current = false;
     };
+  //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postcode, radius, currentSetMapProps, setError]);
 
   return (

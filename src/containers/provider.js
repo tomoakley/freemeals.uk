@@ -6,6 +6,8 @@ import { AppContext } from "components/AppContext/AppContext";
 import ProviderSection from "components/ProviderSection";
 import SelectedPane from "components/SelectedPane";
 
+import { BREAKPOINTS } from "../constants"
+
 const Provider = ({ match }) => {
   const { setSelectedIndex } = React.useContext(AppContext);
   const selectedIndex = match.params.id;
@@ -19,7 +21,9 @@ const Provider = ({ match }) => {
 
   return (
     <ProviderContainer>
-      <ProviderSection />
+      <ProviderSectionContainer>
+        <ProviderSection />
+      </ProviderSectionContainer>
       {selectedIndex != null ? (
         <SelectedPane
         // markers={markers}
@@ -31,8 +35,19 @@ const Provider = ({ match }) => {
 
 export default Provider;
 
+const ProviderSectionContainer = styled.div`
+  display: none;
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
+    display: block;
+  }
+`;
+
 const ProviderContainer = styled.div`
+  background: #262626;
+  height: 100%;
   display: grid;
-  /* grid-gap: 130px; */
-  grid-template-columns: 420px 1fr;
+  @media screen and (min-width: ${BREAKPOINTS.xl}) {
+    /* grid-gap: 130px; */
+    grid-template-columns: 420px 1fr;
+  }
 `;

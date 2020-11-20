@@ -14,7 +14,6 @@ import {
   BREAKPOINTS,
   CLOSE_TIME,
   INSTRUCTIONS,
-  MARCUS_SOURCE_URL,
   NAME,
   OFFERS,
   OFFER_DAYS,
@@ -25,16 +24,17 @@ import {
 
 function SelectedPane() {
   const history = useHistory();
-  const { data, selectedIndex, setSelectedIndex } = React.useContext(
+  const { data, selectedIndex, setSelectedIndex, filteredData } = React.useContext(
     AppContext
   );
   const [selectedProvider, setSelectedProvider] = useState([]);
 
   useEffect(() => {
-    if (data && selectedIndex != null) {
-      setSelectedProvider(data[selectedIndex]);
+    if(!!data && selectedIndex != null) {
+      const providerData = filteredData !== null ? filteredData : data;
+      setSelectedProvider(providerData[selectedIndex]);
     }
-  }, [selectedIndex, data]);
+  }, [selectedIndex, data, filteredData]);
 
   const mode = "list";
 
@@ -122,14 +122,9 @@ function SelectedPane() {
         </Block>
       )}
       <small>
-        {verifyUrl(selectedProvider[MARCUS_SOURCE_URL]) ||
-        verifyUrl(selectedProvider[PROVIDER_SOURCE_URL]) ? (
+        {verifyUrl(selectedProvider[PROVIDER_SOURCE_URL]) ? (
           <>
             <strong>Source</strong>:{" "}
-            <a href={selectedProvider[MARCUS_SOURCE_URL]}>
-              {selectedProvider[MARCUS_SOURCE_URL]}
-            </a>
-            ,
             <a href={selectedProvider[PROVIDER_SOURCE_URL]}>
               {selectedProvider[PROVIDER_SOURCE_URL]}
             </a>
@@ -142,22 +137,9 @@ function SelectedPane() {
 
 const SelectedPaneContainer = styled.div`
   background: #262626;
-  flex: 2;
-  min-width: 50%;
-  margin-left: 20px;
   height: 100%;
   padding: 10px 10px 20px;
-  overflow-y: auto;
-  @media screen and (min-width: ${BREAKPOINTS.md}) {
-    display: block;
-  }
-  @media screen and (max-width: 768px) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 1000;
-    width: 100%;
-  }
+  overflow-y: scroll;
   ${(props) =>
     props.isMapMode &&
     `
@@ -171,6 +153,17 @@ const SelectedPaneContainer = styled.div`
     &:hover {
       color: rgb(242,200,103);
     }
+  }
+  @media screen and (max-width: ${BREAKPOINTS.md}) {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+  }
+  @media screen and (min-width: ${BREAKPOINTS.md}) {
+    margin-left: 20px;
   }
 `;
 
@@ -205,7 +198,7 @@ const ProviderName = styled.h2`
 `;
 
 const SectionHeading = styled.h3`
-  margin: 0;
+  margin: 0 0 15px;
 `;
 
 export default SelectedPane;
