@@ -18,7 +18,7 @@ function ProviderList() {
     selectedLocation,
     selectedPostcode,
   } = useContext(AppContext);
-  const { mode } = useContext(GeoContext);
+  const { mode, radius } = useContext(GeoContext);
 
   const handleProviderClick = (i) => {
     setSelectedIndex(i);
@@ -26,15 +26,12 @@ function ProviderList() {
   };
 
   const resultsLabel = () => {
-    switch (mode) {
-      case "geo":
-        return "closest to you";
-      case "postcode":
-        return `closest to ${selectedPostcode}`;
-      default:
-        return selectedLocation === "All"
-          ? "across the country"
-          : `closest to ${selectedLocation}`;
+    if (mode === "geo" || mode === "postcode") {
+      `within ${radius / 1000 }km of ${selectedPostcode ? selectedPostcode : "your location"}`
+    } else {
+      return selectedLocation === "All"
+      ? "across the country"
+      : `closest to ${selectedLocation}`;
     }
   };
 

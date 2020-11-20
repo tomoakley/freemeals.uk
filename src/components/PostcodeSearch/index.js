@@ -8,9 +8,11 @@ const POSTCODE_REGEX = /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-
 
 function PostcodeSearch() {
   const [postcode, setPostcode] = useState("");
+  const [radius, setRadius] = useState("");
   const [error, setError] = useState(false);
-  const { setMode, mode } = useContext(GeoContext);
+  const { setMode, mode, setRadius: setRadiusOnContext } = useContext(GeoContext);
   const { setSelectedPostcode } = useContext(AppContext);
+  const isInGeoMode = mode === "geo";
 
   const currentSetMapProps = useRef(setMode);
   useEffect(() => {
@@ -23,6 +25,21 @@ function PostcodeSearch() {
     if (value === '')  {
       currentSetMapProps.current({name: null})
     }
+  };
+
+  const handleRadiusChange = (e) => {
+    const {value} = e.currentTarget
+    if (!isInGeoMode) {
+      setMode({ name: "geo" });
+    }
+    setRadius(value);
+    const valueKm = parseInt(value) * 1000;
+    setRadiusOnContext(valueKm);
+  };
+
+  const handleGeoModeChange = () => {
+    setMode({ name: isInGeoMode ? null : "geo" });
+    setRadius("");
   };
 
   useEffect(() => {
@@ -57,14 +74,15 @@ function PostcodeSearch() {
       current = false;
     };
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [postcode, currentSetMapProps, setError]);
+  }, [postcode, radius, currentSetMapProps, setError]);
+
 
   return (
     <>
       <PostcodeInputContainer>
         <GeoServicesButton
-          onClick={() => setMode({ name: mode === "geo" ? null : "geo" })}
-          isInGeoMode={mode === "geo"}
+          onClick={handleGeoModeChange}
+          isInGeoMode={isInGeoMode}
         >
           <IconLocation alt='Use browser location' />
         </GeoServicesButton>
@@ -75,6 +93,12 @@ function PostcodeSearch() {
           value={postcode}
         />
       </PostcodeInputContainer>
+        <PostcodeInput
+          onChange={handleRadiusChange}
+          placeholder="Search radius (km)"
+          type="number"
+          value={radius}
+        />
       {error && (
         <Error>Unable to fetch postcode details. Please try again later.</Error>
       )}

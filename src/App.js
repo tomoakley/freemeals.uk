@@ -20,7 +20,7 @@ import { getUniqueVenues } from "./utils/getUniqueVenues";
 
 function App() {
   const [footerVisible, setFooterVisible] = useState(true);
-  const { isGeolocationAvailable, coords, mode } = useContext(GeoContext);
+  const { isGeolocationAvailable, coords, mode, radius } = useContext(GeoContext);
   const {
     setData,
     setLocations,
@@ -33,10 +33,14 @@ function App() {
     setFetchingData(true);
 
     let URL;
-    if ((isGeolocationAvailable && mode === "geo") || mode === "postcode") {
+    if ((isGeolocationAvailable && mode === "geo" && coords) || mode === "postcode") {
       if (coords) {
         const {latitude, longitude} = coords
         URL = `${BASE_PROVIDERS_LAMBDA}?&coords=${latitude},${longitude}`;
+      }
+
+      if (radius) {
+        URL = `${URL}&radius=${radius}`
       }
     } else {
       URL = ALL_PROVIDERS_LAMBDA
@@ -58,7 +62,7 @@ function App() {
         setLocations(["All", ...Array.from(locationsSet).sort()]);
       });
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [coords, isGeolocationAvailable, selectedLocation]);
+  }, [coords, radius, isGeolocationAvailable, selectedLocation]);
 
   return (
     <>
